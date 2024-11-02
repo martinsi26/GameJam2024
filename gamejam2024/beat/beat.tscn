@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://8nnxjesyxtgi"]
+
+[ext_resource type="Script" path="res://beat/beat.gd" id="1_xrq6t"]
+
+[node name="Beat" type="Node2D"]
+script = ExtResource("1_xrq6t")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
