@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=4 uid="uid://jeagg0vtkejr"]
+
+[ext_resource type="Script" path="res://TileMap.gd" id="1_0lflw"]
+[ext_resource type="TileSet" uid="uid://c807ixqb5mj37" path="res://tileset.tres" id="2_yabca"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="3_53imv"]
+
+[node name="Map" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAPz/AAAAAAAAAAAAAPv/AAAAAAAAAAD8/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAA=")
+tile_set = ExtResource("2_yabca")
+script = ExtResource("1_0lflw")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD9//7/AAABAAAAAAD+//7/AAABAAAAAAD+//3/AAABAAAAAAD9//3/AAABAAAAAAD8//3/AAABAAAAAAD8//7/AAABAAAAAAD7//7/AAABAAAAAAD7//3/AAABAAAAAAD8//z/AAABAAAAAAD///r/AAAGAAAAAAD///v/AAAGAAAAAAA=")
+tile_set = ExtResource("2_yabca")
+y_sort_origin = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_53imv")
