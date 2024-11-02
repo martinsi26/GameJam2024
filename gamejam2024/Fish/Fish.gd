@@ -125,19 +125,19 @@ func _input(event):
 		elif Input.is_action_just_pressed("move_down"):	# S key (down-right)
 			if !current_neighbors[3]:
 				return
-			target_tile = current_neighbors[3].pos
+			tt = current_neighbors[3].pos
 			ttd = current_neighbors[3].data
 			tl = current_neighbors[3].pos.z
 		elif Input.is_action_just_pressed("move_left"):	# A key (down-left)
 			if !current_neighbors[2]:
 				return
-			target_tile = current_neighbors[2].pos
+			tt = current_neighbors[2].pos
 			ttd = current_neighbors[2].data
 			tl = current_neighbors[2].pos.z
 		elif Input.is_action_just_pressed("move_right"): # D key (up-right)
 			if !current_neighbors[1]:
 				return
-			target_tile = current_neighbors[1].pos
+			tt = current_neighbors[1].pos
 			ttd = current_neighbors[1].data
 			tl = current_neighbors[1].pos.z
 		#elif Input.is_action_just_pressed("hop_in_place"):
