@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var map = $".."
 @onready var label = $Camera2D/Control/WaterLabel
+@onready var beat = $Beat
 
 var tile_size = Vector2(32, 16)  # Adjust based on your tile map dimensions
 var current_layer # The layer that the player is currently at
@@ -21,8 +22,13 @@ var current_water
 var sent_signal = false
 signal finished_map
 
+var tt: Vector3
+var ttd: Object
+var tl: float
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_child(beat)
 	sent_signal = false
 	get_parent().get_parent().connect("set_starting_values", set_starting_values)
 	
@@ -95,6 +101,7 @@ func _process(delta):
 		move_pos.y -= y_offset
 		
 		position = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
+		
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
 			position = move_pos
 			current_tile = target_tile
@@ -112,35 +119,57 @@ func _input(event):
 		if Input.is_action_just_pressed("move_up"):	# W key (up-left)
 			if !current_neighbors[0]:
 				return
-			target_tile = current_neighbors[0].pos
-			target_tile_data = current_neighbors[0].data
-			target_layer = current_neighbors[0].pos.z
+			tt = current_neighbors[0].pos
+			ttd = current_neighbors[0].data
+			tl = current_neighbors[0].pos.z
 		elif Input.is_action_just_pressed("move_down"):	# S key (down-right)
 			if !current_neighbors[3]:
 				return
 			target_tile = current_neighbors[3].pos
-			target_tile_data = current_neighbors[3].data
-			target_layer = current_neighbors[3].pos.z
+			ttd = current_neighbors[3].data
+			tl = current_neighbors[3].pos.z
 		elif Input.is_action_just_pressed("move_left"):	# A key (down-left)
 			if !current_neighbors[2]:
 				return
 			target_tile = current_neighbors[2].pos
-			target_tile_data = current_neighbors[2].data
-			target_layer = current_neighbors[2].pos.z
+			ttd = current_neighbors[2].data
+			tl = current_neighbors[2].pos.z
 		elif Input.is_action_just_pressed("move_right"): # D key (up-right)
 			if !current_neighbors[1]:
 				return
 			target_tile = current_neighbors[1].pos
-			target_tile_data = current_neighbors[1].data
-			target_layer = current_neighbors[1].pos.z
+			ttd = current_neighbors[1].data
+			tl = current_neighbors[1].pos.z
 		#elif Input.is_action_just_pressed("hop_in_place"):
 			#pass
 		else:
 			return
 		
-		use_water(1)
-		if target_tile_data.terrain_set == 1:
-			set_water()
-		label.text = str(current_water)
-		
-		is_moving = true
+		#use_water(1)
+		#if target_tile_data.terrain_set == 1:
+			#set_water()
+		#label.text = str(current_water)
+		#
+		#is_moving = true
+
+
+func _on_timer_timeout() -> void:
+	beat.audio.play()
+	
+	target_tile = tt
+	target_tile_data = ttd
+	target_layer = tl
+	
+	if not target_tile_data:
+		return
+	use_water(1)
+	if target_tile_data.terrain_set == 1:
+		set_water()
+	label.text = str(current_water)
+	
+	is_moving = true
+	
+	#tt = Vector3.ZERO
+	ttd = null
+	#tl = 0.00
+	#pass # Replace with function body.

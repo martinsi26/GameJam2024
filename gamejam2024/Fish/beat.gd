@@ -2,13 +2,13 @@ extends Node
 
 @onready var audio : AudioStreamPlayer2D = $BeatsPerMinute
 @onready var timer : Timer = $Timer
-@export var level = 1 # change to per level/map
-@export var control: Vector2
+@export var level = 1	# change to per level/map
+#@export var control: Vector2
 var times = 2.0 / (level * 2)
 
 #Put this in each map
 #beats.level = 1
-#beats._ready() #idk if you rlly need this one though
+#beats._ready()	#idk if you rlly need this one though
 
 func _ready() -> void:
 	timer.wait_time = times
@@ -23,5 +23,5 @@ func _process(delta: float) -> void:
 		
 
 
-func _on_timer_timeout() -> void:
-	audio.play()
+#func _on_timer_timeout() -> void:
+	#audio.play()
