@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://ds7u08quwn2ew"]
 
-[ext_resource type="TileSet" uid="uid://ciun0hewa2rw2" path="res://tileset.tres" id="1_1bekh"]
+[ext_resource type="TileSet" uid="uid://cq1g7nv28j435" path="res://tileset.tres" id="1_1bekh"]
 [ext_resource type="Script" path="res://TileMap.gd" id="2_51otx"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_dj84q"]
 
@@ -20,7 +20,7 @@ y_sort_origin = 1
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD+//z/AAAGAAAAAAD+//v/AAACAAAAAAD9//v/AAACAAAAAAD8//v/AAACAAAAAAD7//v/AAACAAAAAAD6//v/AAACAAAAAAD5//v/AAACAAAAAAD5//r/AAACAAAAAAD6//r/AAACAAAAAAD7//r/AAACAAAAAAD8//r/AAAAAAAAAAD9//r/AAACAAAAAAD+//r/AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+//z/AAAGAAAAAAD+//v/AAACAAAAAAD9//v/AAAEAAAAAAD8//v/AAAEAAAAAAD7//v/AAAEAAAAAAD6//v/AAACAAAAAAD5//v/AAACAAAAAAD5//r/AAACAAAAAAD6//r/AAACAAAAAAD7//r/AAAEAAAAAAD8//r/AAAAAAAAAAD9//r/AAAEAAAAAAD+//r/AAACAAAAAAA=")
 tile_set = ExtResource("1_1bekh")
 y_sort_origin = 2
 
