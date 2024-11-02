@@ -21,7 +21,7 @@ var current_water
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_water()
-	#label.text = str(current_water)
+	label.text = str(current_water)
 	var starting_tile = Vector2i(-1, 0)
 	var starting_layer = 0
 	on_slab = false
