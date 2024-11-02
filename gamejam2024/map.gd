@@ -9,7 +9,7 @@ const SOUTHEAST = Vector2i(1, 0)
 const neighbor_directions: Array[Vector2i] = [NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST]
 
 func get_tile(x, y, z) -> TileData:
-	if z < 0 || z >= $Layers.get_child_count():
+	if z < 0 || z >= $Layers.get_child_count() - 1:
 		return null
 		
 	return $Layers.get_child(z).get_cell_tile_data(Vector2i(x, y))
@@ -18,7 +18,6 @@ func get_tile(x, y, z) -> TileData:
 # on different layers; if they are, they're accessible from the given tile. If there's no accessible
 # tile in that direction, that direction is null
 func get_neighbor_tiles(x: int, y: int, z: int):	
-	print(x, y, z)
 	var neighbors = [null, null, null, null]
 	
 	for n in range(4):

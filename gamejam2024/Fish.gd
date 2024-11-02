@@ -23,19 +23,20 @@ func _ready() -> void:
 	current_layer = starting_layer
 	
 	current_neighbors = map.get_neighbor_tiles(starting_tile.x, starting_tile.y, starting_layer)
-	map.set_outline_tiles(current_neighbors)
+	#map.set_outline_tiles(current_neighbors)
 	
 func _process(delta):
 	
 	
 	if is_moving:
+		var slab_offset = 0
+		if target_tile_data.terrain_set == 0:
+			print("slab")
+			slab_offset = 32 * 3
+		$Sprite2D.offset.y = target_layer * -68 * 3 + slab_offset
 		var move_pos = map.get_tile_center(target_tile.x, target_tile.y, target_layer)
-		print(move_pos)
-		#if target_tile_data.terrain_set == 0:
-			#if target_layer == current_layer:
-				#move_pos.y += 16
-			#else:
-				#move_pos.y -= 16
+			
+		
 		position = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
 			position = move_pos
@@ -43,8 +44,10 @@ func _process(delta):
 			current_tile_data = target_tile_data
 			current_layer = target_layer
 			
+			#print(current_layer)
+			
 			current_neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
-			map.set_outline_tiles(current_neighbors)
+			#map.set_outline_tiles(current_neighbors)
 			
 			is_moving = false
 	
@@ -53,30 +56,29 @@ func _input(event):
 		var neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
 		
 		if Input.is_action_just_pressed("move_up"):	# W key (up-left)
-			if !neighbors[0].data:
+			if !neighbors[0]:
 				return
 			target_tile = neighbors[0].pos
 			target_tile_data = neighbors[0].data
 			target_layer = neighbors[0].pos.z
-			print(target_tile)
 			
 			#target_layer = neighbors[0].layer
 		elif Input.is_action_just_pressed("move_down"):	# S key (down-right)
-			if !neighbors[3].data:
+			if !neighbors[3]:
 				return
 			target_tile = neighbors[3].pos
 			target_tile_data = neighbors[3].data
 			target_layer = neighbors[3].pos.z
 			#target_layer = neighbors[3].layer
 		elif Input.is_action_just_pressed("move_left"):	# A key (down-left)
-			if !neighbors[2].data:
+			if !neighbors[2]:
 				return
 			target_tile = neighbors[2].pos
 			target_tile_data = neighbors[2].data
 			target_layer = neighbors[2].pos.z
 			#target_layer = neighbors[2].layer
 		elif Input.is_action_just_pressed("move_right"): # D key (up-right)
-			if !neighbors[1].data:
+			if !neighbors[1]:
 				return
 			target_tile = neighbors[1].pos
 			target_tile_data = neighbors[1].data
