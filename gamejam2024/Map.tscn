@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://7qj5qgf7gopc"]
+[gd_scene load_steps=6 format=4 uid="uid://7qj5qgf7gopc"]
 
 [ext_resource type="Script" path="res://TileMap.gd" id="1_0lflw"]
 [ext_resource type="Script" path="res://map.gd" id="1_y7m3y"]
 [ext_resource type="TileSet" uid="uid://di2wfn3m7nnt8" path="res://tileset.tres" id="2_yabca"]
 [ext_resource type="PackedScene" uid="uid://6yuhs2dq6xnd" path="res://Fish.tscn" id="4_erp4l"]
+[ext_resource type="PackedScene" uid="uid://du3ru0krhaqb6" path="res://fox.tscn" id="5_slymi"]
 
 [node name="Map" type="Node2D"]
 y_sort_enabled = true
@@ -48,3 +49,5 @@ tile_set = ExtResource("2_yabca")
 [node name="Fish" parent="." instance=ExtResource("4_erp4l")]
 z_index = 1
 y_sort_enabled = true
+
+[node name="Fox" parent="." instance=ExtResource("5_slymi")]
