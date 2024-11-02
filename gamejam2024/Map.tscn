@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://7qj5qgf7gopc"]
+[gd_scene load_steps=6 format=4 uid="uid://7qj5qgf7gopc"]
 
 [ext_resource type="Script" path="res://TileMap.gd" id="1_0lflw"]
 [ext_resource type="Script" path="res://map.gd" id="1_y7m3y"]
 [ext_resource type="TileSet" uid="uid://di2wfn3m7nnt8" path="res://tileset.tres" id="2_yabca"]
-[ext_resource type="PackedScene" uid="uid://6yuhs2dq6xnd" path="res://Fish.tscn" id="4_erp4l"]
+[ext_resource type="PackedScene" uid="uid://d0abrurg0cgly" path="res://Fish.tscn" id="4_erp4l"]
+[ext_resource type="PackedScene" uid="uid://co178psc71v2h" path="res://EnemyScenes/bear.tscn" id="5_vv6qn"]
 
 [node name="Map" type="Node2D"]
 y_sort_enabled = true
@@ -38,5 +39,9 @@ scale = Vector2(3, 3)
 tile_set = ExtResource("2_yabca")
 
 [node name="Fish" parent="." instance=ExtResource("4_erp4l")]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Bear" parent="." instance=ExtResource("5_vv6qn")]
 z_index = 1
 y_sort_enabled = true
