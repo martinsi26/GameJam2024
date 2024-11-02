@@ -1,6 +1,5 @@
 extends Node2D
 
-
 const NORTHWEST = Vector2i(-1, 0)
 const NORTHEAST = Vector2i(0, -1)
 const SOUTHWEST = Vector2i(0, 1)
@@ -33,7 +32,6 @@ func get_neighbor_tiles(x: int, y: int, z: int):
 	
 	return neighbors
 	
-
 func set_outline_tiles(tiles):
 	for l in $Layers.get_children():
 		l.get_node("OutlineLayer").clear()
@@ -49,28 +47,7 @@ func set_outline_tiles(tiles):
 			source_id = 2
 		
 		layer.set_cell(Vector2(t.pos.x, t.pos.y), source_id, Vector2i(0, 0))
-		
-		
-	#var outline_layer: TileMapLayer = $Layers.get_node("OutlineLayer")
-	#outline_layer.clear()
-#
-	#for tile in tiles:
-		#if tile and tile.data:
-			##if tile.data.terrain_set == 0:
-			#outline_layer.set_cell(Vector2(tile.pos.x, tile.pos.y), 1, Vector2i(0, 0))
-			##else:
-				##outline_layer.set_cell(tile.pos, 2, Vector2i(0, 0))
-		##print(tile.data)
 	
 # Convert tile coordinates to world position centered on the tile
 func get_tile_center(x: int, y: int, z: int) -> Vector2:
 	return $Layers.get_child(z).map_to_local(Vector2i(x, y)) * 3
-		
-func _ready():
-	pass
-	#print(get_neighbor_tiles(Vector2i(0, 0), 0))
-	
-func _process(delta: float):
-	pass
-	#print(neighbors)
-	#set_outline_tiles(neighbors)

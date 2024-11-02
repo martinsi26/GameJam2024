@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dvapl6oj2h4n8"]
+[gd_scene load_steps=4 format=4 uid="uid://dvapl6oj2h4n8"]
 
-[ext_resource type="Script" path="res://map.gd" id="1_fpfn1"]
-[ext_resource type="TileSet" uid="uid://di2wfn3m7nnt8" path="res://tileset.tres" id="2_y3467"]
-[ext_resource type="PackedScene" uid="uid://6yuhs2dq6xnd" path="res://Fish.tscn" id="3_o5eno"]
-[ext_resource type="PackedScene" uid="uid://du3ru0krhaqb6" path="res://fox.tscn" id="4_pny7n"]
+[ext_resource type="Script" path="res://Maps/map.gd" id="1_fpfn1"]
+[ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_y3467"]
+[ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_o5eno"]
 
 [node name="Map0" type="Node2D"]
 y_sort_enabled = true
@@ -36,7 +35,7 @@ tile_set = ExtResource("2_y3467")
 [node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -96)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD8//3/AAAGAAAAAAD7//3/AAACAAAAAAD7//z/AAACAAAAAAD7//v/AAAAAAAAAAD7//r/AAAAAAAAAAD7//n/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8//3/AAAGAAAAAAD7//3/AAACAAAAAAD7//z/AAACAAAAAAD7//v/AAAAAAAAAAD7//r/AAAAAAAAAAD7//n/AAAEAAAAAAA=")
 tile_set = ExtResource("2_y3467")
 y_sort_origin = 1
 
@@ -48,7 +47,3 @@ tile_set = ExtResource("2_y3467")
 top_level = true
 z_index = 1
 y_sort_enabled = true
-
-[node name="Fox" parent="." instance=ExtResource("4_pny7n")]
-visible = false
-top_level = true

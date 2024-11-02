@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://b72yblrsgul6v"]
+[gd_scene load_steps=4 format=4 uid="uid://b72yblrsgul6v"]
 
-[ext_resource type="Script" path="res://map.gd" id="1_2qpw5"]
-[ext_resource type="TileSet" uid="uid://di2wfn3m7nnt8" path="res://tileset.tres" id="2_4ioaj"]
-[ext_resource type="PackedScene" uid="uid://6yuhs2dq6xnd" path="res://Fish.tscn" id="3_7i502"]
-[ext_resource type="PackedScene" uid="uid://du3ru0krhaqb6" path="res://fox.tscn" id="4_8qyfg"]
+[ext_resource type="Script" path="res://Maps/map.gd" id="1_2qpw5"]
+[ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_4ioaj"]
+[ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_7i502"]
 
 [node name="Map2" type="Node2D"]
 y_sort_enabled = true
@@ -29,6 +28,11 @@ tile_map_data = PackedByteArray("AAD9////AAAGAAAAAAD+//7/AAAGAAAAAAD9//7/AAAAAAA
 tile_set = ExtResource("2_4ioaj")
 y_sort_origin = 1
 
+[node name="OutlineLayer2" type="TileMapLayer" parent="Layers/TileMapLayer1"]
+z_index = 10
+position = Vector2(0, -16)
+tile_set = ExtResource("2_4ioaj")
+
 [node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer1"]
 z_index = 10
 tile_set = ExtResource("2_4ioaj")
@@ -40,14 +44,10 @@ tile_map_data = PackedByteArray("AAD6//v/AAAGAAAAAAD7//r/AAACAAAAAAD6//r/AAACAAA
 tile_set = ExtResource("2_4ioaj")
 y_sort_origin = 1
 
-[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer2"]
-z_index = 10
-tile_set = ExtResource("2_4ioaj")
-
 [node name="TileMapLayer3" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -144)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD6//b/AAABAAAAAAD5//b/AAABAAAAAAD4//b/AAABAAAAAAD3//b/AAABAAAAAAD3//X/AAAAAAAAAAD3//T/AAAAAAAAAAD3//P/AAAAAAAAAAD6//f/AAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAD6//b/AAABAAAAAAD5//b/AAABAAAAAAD4//b/AAABAAAAAAD3//b/AAABAAAAAAD3//X/AAAAAAAAAAD3//T/AAAAAAAAAAD3//P/AAAEAAAAAAD6//f/AAAGAAAAAAA=")
 tile_set = ExtResource("2_4ioaj")
 y_sort_origin = 1
 
@@ -59,7 +59,3 @@ tile_set = ExtResource("2_4ioaj")
 top_level = true
 z_index = 1
 y_sort_enabled = true
-
-[node name="Fox" parent="." instance=ExtResource("4_8qyfg")]
-visible = false
-top_level = true

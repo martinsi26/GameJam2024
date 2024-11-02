@@ -18,13 +18,16 @@ var current_neighbors
 var max_water = 10
 var current_water
 
+var sent_signal = false
+signal finished_map
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	sent_signal = false
 	get_parent().get_parent().connect("set_starting_values", set_starting_values)
 	
-	
-
 func set_starting_values(_starting_tile, _starting_layer):
+	print("set starting values function")
 	set_water()
 	label.text = str(current_water)
 	
@@ -70,7 +73,7 @@ func update_neighbors(current_neighbors, layer):
 	
 func death():
 	# you die
-	print("You die")
+	pass
 					
 func _process(delta):
 	if current_water == 0:
@@ -78,6 +81,10 @@ func _process(delta):
 	
 	if is_moving:
 		var slab_offset = 0
+		if target_tile_data.terrain_set == 2 and !sent_signal: # Player has made it to the final block
+			emit_signal("finished_map")
+			sent_signal = true
+			
 		if target_tile_data.terrain_set == 0:
 			on_slab = true
 			slab_offset = 22
@@ -93,8 +100,6 @@ func _process(delta):
 			current_tile = target_tile
 			current_tile_data = target_tile_data
 			current_layer = target_layer
-			
-			#print(current_layer)
 			
 			current_neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
 			current_neighbors = update_neighbors(current_neighbors, current_layer)
