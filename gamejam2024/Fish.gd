@@ -36,12 +36,12 @@ func _process(delta):
 				#move_pos.y += 16
 			#else:
 				#move_pos.y -= 16
-		print("main, ", beats.control)
-		#if !beats.control:
 			
 		beats.control = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
-			#position = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
-		position = beats.control
+		#position = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
+		if beats.timer.is_stopped():
+			position = beats.control
+		
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
 			position = move_pos
 			current_tile = target_tile
