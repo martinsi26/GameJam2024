@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var map = $".."
+@onready var map = get_parent().get_node("Map")
+@onready var label = $Camera2D/Control/WaterLabel
 
 var tile_size = Vector2(32, 16)  # Adjust based on your tile map dimensions
 var current_layer # The layer that the player is currently at
@@ -14,8 +15,13 @@ var is_moving = false  # Track whether the player is currently moving
 var speed = 200
 var current_neighbors
 
+var max_water = 10
+var current_water
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set_water()
+	label.text = str(current_water)
 	var starting_tile = Vector2i(-1, 0)
 	var starting_layer = 0
 	on_slab = false
@@ -25,9 +31,14 @@ func _ready() -> void:
 	
 	current_neighbors = map.get_neighbor_tiles(starting_tile.x, starting_tile.y, starting_layer)
 	current_neighbors = update_neighbors(current_neighbors, starting_layer)
-	#map.set_outline_tiles(current_neighbors)
-	print("new neighbors ", current_neighbors)
+	map.set_outline_tiles(current_neighbors)
+
+func set_water():
+	current_water = max_water
 	
+func use_water(water: int):
+	current_water -= water
+
 func update_neighbors(current_neighbors, layer):
 	var new_neighbors = [null, null, null, null]
 	var i = -1
@@ -53,8 +64,15 @@ func update_neighbors(current_neighbors, layer):
 				if neighbor.data.terrain_set == 0: # neighbor is a slab
 					new_neighbors[i] = neighbor
 	return new_neighbors
+	
+func death():
+	# you die
+	print("You die")
 					
 func _process(delta):
+	if current_water == 0:
+		death()
+	
 	if is_moving:
 		var slab_offset = 0
 		if target_tile_data.terrain_set == 0:
@@ -107,7 +125,14 @@ func _input(event):
 			target_tile = current_neighbors[1].pos
 			target_tile_data = current_neighbors[1].data
 			target_layer = current_neighbors[1].pos.z
+		#elif Input.is_action_just_pressed("hop_in_place"):
+			#pass
 		else:
 			return
-
+		
+		use_water(1)
+		if target_tile_data.terrain_set == 1:
+			set_water()
+		label.text = str(current_water)
+		
 		is_moving = true
