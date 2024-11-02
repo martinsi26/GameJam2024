@@ -8,10 +8,17 @@ const SOUTHEAST = Vector2i(1, 0)
 
 const neighbor_directions: Array[Vector2i] = [NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST]
 
-func get_neighbor_tiles(tile_coord: Vector2i, layer_index: int):
+# returns the four neighbors of any given tile on a specified layer. The four neighbors may be
+# on different layers; if they are, they're accessible from the given tile. If there's no accessible
+# tile in that direction, that direction is null
+func get_neighbor_tiles(tile_coord: Vector2i, layer_index: int):	
 	var layer_middle: TileMapLayer = $Layers.get_child(layer_index)
 	var layer_above: TileMapLayer = null
 	var layer_below: TileMapLayer = null
+	
+	var is_slab = layer_middle.get_cell_tile_data(tile_coord).terrain_set == 0
+	print("slab: ", is_slab)
+	#return is_slab
 	
 	if layer_index + 1 < $Layers.get_child_count():
 		layer_above = $Layers.get_child(layer_index + 1)
@@ -68,4 +75,5 @@ func _ready():
 func _process(delta: float):
 	var fish_pos = $Layers.get_child(0).local_to_map($Fish.position / 3)
 	var neighbors = get_neighbor_tiles(fish_pos, 0)
-	set_outline_tiles(neighbors)
+	print(neighbors)
+	#set_outline_tiles(neighbors)
