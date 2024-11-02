@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=4 uid="uid://dvapl6oj2h4n8"]
+
+[ext_resource type="Script" path="res://map.gd" id="1_fpfn1"]
+[ext_resource type="TileSet" uid="uid://di2wfn3m7nnt8" path="res://tileset.tres" id="2_y3467"]
+[ext_resource type="PackedScene" uid="uid://6yuhs2dq6xnd" path="res://Fish.tscn" id="3_o5eno"]
+[ext_resource type="PackedScene" uid="uid://du3ru0krhaqb6" path="res://fox.tscn" id="4_pny7n"]
+
+[node name="Map0" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_fpfn1")
+
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD+/wAAAAACAAAAAAD9/wAAAAACAAAAAAD8/wAAAAACAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAD///3/AAACAAAAAAD///z/AAACAAAAAAD7/wAAAAACAAAAAAD6/wAAAAACAAAAAAA=")
+tile_set = ExtResource("2_y3467")
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
+z_index = 10
+tile_set = ExtResource("2_y3467")
+
+[node name="TileMapLayer1" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+position = Vector2(0, -48)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD+////AAABAAAAAAD+//7/AAABAAAAAAD+//3/AAABAAAAAAD+//z/AAABAAAAAAD9////AAABAAAAAAD8////AAABAAAAAAD7////AAABAAAAAAD7//7/AAABAAAAAAD9//z/AAABAAAAAAD9//3/AAABAAAAAAD9//7/AAAAAAAAAAD8//7/AAABAAAAAAD6//7/AAABAAAAAAD6////AAADAAAAAAD6/wAAAAAGAAAAAAD///z/AAAGAAAAAAA=")
+tile_set = ExtResource("2_y3467")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer1"]
+z_index = 10
+tile_set = ExtResource("2_y3467")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
+position = Vector2(0, -96)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD8//3/AAAGAAAAAAD7//3/AAACAAAAAAD7//z/AAACAAAAAAD7//v/AAAAAAAAAAD7//r/AAAAAAAAAAD7//n/AAAAAAAAAAA=")
+tile_set = ExtResource("2_y3467")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer2"]
+z_index = 10
+tile_set = ExtResource("2_y3467")
+
+[node name="Fish" parent="." instance=ExtResource("3_o5eno")]
+top_level = true
+z_index = 1
+y_sort_enabled = true
+
+[node name="Fox" parent="." instance=ExtResource("4_pny7n")]
+visible = false
+top_level = true

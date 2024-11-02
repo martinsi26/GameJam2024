@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=4 uid="uid://b6ye7dhn5c7od"]
+
+[ext_resource type="Script" path="res://map.gd" id="1_fr23t"]
+[ext_resource type="TileSet" uid="uid://di2wfn3m7nnt8" path="res://tileset.tres" id="2_1j8u2"]
+[ext_resource type="PackedScene" uid="uid://6yuhs2dq6xnd" path="res://Fish.tscn" id="3_o6xnw"]
+[ext_resource type="PackedScene" uid="uid://du3ru0krhaqb6" path="res://fox.tscn" id="4_qt8r7"]
+
+[node name="Map1" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_fr23t")
+
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAD+//7/AAACAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD9/wAAAAACAAAAAAD9////AAACAAAAAAD9//7/AAACAAAAAAA=")
+tile_set = ExtResource("2_1j8u2")
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
+z_index = 10
+tile_set = ExtResource("2_1j8u2")
+
+[node name="TileMapLayer1" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+position = Vector2(0, -48)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD8/wAAAAABAAAAAAD8////AAABAAAAAAD8//7/AAABAAAAAAD8//3/AAABAAAAAAD9//3/AAABAAAAAAD+//3/AAABAAAAAAD///3/AAABAAAAAAD7//3/AAABAAAAAAD7//7/AAABAAAAAAD7////AAABAAAAAAD7/wAAAAABAAAAAAD6/wAAAAABAAAAAAD6////AAABAAAAAAD6//7/AAAAAAAAAAD6//3/AAABAAAAAAD9/wAAAAAGAAAAAAA=")
+tile_set = ExtResource("2_1j8u2")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer1"]
+z_index = 10
+tile_set = ExtResource("2_1j8u2")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
+position = Vector2(0, -96)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD///z/AAACAAAAAAD///v/AAACAAAAAAD+//v/AAAEAAAAAAD+//z/AAAEAAAAAAD9//z/AAAEAAAAAAD8//z/AAAEAAAAAAD8//v/AAAEAAAAAAD9//v/AAAAAAAAAAD7//z/AAACAAAAAAD6//z/AAACAAAAAAD6//v/AAACAAAAAAD7//v/AAACAAAAAAD6//r/AAAAAAAAAAD6//n/AAAAAAAAAAD6//j/AAAAAAAAAAD///3/AAAGAAAAAAA=")
+tile_set = ExtResource("2_1j8u2")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer2"]
+z_index = 10
+tile_set = ExtResource("2_1j8u2")
+
+[node name="Fish" parent="." instance=ExtResource("3_o6xnw")]
+top_level = true
+z_index = 1
+y_sort_enabled = true
+
+[node name="Fox" parent="." instance=ExtResource("4_qt8r7")]
+visible = false
+top_level = true
