@@ -21,6 +21,19 @@ func get_neighbor_tiles(tile_coord: Vector2i, layer_index: int):
 	
 	return neighbors
 	
+
+func set_outline_tiles(tiles):
+	var outline_layer: TileMapLayer = $Layers.get_node("OutlineLayer")
+	outline_layer.clear()
+
+	for tile in tiles:
+		if tile.data:
+			#if tile.data.terrain_set == 0:
+			outline_layer.set_cell(tile.pos, 1, Vector2i(0, 0))
+			#else:
+				#outline_layer.set_cell(tile.pos, 2, Vector2i(0, 0))
+		#print(tile.data)
+	
 # Convert tile coordinates to world position centered on the tile
 func get_tile_center(tile_coords: Vector2, layer_index: int) -> Vector2:
 	var layer: TileMapLayer = $Layers.get_child(layer_index)
@@ -28,4 +41,10 @@ func get_tile_center(tile_coords: Vector2, layer_index: int) -> Vector2:
 	return layer.map_to_local(tile_coords) * 3
 		
 func _ready():
-	print(get_neighbor_tiles(Vector2i(0, 0), 0))
+	pass
+	#print(get_neighbor_tiles(Vector2i(0, 0), 0))
+	
+func _process(delta: float):
+	var fish_pos = $Layers.get_child(0).local_to_map($Fish.position / 3)
+	var neighbors = get_neighbor_tiles(fish_pos, 0)
+	set_outline_tiles(neighbors)
