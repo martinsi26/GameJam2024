@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var map = get_parent().get_node("Map")
+@onready var map = $".."
 @onready var label = $Camera2D/Control/WaterLabel
 
 var tile_size = Vector2(32, 16)  # Adjust based on your tile map dimensions
@@ -20,17 +20,20 @@ var current_water
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_parent().get_parent().connect("set_starting_values", set_starting_values)
+	
+	
+
+func set_starting_values(_starting_tile, _starting_layer):
 	set_water()
 	label.text = str(current_water)
-	var starting_tile = Vector2i(-1, 0)
-	var starting_layer = 0
+	
 	on_slab = false
+	current_tile = _starting_tile
+	current_layer = _starting_layer
 	
-	current_tile = starting_tile
-	current_layer = starting_layer
-	
-	current_neighbors = map.get_neighbor_tiles(starting_tile.x, starting_tile.y, starting_layer)
-	current_neighbors = update_neighbors(current_neighbors, starting_layer)
+	current_neighbors = map.get_neighbor_tiles(_starting_tile.x, _starting_tile.y, _starting_layer)
+	current_neighbors = update_neighbors(current_neighbors, _starting_layer)
 	map.set_outline_tiles(current_neighbors)
 
 func set_water():

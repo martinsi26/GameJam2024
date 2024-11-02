@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cna8ntjv7vhw8"
-path="res://.godot/imported/outline.png-7ae1897d7ebce2793814b109e684f881.ctex"
+uid="uid://cq3pnm86hx5yt"
+path="res://.godot/imported/outline_slab.png-e44509c51b514be5474ce812d33e1ad5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://outline.png"
-dest_files=["res://.godot/imported/outline.png-7ae1897d7ebce2793814b109e684f881.ctex"]
+source_file="res://Art/outline_slab.png"
+dest_files=["res://.godot/imported/outline_slab.png-e44509c51b514be5474ce812d33e1ad5.ctex"]
 
 [params]
 
