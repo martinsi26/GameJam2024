@@ -1,33 +1,33 @@
-[gd_scene load_steps=4 format=4 uid="uid://cotcqfb0i7fkj"]
+[gd_scene load_steps=4 format=4 uid="uid://dd4peolev8dcq"]
 
-[ext_resource type="TileSet" uid="uid://ciun0hewa2rw2" path="res://tileset.tres" id="1_nx8wv"]
-[ext_resource type="Script" path="res://TileMap.gd" id="2_nl7rk"]
-[ext_resource type="Script" path="res://camera_2d.gd" id="3_iapt0"]
+[ext_resource type="TileSet" path="res://tileset.tres" id="1_etosb"]
+[ext_resource type="Script" path="res://TileMap.gd" id="2_n7yqw"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="3_i55ky"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAD+/wAAAAACAAAAAAD//wAAAAACAAAAAAD//wEAAAACAAAAAAAAAAAAAAACAAAAAAAAAP//AAACAAAAAAD9/wAAAAACAAAAAAD+/wEAAAACAAAAAAAAAP7/AAACAAAAAAD8/wAAAAACAAAAAAD7/wAAAAACAAAAAAD9/wEAAAACAAAAAAD8/wEAAAACAAAAAAD7/wEAAAACAAAAAAAAAP3/AAACAAAAAAD+////AAACAAAAAAD/////AAACAAAAAAAAAPz/AAACAAAAAAAAAPv/AAACAAAAAAAAAAEAAAAAAAAAAAD6/wEAAAACAAAAAAD5/wEAAAACAAAAAAD5/wAAAAACAAAAAAD5////AAACAAAAAAD6/wAAAAACAAAAAAD6////AAACAAAAAAD7////AAACAAAAAAD8////AAACAAAAAAD9////AAACAAAAAAD9//7/AAAAAAAAAAD+//7/AAACAAAAAAD///7/AAACAAAAAAD///3/AAACAAAAAAD///z/AAACAAAAAAD///v/AAACAAAAAAD+//v/AAACAAAAAAD9//v/AAACAAAAAAD9//z/AAACAAAAAAD8//z/AAACAAAAAAD8//3/AAACAAAAAAD7//3/AAACAAAAAAD7//7/AAACAAAAAAD8//7/AAACAAAAAAD9//3/AAACAAAAAAD+//3/AAACAAAAAAD+//z/AAACAAAAAAD4/wAAAAACAAAAAAD3/wAAAAACAAAAAAD3////AAACAAAAAAD4////AAACAAAAAAA=")
-tile_set = ExtResource("1_nx8wv")
-script = ExtResource("2_nl7rk")
+tile_set = ExtResource("1_etosb")
+script = ExtResource("2_n7yqw")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAD6////AAAGAAAAAAD5////AAABAAAAAAD6//7/AAABAAAAAAD4////AAABAAAAAAD3////AAABAAAAAAD2////AAABAAAAAAD2//7/AAAAAAAAAAD3//7/AAABAAAAAAD4//7/AAABAAAAAAD5//7/AAABAAAAAAD5//3/AAABAAAAAAD6//3/AAABAAAAAAD6//z/AAABAAAAAAD5//z/AAABAAAAAAD4//z/AAABAAAAAAD4//3/AAABAAAAAAD3//3/AAABAAAAAAD2//3/AAABAAAAAAD1//3/AAABAAAAAAD0//3/AAABAAAAAAD0//7/AAABAAAAAAD1//7/AAABAAAAAAD1////AAABAAAAAAD0////AAABAAAAAAD+//v/AAAGAAAAAAD9//r/AAABAAAAAAD+//r/AAABAAAAAAD///r/AAABAAAAAAD///n/AAABAAAAAAD///j/AAABAAAAAAD+//j/AAABAAAAAAD+//f/AAABAAAAAAD9//f/AAABAAAAAAD8//f/AAABAAAAAAD7//f/AAABAAAAAAD6//f/AAABAAAAAAD6//b/AAABAAAAAAD5//b/AAABAAAAAAD4//b/AAABAAAAAAD4//f/AAABAAAAAAD5//f/AAABAAAAAAD5//j/AAABAAAAAAD6//j/AAABAAAAAAD7//j/AAABAAAAAAD8//j/AAABAAAAAAD8//n/AAABAAAAAAD9//n/AAABAAAAAAD9//j/AAAAAAAAAAD+//n/AAABAAAAAAD7//n/AAABAAAAAAD6//n/AAABAAAAAAD5//n/AAABAAAAAAD4//j/AAABAAAAAAD4//n/AAABAAAAAAA=")
-tile_set = ExtResource("1_nx8wv")
+tile_set = ExtResource("1_etosb")
 y_sort_origin = 1
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AADz//z/AAAGAAAAAAD3//X/AAAGAAAAAADz//v/AAACAAAAAAD0//v/AAACAAAAAAD0//r/AAACAAAAAADz//r/AAACAAAAAADz//n/AAACAAAAAAD0//n/AAACAAAAAAD0//j/AAACAAAAAADz//j/AAACAAAAAADy//r/AAACAAAAAADy//n/AAACAAAAAADy//j/AAACAAAAAADx//j/AAACAAAAAADx//n/AAACAAAAAADx//r/AAACAAAAAAD2//b/AAACAAAAAAD1//b/AAACAAAAAAD0//b/AAACAAAAAADz//b/AAACAAAAAADy//b/AAACAAAAAADx//b/AAACAAAAAADx//f/AAACAAAAAADy//f/AAACAAAAAADz//f/AAACAAAAAAD0//f/AAACAAAAAAD1//f/AAACAAAAAAD2//f/AAACAAAAAAA=")
-tile_set = ExtResource("1_nx8wv")
+tile_set = ExtResource("1_etosb")
 y_sort_origin = 2
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
-tile_set = ExtResource("1_nx8wv")
+tile_set = ExtResource("1_etosb")
 y_sort_origin = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("3_iapt0")
+script = ExtResource("3_i55ky")

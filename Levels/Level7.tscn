@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=4 uid="uid://bjgi0cyqndgx0"]
+
+[ext_resource type="TileSet" uid="uid://bd1q12q1qfe7y" path="res://tileset.tres" id="1_3bs1a"]
+[ext_resource type="Script" path="res://TileMap.gd" id="2_hdo6q"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="3_eu5kr"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAAAAEAAAAAAAAAAAAAAAAAAAACAAAAAAD//wEAAAACAAAAAAD//wAAAAACAAAAAAD+/wAAAAACAAAAAAD+/wEAAAACAAAAAAD/////AAACAAAAAAAAAP//AAACAAAAAAA=")
+tile_set = ExtResource("1_3bs1a")
+script = ExtResource("2_hdo6q")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD6//z/AAABAAAAAAD6//3/AAAAAAAAAAD6//7/AAABAAAAAAD7//v/AAABAAAAAAD7//z/AAAAAAAAAAD7//3/AAAAAAAAAAD7//7/AAABAAAAAAD8//j/AAAAAAAAAAD8//n/AAAAAAAAAAD8//r/AAAAAAAAAAD8//v/AAAAAAAAAAD8//z/AAAAAAAAAAD8//3/AAAEAAAAAAD8//7/AAABAAAAAAD9//j/AAAAAAAAAAD9//n/AAABAAAAAAD9//r/AAABAAAAAAD9//v/AAABAAAAAAD9//z/AAABAAAAAAD9//3/AAABAAAAAAD9//7/AAAAAAAAAAD+//j/AAAAAAAAAAD+//n/AAABAAAAAAD9////AAAGAAAAAAD+//7/AAAGAAAAAAA=")
+tile_set = ExtResource("1_3bs1a")
+y_sort_origin = 1
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="."]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD4//n/AAADAAAAAAD5//n/AAACAAAAAAD6//n/AAACAAAAAAD6//j/AAACAAAAAAD6//f/AAACAAAAAAD6//b/AAACAAAAAAD7//b/AAACAAAAAAD8//b/AAACAAAAAAD9//b/AAACAAAAAAD5//r/AAAGAAAAAAD4//r/AAACAAAAAAD4//v/AAACAAAAAAD4//z/AAACAAAAAAD4//3/AAACAAAAAAD5//b/AAACAAAAAAD5//f/AAACAAAAAAD4//b/AAACAAAAAAD4//f/AAADAAAAAAD5//j/AAACAAAAAAD4//j/AAACAAAAAAD3//b/AAACAAAAAAD3//f/AAACAAAAAAD3//j/AAAAAAAAAAD3//n/AAACAAAAAAD3//r/AAACAAAAAAD3//v/AAACAAAAAAD2//b/AAACAAAAAAD2//f/AAADAAAAAAD2//j/AAACAAAAAAD2//n/AAADAAAAAAA=")
+tile_set = ExtResource("1_3bs1a")
+y_sort_origin = 2
+
+[node name="TileMapLayer4" type="TileMapLayer" parent="."]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD7//T/AAAAAAAAAAD6//T/AAABAAAAAAD5//T/AAABAAAAAAD4//T/AAABAAAAAAD8//T/AAABAAAAAAD8//X/AAAGAAAAAAD3//T/AAAAAAAAAAD2//T/AAAAAAAAAAD1//T/AAAAAAAAAAA=")
+tile_set = ExtResource("1_3bs1a")
+y_sort_origin = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_eu5kr")
