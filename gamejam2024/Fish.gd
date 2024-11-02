@@ -47,7 +47,7 @@ func _process(delta):
 			#print(current_layer)
 			
 			current_neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
-			#map.set_outline_tiles(current_neighbors)
+			map.set_outline_tiles(current_neighbors)
 			
 			is_moving = false
 	
