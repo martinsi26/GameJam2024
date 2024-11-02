@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://jeagg0vtkejr"]
+[gd_scene load_steps=5 format=4 uid="uid://7qj5qgf7gopc"]
 
 [ext_resource type="Script" path="res://TileMap.gd" id="1_0lflw"]
-[ext_resource type="TileSet" uid="uid://c807ixqb5mj37" path="res://tileset.tres" id="2_yabca"]
+[ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://tileset.tres" id="2_yabca"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_53imv"]
+[ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish.tscn" id="4_erp4l"]
 
 [node name="Map" type="Node2D"]
 
@@ -20,3 +21,5 @@ y_sort_origin = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_53imv")
+
+[node name="Fish" parent="." instance=ExtResource("4_erp4l")]
