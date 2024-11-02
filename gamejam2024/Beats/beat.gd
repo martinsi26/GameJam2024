@@ -5,8 +5,9 @@ extends Node
 @export var active = true
 @export var control: Vector2
 
+#Put this in each map
 #beats.level = 1
-#beats._ready()
+#beats._ready() #idk if you rlly need this one though
 
 func _ready() -> void:
 	while(active):
@@ -20,8 +21,8 @@ func _process(delta: float) -> void:
 	# Compensate for output latency.
 	time -= AudioServer.get_output_latency()
 	print("Time is: ", time)
-	print("Control is: ", control)
+	#print("Control is: ", control)
 	
 	
-	if time >= (2.0 / (level * 2)) && !control:
-		pass
+	#if time >= (2.0 / (level * 2)) && !control:
+		#pass

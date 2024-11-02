@@ -27,7 +27,7 @@ func _ready() -> void:
 	
 func _process(delta):
 	
-	#print("process control ", beats.control)
+	print("process control ", beats.control)
 	if is_moving:
 		var move_pos = map.get_tile_center(target_tile.x, target_tile.y, target_layer)
 		print(move_pos)
@@ -36,9 +36,10 @@ func _process(delta):
 				#move_pos.y += 16
 			#else:
 				#move_pos.y -= 16
-		
-		if !beats.control:
-			beats.control = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
+		print("main, ", beats.control)
+		#if !beats.control:
+			
+		beats.control = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
 			#position = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
 		position = beats.control
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
