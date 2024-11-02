@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://jeagg0vtkejr"]
+[gd_scene load_steps=6 format=4 uid="uid://7qj5qgf7gopc"]
 
 [ext_resource type="Script" path="res://TileMap.gd" id="1_0lflw"]
 [ext_resource type="Script" path="res://map.gd" id="1_y7m3y"]
-[ext_resource type="TileSet" uid="uid://c807ixqb5mj37" path="res://tileset.tres" id="2_yabca"]
+[ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://tileset.tres" id="2_yabca"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_53imv"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish.tscn" id="4_erp4l"]
 
@@ -26,3 +26,5 @@ scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAD9//7/AAABAAAAAAD+//7/AAABAAAAAAD+//3/AAABAAAAAAD9//3/AAABAAAAAAD8//3/AAABAAAAAAD8//7/AAABAAAAAAD7//7/AAABAAAAAAD7//3/AAABAAAAAAD8//z/AAABAAAAAAD///r/AAAGAAAAAAD///v/AAAGAAAAAAD+////AAAGAAAAAAD9////AAAGAAAAAAD6////AAAGAAAAAAD7////AAAGAAAAAAA=")
 tile_set = ExtResource("2_yabca")
 y_sort_origin = 1
+
+[node name="Fish" parent="." instance=ExtResource("4_erp4l")]
