@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://8nnxjesyxtgi"]
 
-[ext_resource type="Script" path="res://beat/beat.gd" id="1_xrq6t"]
-[ext_resource type="AudioStream" uid="uid://bblct0lo413d5" path="res://beat/music/bpm.mp3" id="2_igr3l"]
+[ext_resource type="Script" path="res://Beats/beat.gd" id="1_xrq6t"]
+[ext_resource type="AudioStream" uid="uid://bblct0lo413d5" path="res://Beats/music/bpm.mp3" id="2_igr3l"]
 
 [node name="Beat" type="Node"]
 script = ExtResource("1_xrq6t")
