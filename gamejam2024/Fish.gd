@@ -24,7 +24,7 @@ func _ready() -> void:
 	
 	current_neighbors = map.get_neighbor_tiles(starting_tile.x, starting_tile.y, starting_layer)
 	map.set_outline_tiles(current_neighbors)
-	
+
 func _process(delta):
 	
 	print("process control ", beats.control)
@@ -36,10 +36,10 @@ func _process(delta):
 				#move_pos.y += 16
 			#else:
 				#move_pos.y -= 16
-			
+		get_tree().call_group("Timer", "_on_timer_timeout")
 		beats.control = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
 		#position = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
-		if beats.timer.is_stopped():
+		if beats.timer.timeout:
 			position = beats.control
 		
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping

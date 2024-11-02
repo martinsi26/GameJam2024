@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://xv6rx6xg2hvg" path="res://icon.svg" id="2_ok4v3"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="3_i7om2"]
 
-[node name="Fish" type="Node2D"]
+[node name="Fish" type="Node2D" groups=["Timer"]]
 script = ExtResource("1_rlr2d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

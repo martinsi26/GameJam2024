@@ -24,6 +24,10 @@ beats="*res://Beats/beat.tscn"
 window/size/viewport_width=1080
 window/size/viewport_height=720
 
+[global_group]
+
+Timer=""
+
 [input]
 
 move_up={
