@@ -68,4 +68,3 @@ func finished():
 	#
 #func enter_end():
 	#print("Game over")
-
