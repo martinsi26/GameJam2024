@@ -13,6 +13,10 @@ var map2 = preload("res://Maps/Map2.tscn")
 var instance0 = map0.instantiate()
 var instance1 = map1.instantiate()
 var instance2 = map2.instantiate()
+#var instance3 = map3.instantiate()
+#var instance4 = map4.instantiate()
+#var instance5 = map5.instantiate()
+#var instance6 = map6.instantiate()
 
 signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
@@ -41,6 +45,18 @@ func finished():
 	elif current_map == 2:
 		instance1.queue_free()
 		enter_map2()
+	#elif current_map == 3:
+		#instance2.queue_free()
+		#enter_map3()
+	#elif current_map == 4:
+		#instance3.queue_free()
+		#enter_map4()
+	#elif current_map == 5:
+		#instance4.queue_free()
+		#enter_map5()
+	#elif current_map == 6:
+		#instance5.queue_free()
+		#enter_map6()
 	
 #func enter_map3():
 	#var instance3 = map3.instantiate()
