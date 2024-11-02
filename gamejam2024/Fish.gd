@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var map = $".."
+@onready var layers = $"../Layers"
 
 var tile_size = Vector2(32, 16)  # Adjust based on your tile map dimensions
 var current_layer # The layer that the player is currently at
