@@ -17,15 +17,15 @@ var directions = [Vector2i(0, -1), Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 
 var is_first_move = true  # Track if this is the first move attempt
 
 func _ready() -> void:
-	var starting_tile = Vector2i(2, 4)
+	var starting_tile = Vector2i(-1, 0)  # Set to a valid starting position on your tile map
 	var starting_layer = 0
 	
 	current_tile = starting_tile
 	current_layer = starting_layer
 	
-	current_neighbors = map.get_neighbor_tiles(starting_tile.x, starting_tile.y, starting_layer)
+	current_neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
 	map.set_outline_tiles(current_neighbors)
-	
+
 func _process(delta):
 	# Check for any player movement input and move the bear if detected
 	if not is_moving and (Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down")
@@ -62,24 +62,27 @@ func _process(delta):
 			is_moving = false
 			print("Bear movement completed, ready for next move")
 
-# Move the bear to the next tile in the path (up, right, down, left)
 func move_to_next_tile():
 	var direction = directions[direction_index]
 	var next_tile = Vector3(current_tile.x + direction.x, current_tile.y + direction.y, current_layer)
 	
 	current_neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
-	
+
+	if current_neighbors.size() == 0:
+		print("No neighbors found for bear at tile:", current_tile)
+		return  # Exit if no neighbors are available
+
 	for neighbor in current_neighbors:
-		if neighbor.pos == next_tile and neighbor.data:
-			target_tile = neighbor.pos
-			target_tile_data = neighbor.data
-			target_layer = neighbor.pos.z
-			is_moving = true
-			print("Bear is moving to tile:", target_tile)
-			break
-	
+		if neighbor:  # Ensure neighbor is not null
+			if neighbor.pos == next_tile and neighbor.data:
+				target_tile = neighbor.pos
+				target_tile_data = neighbor.data
+				target_layer = neighbor.pos.z
+				is_moving = true
+				print("Bear is moving to tile:", target_tile)
+				return  # Exit once a valid move is found
+
 	# If no valid neighbor was found, print a message
-	if not is_moving:
-		print("No valid move found for bear in direction", direction)
+	print("No valid move found for bear in direction", direction)
 	
 	direction_index = (direction_index + 1) % directions.size()
