@@ -59,13 +59,12 @@ func _process(delta):
 		var slab_offset = 0
 		if target_tile_data.terrain_set == 0:
 			on_slab = true
-			print("slab")
-			slab_offset = 32 * 3
+			slab_offset = 22
 		else:
 			on_slab = false
-		$Sprite2D.offset.y = target_layer * -68 * 3 + slab_offset
+		var y_offset = target_layer * 48 - slab_offset
 		var move_pos = map.get_tile_center(target_tile.x, target_tile.y, target_layer)
-			
+		move_pos.y -= y_offset
 		
 		position = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
