@@ -9,15 +9,36 @@ const SOUTHEAST = Vector2i(1, 0)
 const neighbor_directions: Array[Vector2i] = [NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST]
 
 func get_neighbor_tiles(tile_coord: Vector2i, layer_index: int):
-	var layer: TileMapLayer = $Layers.get_child(layer_index)
-	var neighbors = []
+	var layer_middle: TileMapLayer = $Layers.get_child(layer_index)
+	var layer_above: TileMapLayer = null
+	var layer_below: TileMapLayer = null
 	
+	if layer_index + 1 < $Layers.get_child_count():
+		layer_above = $Layers.get_child(layer_index + 1)
+		
+	if layer_index - 1 >= 0:
+		layer_below = $Layers.get_child(layer_index - 1)
+		
+	var layers_to_check = [layer_above, layer_middle, layer_below]
+	
+	var neighbors = []
+			
 	for dir in neighbor_directions:
 		var pos = tile_coord + dir
-		var neighbor_data = layer.get_cell_tile_data(pos)
-		var neighbor_pos = pos
-		var neighbors_object = Neighbor.new(neighbor_data, neighbor_pos)
-		neighbors.append(neighbors_object)
+		
+		for layer in layers_to_check:
+			if !layer:
+				continue
+			
+			var neighbor_data = layer.get_cell_tile_data(pos)
+			
+			if !neighbor_data:
+				continue
+			
+			var neighbor_pos = pos
+			var neighbors_object = Neighbor.new(neighbor_data, neighbor_pos)
+			neighbors.append(neighbors_object)
+			break
 	
 	return neighbors
 	
