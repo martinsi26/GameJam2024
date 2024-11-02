@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://di2wfn3m7nnt8"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://di2wfn3m7nnt8"]
 
 [ext_resource type="Texture2D" uid="uid://d3101w05jvdh3" path="res://iso_tileset.png" id="1_fj35j"]
 [ext_resource type="Texture2D" uid="uid://cna8ntjv7vhw8" path="res://outline.png" id="2_oxl6g"]
+[ext_resource type="Texture2D" uid="uid://cq3pnm86hx5yt" path="res://outline_slab.png" id="3_3hcbw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0v8h"]
 texture = ExtResource("1_fj35j")
@@ -39,12 +40,13 @@ texture = ExtResource("2_oxl6g")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -8)
+0:0/0/terrain_set = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6hsjh"]
-texture = ExtResource("2_oxl6g")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bmh72"]
+texture = ExtResource("3_3hcbw")
 texture_region_size = Vector2i(32, 32)
+0:1/0 = 0
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, -16)
 
 [resource]
 tile_shape = 1
@@ -56,4 +58,4 @@ terrain_set_0/terrain_0/name = "Slabs"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_v0v8h")
 sources/1 = SubResource("TileSetAtlasSource_wcb6a")
-sources/2 = SubResource("TileSetAtlasSource_6hsjh")
+sources/2 = SubResource("TileSetAtlasSource_bmh72")

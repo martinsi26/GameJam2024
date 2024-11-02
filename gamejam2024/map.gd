@@ -9,7 +9,7 @@ const SOUTHEAST = Vector2i(1, 0)
 const neighbor_directions: Array[Vector2i] = [NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST]
 
 func get_tile(x, y, z) -> TileData:
-	if z < 0 || z >= $Layers.get_child_count() - 1:
+	if z < 0 || z >= $Layers.get_child_count():
 		return null
 		
 	return $Layers.get_child(z).get_cell_tile_data(Vector2i(x, y))
@@ -32,45 +32,35 @@ func get_neighbor_tiles(x: int, y: int, z: int):
 				break
 	
 	return neighbors
-		
-			
-	#var layer_middle: TileMapLayer = $Layers.get_child(layer_index)
-	#var layer_above: TileMapLayer = null
-	#var layer_below: TileMapLayer = null
-	#
-	#var is_slab: bool = layer_middle.get_cell_tile_data(tile_coord).terrain_set == 0
-	#
-	#if layer_index + 1 < $Layers.get_child_count():
-		#layer_above = $Layers.get_child(layer_index + 1)
-		#
-	#if layer_index - 1 >= 0:
-		#layer_below = $Layers.get_child(layer_index - 1)
-	#
-	#var neighbors = []
-			#
-	#for dir in neighbor_directions:
-		#var neighbor = null
-		#var pos = tile_coord + dir
-		#var neighbor_data = layer_middle.get_cell_tile_data(pos)
-		#
-		#var neighbor_pos = pos
-		#var neighbors_object = Neighbor.new(neighbor_data, neighbor_pos)
-		#neighbors.append(neighbors_object)
-	
-	#return neighbors
 	
 
 func set_outline_tiles(tiles):
-	var outline_layer: TileMapLayer = $Layers.get_node("OutlineLayer")
-	outline_layer.clear()
-
-	for tile in tiles:
-		if tile and tile.data:
-			#if tile.data.terrain_set == 0:
-			outline_layer.set_cell(Vector2(tile.pos.x, tile.pos.y), 1, Vector2i(0, 0))
-			#else:
-				#outline_layer.set_cell(tile.pos, 2, Vector2i(0, 0))
-		#print(tile.data)
+	for l in $Layers.get_children():
+		l.get_node("OutlineLayer").clear()
+	
+	for t in tiles:
+		if !t:
+			continue
+		var layer = $Layers.get_child(t.pos.z).get_node("OutlineLayer")
+		
+		var source_id = 1
+		
+		if t.data.terrain_set == 0:
+			source_id = 2
+		
+		layer.set_cell(Vector2(t.pos.x, t.pos.y), source_id, Vector2i(0, 0))
+		
+		
+	#var outline_layer: TileMapLayer = $Layers.get_node("OutlineLayer")
+	#outline_layer.clear()
+#
+	#for tile in tiles:
+		#if tile and tile.data:
+			##if tile.data.terrain_set == 0:
+			#outline_layer.set_cell(Vector2(tile.pos.x, tile.pos.y), 1, Vector2i(0, 0))
+			##else:
+				##outline_layer.set_cell(tile.pos, 2, Vector2i(0, 0))
+		##print(tile.data)
 	
 # Convert tile coordinates to world position centered on the tile
 func get_tile_center(x: int, y: int, z: int) -> Vector2:
