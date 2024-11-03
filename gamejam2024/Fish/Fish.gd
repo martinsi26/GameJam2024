@@ -56,7 +56,7 @@ func respawn():
 	current_neighbors = update_neighbors(current_neighbors, starting_layer)
 	map.set_outline_tiles(current_neighbors)
 	
-	current_tile = starting_tile
+	current_tile = Vector3i(starting_tile.x, starting_tile.y, starting_layer)
 	current_layer = starting_layer
 	current_tile_data = map.get_tile(current_tile.x, current_tile.y, current_layer)
 	

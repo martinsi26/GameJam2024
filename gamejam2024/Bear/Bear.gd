@@ -44,7 +44,7 @@ func reset():
 	target_bear_tile_data = current_bear_tile_data
 	position = map.get_tile_center(starting_tile.x, starting_tile.y, starting_tile.z)
 	position.y -= current_bear_tile.z * 48
-	print("reset")
+	is_moving = false
 			
 func _process(delta):
 	if is_moving:
