@@ -14,7 +14,7 @@ script = ExtResource("1_fr23t")
 [node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
 y_sort_enabled = true
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAD+//7/AAAFAAAAAAD+////AAACAAAAAAD8//v/AAAEAAAAAAD7//r/AAAEAAAAAAD6//n/AAAEAAAAAAD9//7/AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD+/wAAAAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wAABAAAAAIAAAD/////BgAAAAEAAAD///7/BgAAAAEAAAD+//7/BgADAAEAAAD+////BgAAAAEAAAD8//v/AAAEAAAAAAD7//r/AAAEAAAAAAD6//n/AAAEAAAAAAD9//7/BgAAAAEAAAD9////BgAAAAEAAAD9/wAABgABAAAAAAD+/wAABgAAAAEAAAD8////BgACAAEAAAD6/wAABgABAAAAAAD7/wAABgABAAAAAAD8/wAABgABAAAAAAA=")
 tile_set = ExtResource("2_1j8u2")
 
 [node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
@@ -25,7 +25,7 @@ tile_set = ExtResource("2_1j8u2")
 y_sort_enabled = true
 position = Vector2(0, -48)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD8/wAAAAABAAAAAAD8////AAABAAAAAAD8//7/AAABAAAAAAD8//3/AAABAAAAAAD9//3/AAABAAAAAAD+//3/AAABAAAAAAD///3/AAABAAAAAAD7//3/AAABAAAAAAD7//7/AAABAAAAAAD7////AAABAAAAAAD7/wAAAAABAAAAAAD6/wAAAAABAAAAAAD6////AAABAAAAAAD6//7/AAAAAAAAAAD6//3/AAABAAAAAAD9/wAAAAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8/wAABgAAAAEAAAD8////BgAAAAEAAAD8//7/BgAAAAEAAAD8//3/BgAAAAEAAAD9//3/BgAAAAEAAAD+//3/BgAAAAEAAAD///3/BgABAAAAAAD7//3/BgAAAAEAAAD7//7/BgAAAAEAAAD7////BgAAAAEAAAD7/wAABgAAAAEAAAD6/wAABgAAAAEAAAD6////BgAAAAEAAAD6//7/BAAAAAIAAAD6//3/BgAAAAEAAAD9/wAABgACAAEAAAD///z/BgABAAEAAAD///v/BgABAAEAAAA=")
 tile_set = ExtResource("2_1j8u2")
 y_sort_origin = 1
 
@@ -36,7 +36,7 @@ tile_set = ExtResource("2_1j8u2")
 [node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -96)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD///z/AAACAAAAAAD///v/AAACAAAAAAD+//v/AAADAAAAAAD+//z/AAADAAAAAAD9//z/AAADAAAAAAD8//z/AAADAAAAAAD8//v/AAADAAAAAAD9//v/AAAAAAAAAAD7//z/AAACAAAAAAD6//z/AAACAAAAAAD6//v/AAACAAAAAAD7//v/AAACAAAAAAD6//r/BAAAAAIAAAD6//n/BAAAAAIAAAD6//j/AAAEAAAAAAD///3/AAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAD///z/BgAAAAEAAAD///v/BgAAAAEAAAD+//v/CQAAAAIAAAD+//z/CQAEAAAAAAD9//z/CQABAAEAAAD8//z/CQAHAAAAAAD8//v/CQAAAAIAAAD9//v/BAAAAAIAAAD7//z/BgAAAAEAAAD6//z/BgAAAAEAAAD6//v/BgAAAAEAAAD7//v/BgAAAAEAAAD6//r/BAAFAAIAAAD6//n/BAACAAIAAAD6//j/AAAEAAAAAAD///3/BgACAAEAAAA=")
 tile_set = ExtResource("2_1j8u2")
 y_sort_origin = 1
 
@@ -48,6 +48,7 @@ tile_set = ExtResource("2_1j8u2")
 tile_set = null
 
 [node name="Fish" parent="." instance=ExtResource("3_o6xnw")]
+visible = false
 top_level = true
 z_index = 1
 y_sort_enabled = true

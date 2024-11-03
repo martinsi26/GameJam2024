@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://b72yblrsgul6v"]
+[gd_scene load_steps=5 format=4 uid="uid://b72yblrsgul6v"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_2qpw5"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_4ioaj"]
@@ -25,7 +25,7 @@ tile_set = ExtResource("2_4ioaj")
 y_sort_enabled = true
 position = Vector2(0, -48)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD9////BgACAAEAAAD+//7/BgACAAEAAAD9//7/BAAAAAIAAAD9//3/BgAAAAEAAAD9//z/BgAAAAEAAAD9//v/BgAAAAEAAAD9//r/BgAAAAEAAAD8//7/BgAAAAEAAAD7//7/BgAAAAEAAAD6//7/BgAAAAEAAAD8//3/BAABAAEAAAD8//z/BAADAAAAAAD8//v/BAACAAIAAAD8//r/BAACAAIAAAD8//n/BAACAAIAAAD9//n/BgAAAAEAAAD7//v/BgAAAAEAAAD8//j/BAAEAAAAAAD9//j/BAAEAAEAAAD+//j/BAAEAAEAAAD+//n/BgAAAAEAAAD6//z/BgAAAAEAAAD6//3/BAAEAAEAAAD7//3/BAADAAEAAAD7//z/BAACAAAAAAD5//7/BgABAAEAAAD+//f/BgABAAEAAAA=")
+tile_map_data = PackedByteArray("AAD9////BgACAAEAAAD+//7/BgACAAEAAAD9//7/BAAAAAIAAAD9//3/BgAAAAEAAAD9//z/BgAAAAEAAAD9//v/BgAAAAEAAAD9//r/BgAAAAEAAAD8//7/BgAAAAEAAAD7//7/BgAAAAEAAAD6//7/BgAAAAEAAAD8//3/BAABAAEAAAD8//z/BAAGAAIAAAD8//v/BAACAAIAAAD8//r/BAACAAIAAAD8//n/BAACAAIAAAD9//n/BgAAAAEAAAD7//v/BgAAAAEAAAD8//j/BAAEAAAAAAD9//j/BAAEAAEAAAD+//j/BAAEAAEAAAD+//n/BgAAAAEAAAD6//z/BgAAAAEAAAD6//3/BAAEAAEAAAD7//3/BAAGAAEAAAD7//z/BAACAAAAAAD5//7/BgABAAEAAAD+//f/BgABAAEAAAA=")
 tile_set = ExtResource("2_4ioaj")
 y_sort_origin = 1
 
@@ -47,7 +47,7 @@ tile_set = ExtResource("2_4ioaj")
 [node name="TileMapLayer3" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -144)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD6//b/BgAAAAEAAAD5//b/BgAAAAEAAAD4//b/BgAAAAEAAAD3//b/BgAAAAEAAAD3//X/BAACAAIAAAD3//T/BAACAAIAAAD3//P/AAAEAAAAAAD6//f/BgAEAAEAAAD2//f/BgABAAEAAAD2//j/BgABAAEAAAD2//n/BgABAAEAAAD2//r/BgABAAEAAAD2//v/BgABAAEAAAD2//b/BgABAAEAAAD2//X/BgABAAEAAAD2//T/BgABAAEAAAD2//P/BgABAAEAAAA=")
+tile_map_data = PackedByteArray("AAD6//b/BgAAAAEAAAD5//b/BgAAAAEAAAD4//b/BgAAAAEAAAD3//b/BgAAAAEAAAD3//X/BAAFAAIAAAD3//T/BAACAAIAAAD3//P/AAAEAAAAAAD6//f/BgAEAAEAAAD2//f/BgABAAEAAAD2//j/BgABAAEAAAD2//n/BgABAAEAAAD2//r/BgABAAEAAAD2//v/BgABAAEAAAD2//b/BgABAAEAAAD2//X/BgABAAEAAAD2//T/BgABAAEAAAD2//P/BgABAAEAAAA=")
 tile_set = ExtResource("2_4ioaj")
 y_sort_origin = 1
 

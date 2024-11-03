@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=4 uid="uid://bvxqk0akwd2co"]
+[gd_scene load_steps=5 format=4 uid="uid://bhb0kvo181caj"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_sb80t"]
+[ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="2_j1w2i"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_vkmei"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_ar222"]
 
@@ -10,10 +11,17 @@ script = ExtResource("1_sb80t")
 
 [node name="Layers" type="Node2D" parent="."]
 
+[node name="MapLayer-2" parent="Layers" instance=ExtResource("2_j1w2i")]
+position = Vector2(192, 0)
+
+[node name="MapLayer-1" parent="Layers" instance=ExtResource("2_j1w2i")]
+position = Vector2(96, 0)
+tile_map_data = PackedByteArray("AAD//wYABgABAAEAAAD//wUABgABAAEAAAD//wQABgABAAEAAAD//wMABgABAAEAAAD//wIABgABAAEAAAD//wEABgABAAEAAAD//wAABgABAAEAAAD/////BgABAAEAAAAAAP//BgABAAEAAAD///3/BgABAAAAAAD9//3/BgABAAAAAAA=")
+
 [node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
 y_sort_enabled = true
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD///z/AAACAAAAAAD///3/AAAFAAAAAAD///7/AAACAAAAAAD/////AAACAAAAAAD//wEAAAACAAAAAAD//wIAAAACAAAAAAAAAP3/AAAFAAAAAAD///v/AAACAAAAAAD9//v/AAAAAAAAAAD8//v/AAACAAAAAAD8//z/AAACAAAAAAD8//3/AAAFAAAAAAD8//7/AAACAAAAAAD8////AAAFAAAAAAD8/wAAAAACAAAAAAD7/wAAAAAAAAAAAAD+//v/AAAAAAAAAAD6/wAAAAAAAAAAAAD5/wAAAAACAAAAAAD5////AAAFAAAAAAD5//7/AAAFAAAAAAD5//3/AAAFAAAAAAD5//z/AAAFAAAAAAD5//v/AAAFAAAAAAD7//3/AAAFAAAAAAD9////AAAFAAAAAAD4////AAAFAAAAAAD4//3/AAAFAAAAAAD4//v/AAAFAAAAAAD4//7/AAAFAAAAAAD4//z/AAAFAAAAAAD//wQAAAAFAAAAAAD//wMAAAACAAAAAAD5//r/AAACAAAAAAD5//n/AAAAAAAAAAD5//j/AAAAAAAAAAD5//f/AAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wAABgAAAAEAAAD///z/BgAAAAEAAAD///3/CQAHAAEAAAD///7/BgAAAAEAAAD/////BgAAAAEAAAD//wEABgAAAAEAAAD//wIABgAAAAEAAAAAAP3/CQAGAAEAAAD///v/BgAAAAEAAAD9//v/BAAFAAAAAAD8//v/BgAAAAEAAAD8//z/BgAAAAEAAAD8//3/CQAGAAEAAAD8//7/BgAAAAEAAAD8////CQAHAAEAAAD8/wAABgAAAAEAAAD7/wAABAAFAAEAAAD+//v/BAAFAAEAAAD6/wAABAAFAAAAAAD5/wAABgAAAAEAAAD5////CQAGAAEAAAD5//7/CQAGAAEAAAD5//3/CQAGAAEAAAD5//z/CQAGAAEAAAD5//v/CQAGAAEAAAD7//3/CQAHAAEAAAD9////CQAGAAEAAAD4////CQAHAAEAAAD4//3/CQAHAAEAAAD4//v/CQAHAAEAAAD4//7/CQAHAAEAAAD4//z/CQAHAAEAAAD//wQABAAAAAIAAAD//wMABgAAAAEAAAD5//r/BgAAAAEAAAD5//n/BAAFAAIAAAD5//j/BAACAAIAAAD5//f/AAAEAAAAAAA=")
 tile_set = ExtResource("2_vkmei")
 
 [node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
@@ -28,26 +36,6 @@ tile_set = ExtResource("2_vkmei")
 y_sort_origin = 1
 
 [node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer1"]
-z_index = 10
-tile_set = ExtResource("2_vkmei")
-
-[node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
-position = Vector2(0, -96)
-scale = Vector2(3, 3)
-tile_set = ExtResource("2_vkmei")
-y_sort_origin = 1
-
-[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer2"]
-z_index = 10
-tile_set = ExtResource("2_vkmei")
-
-[node name="TileMapLayer3" type="TileMapLayer" parent="Layers"]
-position = Vector2(0, -96)
-scale = Vector2(3, 3)
-tile_set = ExtResource("2_vkmei")
-y_sort_origin = 1
-
-[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer3"]
 z_index = 10
 tile_set = ExtResource("2_vkmei")
 
