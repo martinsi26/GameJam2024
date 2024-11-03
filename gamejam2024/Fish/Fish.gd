@@ -26,6 +26,11 @@ var starting_layer
 
 var bounce_progress = 0
 var bounce_vel = 1
+var bounce_in_place_progress = 0
+var bounce_in_place_vel = 1
+
+var occured = false
+var bounce_in_place = false
 
 signal finished_map
 signal fish_pos(pos: Vector3i)
@@ -40,7 +45,7 @@ func set_starting_values(_starting_tile, _starting_layer):
 	set_water()
 	water_label.text = str(current_water)
 	coin_label.text = str(number_of_coins)
-	
+	bounce_in_place = false
 	on_slab = false
 	starting_tile = _starting_tile
 	starting_layer = _starting_layer
@@ -66,7 +71,7 @@ func respawn():
 	target_tile = null
 	target_tile_data = null
 	target_layer = null
-	
+	bounce_in_place = false
 	is_moving = false
 
 func set_water():
@@ -117,14 +122,36 @@ func pickup():
 	coin_label.text = str(number_of_coins)
 					
 func _process(delta):
-	bounce_progress += bounce_vel
-	$AnimatedSprite2D.offset.y = -bounce_progress
-	bounce_vel -= 3 * delta
-	
-	if (bounce_progress < 0):
-		bounce_vel = 1
+	if !bounce_in_place:
+		bounce_progress += bounce_vel
+		$AnimatedSprite2D.offset.y = -bounce_progress
+		bounce_vel -= 3 * delta
+		
+		if (bounce_progress < 0):
+			bounce_vel = 1
+	else:
+		is_moving = false
+		bounce_in_place_progress += bounce_in_place_vel
+		$AnimatedSprite2D.offset.y = -bounce_in_place_progress
+		bounce_in_place_vel -= 6 * delta
+		
+		if (bounce_in_place_progress < 0):
+			bounce_in_place_vel = 2
+			bounce_progress = 0
+			bounce_vel = 1
+			is_moving = true
+			bounce_in_place = false
 	
 	if is_moving:
+		previous_fish_pos.emit(current_tile)
+		fish_pos.emit(target_tile)
+		
+		if !occured:
+			use_water(1)
+			if target_tile_data.terrain_set == 1:
+				set_water()
+			occured = true
+		
 		var slab_offset = 0
 		if target_tile_data.terrain_set == 2: # Player has made it to the final block
 			emit_signal("finished_map")
@@ -142,10 +169,6 @@ func _process(delta):
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
 			position = move_pos
 			
-			print("made it to signal")
-			previous_fish_pos.emit(current_tile)
-			fish_pos.emit(target_tile)
-			
 			current_tile = target_tile
 			current_tile_data = target_tile_data
 			current_layer = target_layer
@@ -153,6 +176,8 @@ func _process(delta):
 			current_neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
 			current_neighbors = update_neighbors(current_neighbors, current_layer)
 			map.set_outline_tiles(current_neighbors)
+			
+			occured = false
 			is_moving = false
 			
 	if current_water == 0:
@@ -188,11 +213,8 @@ func _input(event):
 			target_tile = current_tile
 			target_tile_data = current_tile_data
 			target_layer = current_layer
+			bounce_in_place = true
 		else:
 			return
-		
-		use_water(1)
-		if target_tile_data.terrain_set == 1:
-			set_water()
 		
 		is_moving = true
