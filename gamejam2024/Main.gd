@@ -40,7 +40,7 @@ signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_map = 0
+	current_map = 4
 	enter_map_functions[current_map].call()
 	
 func _process(delta):

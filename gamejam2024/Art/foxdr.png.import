@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cignu7bg53cvj"
-path="res://.godot/imported/water_atlas.png-09e57e13ac64281656e50d62cd7c380c.ctex"
+uid="uid://bs77ir5ixsbet"
+path="res://.godot/imported/foxdr.png-7db694c64ce8d42c91710f6ba22339a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Maps/water_atlas.png"
-dest_files=["res://.godot/imported/water_atlas.png-09e57e13ac64281656e50d62cd7c380c.ctex"]
+source_file="res://Art/foxdr.png"
+dest_files=["res://.godot/imported/foxdr.png-7db694c64ce8d42c91710f6ba22339a0.ctex"]
 
 [params]
 

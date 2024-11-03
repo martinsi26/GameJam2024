@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=4 uid="uid://b72yblrsgul6v"]
+[gd_scene load_steps=7 format=4 uid="uid://b72yblrsgul6v"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_2qpw5"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_4ioaj"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_7i502"]
 [ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="3_i5llt"]
+
+[sub_resource type="Gradient" id="Gradient_t5g4n"]
+offsets = PackedFloat32Array(0.131737, 1)
+colors = PackedColorArray(0.77, 0.957833, 1, 1, 0.152, 0.6056, 0.8, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_513un"]
+gradient = SubResource("Gradient_t5g4n")
+width = 128
+height = 128
 
 [node name="Map2" type="Node2D"]
 y_sort_enabled = true
@@ -47,7 +56,7 @@ tile_set = ExtResource("2_4ioaj")
 [node name="TileMapLayer3" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -144)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD6//b/BgAAAAEAAAD5//b/BgAAAAEAAAD4//b/BgAAAAEAAAD3//b/BgAAAAEAAAD3//X/BAAFAAIAAAD3//T/BAACAAIAAAD3//P/AAAEAAAAAAD6//f/BgAEAAEAAAD2//f/BgABAAEAAAD2//j/BgABAAEAAAD2//n/BgABAAEAAAD2//r/BgABAAEAAAD2//v/BgABAAEAAAD2//b/BgABAAEAAAD2//X/BgABAAEAAAD2//T/BgABAAEAAAD2//P/BgABAAEAAAA=")
+tile_map_data = PackedByteArray("AAD6//b/BgAAAAEAAAD5//b/BgAAAAEAAAD4//b/BgAAAAEAAAD3//b/BgAAAAEAAAD3//X/BAAFAAIAAAD3//T/BAACAAIAAAD3//P/AAAEAAAAAAD6//f/BgAEAAEAAAD2//f/BgABAAEAAAD2//j/BgABAAEAAAD2//n/BgABAAEAAAD2//r/BgABAAEAAAD2//v/BgABAAEAAAD2//b/BgABAAEAAAD2//X/BgABAAEAAAD2//T/BgABAAEAAAD2//P/BgABAAEAAAD4//z/BQABAAEAAAD+//f/BQABAAAAAAA=")
 tile_set = ExtResource("2_4ioaj")
 y_sort_origin = 1
 
@@ -60,7 +69,7 @@ position = Vector2(0, -192)
 tile_map_data = PackedByteArray("AAD2//v/BgAAAAEAAAD2//r/BgAAAAEAAAD2//n/BgABAAAAAAD2//j/BgABAAAAAAD2//f/BgABAAAAAAD2//b/BgABAAAAAAD2//X/BgABAAAAAAD2//T/BgAAAAEAAAD2//P/BgAAAAEAAAA=")
 
 [node name="MapLayer5" parent="Layers" instance=ExtResource("3_i5llt")]
-tile_map_data = PackedByteArray("AADx//T/BgACAAEAAADx//P/BgAAAAEAAADx//L/BgAAAAEAAADx//H/BgAAAAEAAADx//D/BgACAAEAAAA=")
+tile_map_data = PackedByteArray("AADx//T/BgACAAEAAADx//P/BgAAAAEAAADx//L/BgAAAAEAAADx//H/BgAAAAEAAADx//D/BgACAAEAAADx//X/BQAAAAAAAAA=")
 
 [node name="Fish" parent="." instance=ExtResource("3_7i502")]
 top_level = true
@@ -70,3 +79,12 @@ y_sort_enabled = true
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Sharks" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -500
+offset_left = 1623.0
+offset_top = -1267.0
+offset_right = 3529.0
+offset_bottom = 1712.0
+rotation = 1.5708
+texture = SubResource("GradientTexture2D_513un")
