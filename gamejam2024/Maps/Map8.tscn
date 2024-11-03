@@ -4,14 +4,13 @@
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_3bgl2"]
 [ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="3_3xn3i"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="4_3gjtn"]
-[ext_resource type="Texture2D" uid="uid://c3mwjmuln26rg" path="res://Art/perry the pact-ypus.png" id="5_papdq"]
 
-[sub_resource type="Gradient" id="Gradient_i2sbt"]
+[sub_resource type="Gradient" id="Gradient_73biw"]
 offsets = PackedFloat32Array(0.131737, 1)
-colors = PackedColorArray(0.763486, 0.888775, 1, 1, 0.0564231, 0.524967, 0.99999, 1)
+colors = PackedColorArray(0.77, 0.957833, 1, 1, 0.152, 0.6056, 0.8, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_q313r"]
-gradient = SubResource("Gradient_i2sbt")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cdope"]
+gradient = SubResource("Gradient_73biw")
 width = 128
 height = 128
 
@@ -80,14 +79,9 @@ y_sort_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -500
-offset_left = 1614.0
-offset_top = -1279.0
-offset_right = 3520.0
-offset_bottom = 1700.0
+offset_left = 1679.0
+offset_top = -1264.0
+offset_right = 3585.0
+offset_bottom = 1715.0
 rotation = 1.5708
-texture = SubResource("GradientTexture2D_q313r")
-[node name="PerryThePact-ypus" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-49, -69)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("5_papdq")
+texture = SubResource("GradientTexture2D_cdope")

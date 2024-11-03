@@ -4,12 +4,12 @@
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_s4n8w"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_2sr5k"]
 
-[sub_resource type="Gradient" id="Gradient_g7d4e"]
+[sub_resource type="Gradient" id="Gradient_ln7re"]
 offsets = PackedFloat32Array(0.131737, 1)
-colors = PackedColorArray(0.763486, 0.888775, 1, 1, 0.0564231, 0.524967, 0.99999, 1)
+colors = PackedColorArray(0.77, 0.957833, 1, 1, 0.152, 0.6056, 0.8, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4dpii"]
-gradient = SubResource("Gradient_g7d4e")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k1ldg"]
+gradient = SubResource("Gradient_ln7re")
 width = 128
 height = 128
 
@@ -33,7 +33,7 @@ tile_set = ExtResource("2_s4n8w")
 y_sort_enabled = true
 position = Vector2(0, -48)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD9//v/BAAFAAEAAAD8//v/BAAFAAAAAAD7//r/BgAAAAEAAAD6//r/BgAAAAEAAAD5//r/BgAAAAEAAAD4//r/BgAAAAEAAAD6//v/BgAAAAEAAAD4//n/BAAFAAEAAAD5//n/BAADAAIAAAD5//j/BAACAAIAAAD6//n/BAAEAAEAAAD7//n/BAABAAIAAAD8//n/BgAAAAEAAAD8//r/BgAAAAEAAAD9//r/BgADAAEAAAD9//n/BgAAAAEAAAD9//f/BAAGAAAAAAD9//b/BgAAAAEAAAD8//b/BgAAAAEAAAD7//b/BgAAAAEAAAD7//f/BAAEAAIAAAD7//j/BAACAAIAAAD8//f/BgAAAAEAAAD8//j/BgAAAAEAAAD6//j/BgAAAAEAAAD+//v/BgACAAEAAAD8//X/BgAAAAEAAAD6//X/BgAAAAEAAAD6//b/BgAAAAEAAAD5//b/BgAAAAEAAAD4//f/BgAAAAEAAAD3//b/BgAAAAEAAAD4//b/BgAAAAEAAAD3//X/BgAAAAEAAAD4//X/BgAAAAEAAAD4//j/BgAAAAEAAAD5//v/BgAAAAEAAAD7//v/BgAAAAEAAAD9//X/BgAAAAEAAAD5//X/BgAAAAEAAAD3//f/BgAAAAEAAAD3//n/BAAFAAAAAAD3//j/BgAAAAEAAAD7//X/BgAAAAEAAAD6//z/BgAAAAEAAAD7//z/BgAAAAEAAAD8//z/BgAAAAEAAAD9//z/BgAAAAEAAAD3//T/BAAFAAAAAAD4//T/BAAFAAEAAAD5//T/BgAAAAEAAAD7//T/BgAAAAEAAAD6//T/BgAAAAEAAAD8//T/BAAFAAAAAAD9//T/BAAFAAEAAAD9//j/BAAFAAIAAAD6//f/BAAEAAEAAAD5//f/BAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9//v/BAAFAAEAAAD8//v/BAAFAAAAAAD7//r/BgAAAAEAAAD6//r/BgAAAAEAAAD5//r/BgAAAAEAAAD4//r/BgAAAAEAAAD6//v/BgAAAAEAAAD4//n/BAAEAAEAAAD5//n/BAAGAAEAAAD5//j/BAACAAIAAAD6//n/BAAEAAEAAAD7//n/BAABAAIAAAD8//n/BgAAAAEAAAD8//r/BgAAAAEAAAD9//r/BgADAAEAAAD9//n/BgAAAAEAAAD9//f/BAAGAAAAAAD9//b/BgAAAAEAAAD8//b/BgAAAAEAAAD7//b/BgAAAAEAAAD7//f/BAAEAAIAAAD7//j/BAACAAIAAAD8//f/BgAAAAEAAAD8//j/BgAAAAEAAAD6//j/BgAAAAEAAAD+//v/BgACAAEAAAD8//X/BgAAAAEAAAD6//X/BgAAAAEAAAD6//b/BgAAAAEAAAD5//b/BgAAAAEAAAD4//f/BgAAAAEAAAD3//b/BgAAAAEAAAD4//b/BgAAAAEAAAD3//X/BgAAAAEAAAD4//X/BgAAAAEAAAD4//j/BgAAAAEAAAD5//v/BgAAAAEAAAD7//v/BgAAAAEAAAD9//X/BgAAAAEAAAD5//X/BgAAAAEAAAD3//f/BgAAAAEAAAD3//n/BAAFAAAAAAD3//j/BgAAAAEAAAD7//X/BgAAAAEAAAD6//z/BgAAAAEAAAD7//z/BgAAAAEAAAD8//z/BgAAAAEAAAD9//z/BgAAAAEAAAD3//T/BAAFAAAAAAD4//T/BAAFAAEAAAD5//T/BgAAAAEAAAD7//T/BgAAAAEAAAD6//T/BgAAAAEAAAD8//T/BAAFAAAAAAD9//T/BAAFAAEAAAD9//j/BAAFAAIAAAD6//f/BAAEAAEAAAD5//f/BAAEAAAAAAA=")
 tile_set = ExtResource("2_s4n8w")
 y_sort_origin = 1
 
@@ -44,7 +44,7 @@ tile_set = ExtResource("2_s4n8w")
 [node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -96)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD3//P/BgAEAAEAAAD3//L/BgAAAAEAAAD2//L/BgAAAAEAAAD1//L/BgAAAAEAAAD1//H/BAAFAAIAAAD1//D/BAACAAIAAAD1/+//AAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAD3//P/BgAEAAEAAAD3//L/BgAAAAEAAAD2//L/BgAAAAEAAAD1//L/BgAAAAEAAAD1//H/BAAFAAIAAAD1//D/BAACAAIAAAD1/+//AAAEAAAAAAD3//f/BQABAAEAAAD6//T/BQAAAAIAAAD7//z/BQAAAAIAAAA=")
 tile_set = ExtResource("2_s4n8w")
 y_sort_origin = 1
 
@@ -65,9 +65,9 @@ y_sort_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -500
-offset_left = 1544.0
-offset_top = -1182.0
-offset_right = 3450.0
-offset_bottom = 1797.0
+offset_left = 1731.0
+offset_top = -1480.0
+offset_right = 3637.0
+offset_bottom = 1499.0
 rotation = 1.5708
-texture = SubResource("GradientTexture2D_4dpii")
+texture = SubResource("GradientTexture2D_k1ldg")

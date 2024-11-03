@@ -4,12 +4,12 @@
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_wrq7r"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_m32re"]
 
-[sub_resource type="Gradient" id="Gradient_ln7re"]
+[sub_resource type="Gradient" id="Gradient_f1wpb"]
 offsets = PackedFloat32Array(0.131737, 1)
 colors = PackedColorArray(0.77, 0.957833, 1, 1, 0.152, 0.6056, 0.8, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_n56mn"]
-gradient = SubResource("Gradient_ln7re")
+gradient = SubResource("Gradient_f1wpb")
 width = 128
 height = 128
 
