@@ -29,7 +29,7 @@ func _on_dialogue_button_pressed() -> void:
 		$VBoxContainer2/ColorRect/Label2.text = "Rules"
 		$VBoxContainer2/MarginContainer/Label.text = "
 		
-		1. Use WASD to move between tiles
+		1. Use WASD to move between tiles or SPACE to jump in place
 		
 		2. You can only move so many times before you run out of water
 		

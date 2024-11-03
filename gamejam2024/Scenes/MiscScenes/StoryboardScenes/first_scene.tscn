@@ -45,6 +45,7 @@ layout_mode = 2
 [node name="Button" type="Button" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 text = "Continue"
+vertical_icon_alignment = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 visible = false
@@ -95,6 +96,7 @@ size_flags_vertical = 3
 [node name="DialogueButton" type="Button" parent="VBoxContainer2/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 text = "Continue"
+vertical_icon_alignment = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
 layout_mode = 2
