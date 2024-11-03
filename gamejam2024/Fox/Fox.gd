@@ -21,7 +21,6 @@ signal call_death
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(map)
 	on_slab = false
 	get_node("../../Fish").fish_pos.connect(move_to_fish)
 	get_node("../../Fish").fish_death.connect(on_fish_death)
@@ -35,6 +34,7 @@ func reset():
 	target_fox_tile = current_fox_tile
 	target_fox_tile_data = current_fox_tile_data
 	position = map.get_tile_center(starting_tile.x, starting_tile.y, starting_tile.z)
+	position.y -= current_fox_tile.z * 48
 
 func update_neighbors(current_neighbors, layer):
 	var new_neighbors = [null, null, null, null]

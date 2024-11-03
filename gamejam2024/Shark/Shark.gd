@@ -33,7 +33,8 @@ func reset():
 	target_shark_tile = current_shark_tile
 	target_shark_tile_data = current_shark_tile_data
 	position = get_parent().get_parent().get_tile_center(starting_tile.x, starting_tile.y, starting_tile.z)
-
+	position.y -= target_shark_tile.z * 48
+	
 func update_neighbors(current_neighbors, layer: int):
 	var new_neighbors = [null, null, null, null]
 	var i = -1
@@ -59,7 +60,6 @@ func _process(delta):
 			current_shark_tile = target_shark_tile
 			current_shark_tile_data = target_shark_tile_data
 			if current_shark_tile == fish_pos:
-				print("hit")
 				emit_signal("call_death")
 			is_moving = false
 
@@ -86,7 +86,6 @@ func move_to_fish(pos: Vector3i):
 	
 func pos_compare(fish_pos: Vector3i, fox_pos: Vector3i):
 	return abs(fox_pos.x - fish_pos.x) + abs(fox_pos.y - fish_pos.y)
-		
 		
 func on_fish_death():
 	reset()
