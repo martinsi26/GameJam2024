@@ -25,9 +25,7 @@ var instance7 = map7.instantiate()
 var fox_scene: PackedScene = preload("res://Fox/Fox.tscn")
 var shark_scene: PackedScene = preload("res://Shark/Shark.tscn")
 var bear_scene: PackedScene = preload("res://Bear/Bear.tscn")
-
 var coin_scene: PackedScene = preload("res://Coin/Coin.tscn")
-
 
 signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
@@ -353,3 +351,4 @@ func finished():
 		total_coins += instance6.get_node("Fish").number_of_coins
 		instance6.queue_free()
 		enter_map7()
+	print("total coins: ", total_coins)
