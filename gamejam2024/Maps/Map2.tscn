@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://b72yblrsgul6v"]
+[gd_scene load_steps=4 format=4 uid="uid://b72yblrsgul6v"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_2qpw5"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_4ioaj"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_7i502"]
-[ext_resource type="PackedScene" uid="uid://bi0xousvrk4r3" path="res://Shark/Shark.tscn" id="4_pkp1b"]
 
 [node name="Map2" type="Node2D"]
 y_sort_enabled = true
@@ -36,7 +35,7 @@ tile_set = ExtResource("2_4ioaj")
 [node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -96)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD6//v/BgACAAEAAAD7//r/BgAAAAEAAAD6//r/BgAAAAEAAAD5//r/BgAAAAEAAAD5//v/BgAAAAEAAAD5//z/BgAAAAEAAAD5//3/BgAAAAEAAAD7//n/BgAAAAEAAAD7//j/BgAAAAEAAAD7//f/BgAAAAEAAAD8//f/BgAAAAEAAAD9//f/BgAAAAEAAAD+//f/BgAAAAEAAAD6//f/AAACAAAAAAD5//f/BgAAAAEAAAD4//f/BgAAAAEAAAD3//f/BgAAAAEAAAD4//z/BgAAAAEAAAD4//v/BgAAAAEAAAD4//r/BgAAAAEAAAD3//j/BgAAAAEAAAD3//r/BgAAAAEAAAD3//v/BgAAAAEAAAD3//n/BgAAAAEAAAD4//n/BAAAAAIAAAD5//n/BgAAAAEAAAD6//n/BgAAAAEAAAD6//j/BgAAAAEAAAD5//j/BgAAAAEAAAD4//j/BgAAAAEAAAD3//z/BgAAAAEAAAD4//3/BgAAAAEAAAD5//7/BgAAAAEAAAD5//b/BgACAAEAAAA=")
+tile_map_data = PackedByteArray("AAD6//v/AAAGAAAAAAD7//r/AAACAAAAAAD6//r/AAACAAAAAAD5//r/AAADAAAAAAD5//v/AAACAAAAAAD5//z/AAACAAAAAAD5//3/AAACAAAAAAD7//n/AAACAAAAAAD7//j/AAACAAAAAAD7//f/AAACAAAAAAD8//f/AAACAAAAAAD9//f/AAACAAAAAAD+//f/AAACAAAAAAD6//f/AAACAAAAAAD5//f/AAACAAAAAAD4//f/AAACAAAAAAD3//f/AAACAAAAAAD4//z/AAACAAAAAAD4//v/AAACAAAAAAD4//r/AAACAAAAAAD3//j/AAADAAAAAAD3//r/AAADAAAAAAD3//v/AAACAAAAAAD3//n/AAACAAAAAAD4//n/AAAAAAAAAAD5//n/AAACAAAAAAD6//n/AAACAAAAAAD6//j/AAACAAAAAAD5//j/AAADAAAAAAD4//j/AAACAAAAAAD3//z/AAACAAAAAAD4//3/AAACAAAAAAD5//7/AAACAAAAAAA=")
 tile_set = ExtResource("2_4ioaj")
 y_sort_origin = 1
 

@@ -27,6 +27,7 @@ var starting_layer
 var sent_signal = false
 signal finished_map
 signal fish_pos(pos: Vector3i)
+signal previous_fish_pos(pos: Vector3i)
 signal fish_death()
 
 # Called when the node enters the scene tree for the first time.
@@ -128,6 +129,10 @@ func _process(delta):
 		position = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
 			position = move_pos
+			
+			previous_fish_pos.emit(current_tile)
+			fish_pos.emit(target_tile)
+			
 			current_tile = target_tile
 			current_tile_data = target_tile_data
 			current_layer = target_layer
@@ -135,7 +140,6 @@ func _process(delta):
 			current_neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
 			current_neighbors = update_neighbors(current_neighbors, current_layer)
 			map.set_outline_tiles(current_neighbors)
-			fish_pos.emit(current_tile)
 			is_moving = false
 			
 	if current_water == 0:

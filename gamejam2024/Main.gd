@@ -31,8 +31,8 @@ signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	enter_map2()
-	current_map = 2
+	enter_map0()
+	current_map = 0
 	
 func enter_map0():
 	add_child(instance0)
@@ -50,10 +50,23 @@ func enter_map1():
 	
 	var fox = fox_scene.instantiate()
 	instance1.get_node("Foxes").add_child(fox)
-	fox.set_starting_tile(Vector3(-2, -2, 0))
+	fox.set_starting_tile(Vector3i(-2, -2, 0))
 	fox.call_death.connect(instance1.get_node("Fish").death)
+	
 	var bear = bear_scene.instantiate()
-	bear.set_starting_tile(Vector3(-3, -2, 0))
+	instance1.get_node("Bears").add_child(bear)
+	var path = [
+		Vector3i(-4, -5, 2),
+		Vector3i(-4, -4, 2),
+		Vector3i(-3, -4, 2),
+		Vector3i(-2, -4, 2),
+		Vector3i(-2, -5, 2),
+		Vector3i(-2, -4, 2),
+		Vector3i(-3, -4, 2),
+		Vector3i(-4, -4, 2),
+	]
+	bear.set_starting_path(path, Vector3i(-4, -4, 2), 1)
+	bear.set_starting_tile(Vector3i(-4, -5, 2))
 	bear.call_death.connect(instance1.get_node("Fish").death)
 	
 	instance1.get_node("Fish").finished_map.connect(finished)

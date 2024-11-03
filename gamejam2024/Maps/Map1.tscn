@@ -53,3 +53,5 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="Foxes" type="Node2D" parent="."]
+
+[node name="Bears" type="Node2D" parent="."]
