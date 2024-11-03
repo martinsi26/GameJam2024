@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi0xousvrk4r3"]
+
+[ext_resource type="Script" path="res://Shark/Shark.gd" id="1_pamfn"]
+[ext_resource type="Texture2D" uid="uid://bvqfaqrk2id3f" path="res://Art/shark.png" id="2_n3x1o"]
+
+[node name="Shark" type="Node2D"]
+script = ExtResource("1_pamfn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 14)
+texture = ExtResource("2_n3x1o")

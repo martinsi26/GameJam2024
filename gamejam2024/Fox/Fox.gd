@@ -69,9 +69,6 @@ func _process(delta):
 			current_fox_tile = target_fox_tile
 			current_fox_tile_data = target_fox_tile_data
 			
-			var fox_neighbors = map.get_neighbor_tiles(current_fox_tile.x, current_fox_tile.y, current_fox_tile.z)
-			fox_neighbors = update_neighbors(fox_neighbors, current_fox_tile.z)
-			
 			if current_fox_tile == fish_pos:
 				emit_signal("call_death")
 			is_moving = false
