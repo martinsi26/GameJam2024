@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cna8ntjv7vhw8" path="res://Art/outline.png" id="2_0dvn2"]
 [ext_resource type="Texture2D" uid="uid://cq3pnm86hx5yt" path="res://Art/outline_slab.png" id="3_dmysn"]
 [ext_resource type="PackedScene" uid="uid://cofir8fv52iwg" path="res://Fox/Fox.tscn" id="4_3fsi8"]
-[ext_resource type="Texture2D" path="res://Art/water_atlas.png" id="5_ulghg"]
-[ext_resource type="Texture2D" path="res://Art/decorations_atlas.png" id="6_qpolb"]
-[ext_resource type="Texture2D" path="res://Art/tiles_atlas.png" id="6_s135a"]
-[ext_resource type="Texture2D" path="res://Art/dirt_atlas.png" id="7_qxe8r"]
+[ext_resource type="Texture2D" uid="uid://b52mh5yriflfp" path="res://Art/water_atlas.png" id="5_ulghg"]
+[ext_resource type="Texture2D" uid="uid://djm52q6xhntky" path="res://Art/decorations_atlas.png" id="6_qpolb"]
+[ext_resource type="Texture2D" uid="uid://uktwuc8dr71v" path="res://Art/tiles_atlas.png" id="6_s135a"]
+[ext_resource type="Texture2D" uid="uid://dnyetg31fmphm" path="res://Art/dirt_atlas.png" id="7_qxe8r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0v8h"]
 texture = ExtResource("1_1i8px")
