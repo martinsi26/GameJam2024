@@ -24,7 +24,6 @@ var number_of_coins = 0
 var starting_tile
 var starting_layer
 
-var sent_signal = false
 signal finished_map
 signal fish_pos(pos: Vector3i)
 signal previous_fish_pos(pos: Vector3i)
@@ -32,7 +31,6 @@ signal fish_death()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sent_signal = false
 	get_parent().get_parent().connect("set_starting_values", set_starting_values)
 	
 func set_starting_values(_starting_tile, _starting_layer):
@@ -43,8 +41,9 @@ func set_starting_values(_starting_tile, _starting_layer):
 	on_slab = false
 	starting_tile = _starting_tile
 	starting_layer = _starting_layer
-	current_tile = _starting_tile
+	current_tile = Vector3(_starting_tile.x, _starting_tile.y, _starting_layer)
 	current_layer = _starting_layer
+	current_tile_data = map.get_tile(current_tile.x, current_tile.y, current_layer)
 	
 	current_neighbors = map.get_neighbor_tiles(_starting_tile.x, _starting_tile.y, _starting_layer)
 	current_neighbors = update_neighbors(current_neighbors, _starting_layer)
@@ -56,6 +55,10 @@ func respawn():
 	current_neighbors = map.get_neighbor_tiles(starting_tile.x, starting_tile.y, starting_layer)
 	current_neighbors = update_neighbors(current_neighbors, starting_layer)
 	map.set_outline_tiles(current_neighbors)
+	
+	current_tile = starting_tile
+	current_layer = starting_layer
+	current_tile_data = map.get_tile(current_tile.x, current_tile.y, current_layer)
 	
 	target_tile = null
 	target_tile_data = null
@@ -113,9 +116,8 @@ func pickup():
 func _process(delta):
 	if is_moving:
 		var slab_offset = 0
-		if target_tile_data.terrain_set == 2 and !sent_signal: # Player has made it to the final block
+		if target_tile_data.terrain_set == 2: # Player has made it to the final block
 			emit_signal("finished_map")
-			sent_signal = true
 			
 		if target_tile_data.terrain_set == 0:
 			on_slab = true
@@ -130,6 +132,7 @@ func _process(delta):
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
 			position = move_pos
 			
+			print("made it to signal")
 			previous_fish_pos.emit(current_tile)
 			fish_pos.emit(target_tile)
 			
@@ -171,14 +174,15 @@ func _input(event):
 			target_tile = current_neighbors[1].pos
 			target_tile_data = current_neighbors[1].data
 			target_layer = current_neighbors[1].pos.z
-		#elif Input.is_action_just_pressed("hop_in_place"):
-			#pass
+		elif Input.is_action_just_pressed("hop_in_place"):
+			target_tile = current_tile
+			target_tile_data = current_tile_data
+			target_layer = current_layer
 		else:
 			return
 		
 		use_water(1)
 		if target_tile_data.terrain_set == 1:
 			set_water()
-		#water_label.text = str(current_water)
 		
 		is_moving = true
