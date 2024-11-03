@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://b72yblrsgul6v"]
+[gd_scene load_steps=5 format=4 uid="uid://b72yblrsgul6v"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_2qpw5"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_4ioaj"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_7i502"]
+[ext_resource type="PackedScene" uid="uid://bi0xousvrk4r3" path="res://Shark/Shark.tscn" id="4_pkp1b"]
 
 [node name="Map2" type="Node2D"]
 y_sort_enabled = true
@@ -59,6 +60,6 @@ top_level = true
 z_index = 1
 y_sort_enabled = true
 
-[node name="Sharks" type="Node2D" parent="."]
-
 [node name="Coins" type="Node2D" parent="."]
+
+[node name="Sharks" type="Node2D" parent="."]

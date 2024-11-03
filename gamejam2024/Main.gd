@@ -22,6 +22,7 @@ var instance2 = map2.instantiate()
 
 var fox_scene: PackedScene = preload("res://Fox/Fox.tscn")
 var shark_scene: PackedScene = preload("res://Shark/Shark.tscn")
+var bear_scene: PackedScene = preload("res://Bear/Bear.tscn")
 
 var coin_scene: PackedScene = preload("res://Coin/Coin.tscn")
 
@@ -51,6 +52,9 @@ func enter_map1():
 	instance1.get_node("Foxes").add_child(fox)
 	fox.set_starting_tile(Vector3(-2, -2, 0))
 	fox.call_death.connect(instance1.get_node("Fish").death)
+	var bear = bear_scene.instantiate()
+	bear.set_starting_tile(Vector3(-3, -2, 0))
+	bear.call_death.connect(instance1.get_node("Fish").death)
 	
 	instance1.get_node("Fish").finished_map.connect(finished)
 	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
