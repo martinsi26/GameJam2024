@@ -27,10 +27,6 @@ var starting_layer
 
 var bounce_progress = 0
 var bounce_vel = 1
-var bounce_in_place_progress = 0
-var bounce_in_place_vel = 1
-
-var bounce_in_place = false
 
 var tt: Vector3
 var ttd: Object
@@ -50,7 +46,6 @@ func set_starting_values(_starting_tile, _starting_layer):
 	set_water()
 	water_label.text = str(current_water)
 	coin_label.text = str(number_of_coins)
-	bounce_in_place = false
 	on_slab = false
 	starting_tile = _starting_tile
 	starting_layer = _starting_layer
@@ -76,7 +71,6 @@ func respawn():
 	target_tile = null
 	target_tile_data = null
 	target_layer = null
-	bounce_in_place = false
 	is_moving = false
 
 func set_water():
@@ -137,24 +131,8 @@ func _physics_process(delta: float) -> void:
 func _process(delta):
 	if current_tile.x != tt.x || current_tile.y != tt.y:
 		map.set_target_tile(current_neighbors, tt, self)
-		
-	#else:
-		#is_moving = false
-		#bounce_in_place_progress += bounce_in_place_vel
-		#$AnimatedSprite2D.offset.y = -bounce_in_place_progress
-		#bounce_in_place_vel -= 6 * delta
-		#
-		#if (bounce_in_place_progress < 0):
-			#bounce_in_place_vel = 2
-			#bounce_progress = 0
-			#bounce_vel = 1
-			#is_moving = true
-			#bounce_in_place = false
 	
 	if is_moving:
-		previous_fish_pos.emit(current_tile)
-		fish_pos.emit(target_tile)
-		
 		var slab_offset = 0
 		if target_tile_data.terrain_set == 2: # Player has made it to the final block
 			emit_signal("finished_map")
@@ -171,6 +149,9 @@ func _process(delta):
 		position = position.move_toward(move_pos, speed * delta)  # Adjust speed as needed
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
 			position = move_pos
+			
+			previous_fish_pos.emit(current_tile)
+			fish_pos.emit(target_tile)
 			
 			current_tile = target_tile
 			current_tile_data = target_tile_data
@@ -234,7 +215,5 @@ func _on_timer_timeout() -> void:
 	water_label.text = str(current_water)
 	
 	is_moving = true
-	
-	#tt = Vector3.ZERO
+
 	ttd = null
-	#tl = 0.00

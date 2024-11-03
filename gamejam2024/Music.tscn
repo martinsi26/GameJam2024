@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://5e5rvlandhx4"]
+
+[ext_resource type="AudioStream" uid="uid://il33d66ipx2j" path="res://Sounds/Fish_Outta_Wate_Soundtrack.mp3" id="1_cwprk"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_cwprk")
+autoplay = true
+bus = &"Music"
