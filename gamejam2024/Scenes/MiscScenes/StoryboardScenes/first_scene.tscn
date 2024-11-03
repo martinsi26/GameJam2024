@@ -54,6 +54,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 50
 text = "Continue"
+vertical_icon_alignment = 2
 
 [node name="Dialogue" type="CanvasLayer" parent="."]
 visible = false
