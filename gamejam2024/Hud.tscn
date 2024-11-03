@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3m4fdc2dryvq"]
+
+[ext_resource type="Texture2D" uid="uid://cg2qbkkb0wptv" path="res://Art/Hud/WaterDropFull.png" id="1_8ttlu"]
+[ext_resource type="Texture2D" uid="uid://ccr41owppn3nw" path="res://Art/Hud/CoinNotCollected.png" id="2_ts8n2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -17.0
+offset_top = 4.0
+offset_right = -17.0
+offset_bottom = 4.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 14.0
+offset_right = 155.0
+offset_bottom = 37.0
+scale = Vector2(1.2, 1.2)
+text = "Current Water: "
+
+[node name="WaterLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 16.0
+offset_right = 195.0
+offset_bottom = 39.0
+scale = Vector2(1.2, 1.2)
+
+[node name="Water_1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 173.333
+offset_right = 223.333
+offset_bottom = 50.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_8ttlu")
+expand_mode = 1
+
+[node name="Water_2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 193.333
+offset_right = 243.333
+offset_bottom = 50.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_8ttlu")
+expand_mode = 1
+
+[node name="Water_3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 213.333
+offset_right = 263.333
+offset_bottom = 50.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_8ttlu")
+expand_mode = 1
+
+[node name="Water_4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 234.333
+offset_right = 284.333
+offset_bottom = 50.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_8ttlu")
+expand_mode = 1
+
+[node name="Water_5" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 255.333
+offset_right = 305.333
+offset_bottom = 50.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_8ttlu")
+expand_mode = 1
+
+[node name="Coin_1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 792.5
+offset_top = -2.5
+offset_right = 842.5
+offset_bottom = 47.5
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_ts8n2")
+expand_mode = 1
+
+[node name="Coin_2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 848.5
+offset_top = -1.5
+offset_right = 898.5
+offset_bottom = 48.5
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_ts8n2")
+expand_mode = 1

@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var map = $".."
-@onready var label = $Camera2D/Control/WaterLabel
+@onready var label = $CanvasLayer/Label
 @onready var beat = $Beat
 
 var tile_size = Vector2(32, 16)  # Adjust based on your tile map dimensions
@@ -30,10 +30,14 @@ var water_full = preload("res://Art/Hud/WaterDropFull.png")
 var water_empty = preload("res://Art/Hud/WaterDropEmpty.png")
 var water_half = preload("res://Art/Hud/WaterDropHalf.png")
 
-@onready var water_bar = [$Camera2D/Control/Water_1, $Camera2D/Control/Water_2, $Camera2D/Control/Water_3, $Camera2D/Control/Water_4, $Camera2D/Control/Water_5]
+#@onready var water_bar = [$Camera2D/Control/Water_1, $Camera2D/Control/Water_2, $Camera2D/Control/Water_3, $Control/Water_4, $Control/Water_5]
 var latest_water = 5
 
 # Called when the node enters the scene tree for the first time.
+
+signal water_changed()
+
+signal water_reset()
 
 func _ready() -> void:
 	add_child(beat)
@@ -44,7 +48,7 @@ func _ready() -> void:
 func set_starting_values(_starting_tile, _starting_layer):
 	print("set starting values function")
 	set_water()
-	label.text = str(current_water)
+	#label.text = str(current_water)
 	
 	
 	on_slab = false
@@ -62,7 +66,8 @@ func set_water():
 	
 func use_water(water: int):
 	current_water -= water
-	update_water_display()
+	emit_signal("water_changed")
+	#update_water_display()
 	
 func update_neighbors(current_neighbors, layer):
 	var new_neighbors = [null, null, null, null]
@@ -178,8 +183,9 @@ func _on_timer_timeout() -> void:
 	use_water(1)
 	if target_tile_data.terrain_set == 1:
 		set_water()
-		reset_water_bar()
-	label.text = str(current_water)
+		emit_signal("water_reset")
+		#reset_water_bar()
+	#label.text = str(current_water)
 	print(current_water)
 	
 	is_moving = true
@@ -188,15 +194,3 @@ func _on_timer_timeout() -> void:
 	ttd = null
 	#tl = 0.00
 	
-
-func update_water_display():
-	if latest_water >= 0:
-		if water_bar[latest_water-1].texture == water_full:
-			water_bar[latest_water-1].texture = water_half
-		else:
-			water_bar[latest_water-1].texture = water_empty
-			latest_water -= 1
-
-func reset_water_bar():
-	for i in water_bar:
-		i.texture = water_full
