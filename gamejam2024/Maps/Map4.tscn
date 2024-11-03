@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://b56305uwadmk5"]
+[gd_scene load_steps=4 format=4 uid="uid://bp58u36jofbtb"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_22g6a"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_wrq7r"]
@@ -47,3 +47,7 @@ tile_set = ExtResource("2_wrq7r")
 top_level = true
 z_index = 1
 y_sort_enabled = true
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Bears" type="Node2D" parent="."]
