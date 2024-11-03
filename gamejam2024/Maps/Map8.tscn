@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=4 uid="uid://doodkxbcvub7h"]
+[gd_scene load_steps=7 format=4 uid="uid://bc6p3ctosiwwm"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_uq7ic"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_3bgl2"]
 [ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="3_3xn3i"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="4_3gjtn"]
+
+[sub_resource type="Gradient" id="Gradient_i2sbt"]
+offsets = PackedFloat32Array(0.131737, 1)
+colors = PackedColorArray(0.763486, 0.888775, 1, 1, 0.0564231, 0.524967, 0.99999, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q313r"]
+gradient = SubResource("Gradient_i2sbt")
+width = 128
+height = 128
 
 [node name="Map8" type="Node2D"]
 y_sort_enabled = true
@@ -67,3 +76,12 @@ y_sort_enabled = true
 [node name="Bear3" type="Node2D" parent="."]
 
 [node name="Bear4" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -500
+offset_left = 1614.0
+offset_top = -1279.0
+offset_right = 3520.0
+offset_bottom = 1700.0
+rotation = 1.5708
+texture = SubResource("GradientTexture2D_q313r")

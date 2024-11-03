@@ -1,11 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi0xousvrk4r3"]
+[gd_scene load_steps=9 format=3 uid="uid://bi0xousvrk4r3"]
 
 [ext_resource type="Script" path="res://Shark/Shark.gd" id="1_pamfn"]
 [ext_resource type="Texture2D" uid="uid://bvqfaqrk2id3f" path="res://Art/shark.png" id="2_n3x1o"]
+[ext_resource type="Texture2D" uid="uid://cj1f0fkm66ypy" path="res://Art/sharkdr.png" id="3_8nu0s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1u4m"]
+atlas = ExtResource("3_8nu0s")
+region = Rect2(0, 0, 24, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oi3l"]
+atlas = ExtResource("3_8nu0s")
+region = Rect2(24, 0, 24, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6efjr"]
+atlas = ExtResource("3_8nu0s")
+region = Rect2(48, 0, 24, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ktx4"]
+atlas = ExtResource("3_8nu0s")
+region = Rect2(72, 0, 24, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6xjrg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1u4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oi3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6efjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ktx4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Shark" type="Node2D"]
 script = ExtResource("1_pamfn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-2, 14)
 texture = ExtResource("2_n3x1o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 95
+position = Vector2(-2.11758e-22, -15)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_6xjrg")
+autoplay = "default"
+frame_progress = 0.174944

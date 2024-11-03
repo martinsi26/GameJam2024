@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=4 uid="uid://dvapl6oj2h4n8"]
+[gd_scene load_steps=6 format=4 uid="uid://dvapl6oj2h4n8"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_fpfn1"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_y3467"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_o5eno"]
+
+[sub_resource type="Gradient" id="Gradient_potd8"]
+offsets = PackedFloat32Array(0.131737, 1)
+colors = PackedColorArray(0.763486, 0.888775, 1, 1, 0.0564231, 0.524967, 0.99999, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ubryr"]
+gradient = SubResource("Gradient_potd8")
+width = 128
+height = 128
 
 [node name="Map0" type="Node2D"]
 y_sort_enabled = true
@@ -49,3 +58,12 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="Coins" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -500
+offset_left = 1544.0
+offset_top = -1182.0
+offset_right = 3450.0
+offset_bottom = 1797.0
+rotation = 1.5708
+texture = SubResource("GradientTexture2D_ubryr")

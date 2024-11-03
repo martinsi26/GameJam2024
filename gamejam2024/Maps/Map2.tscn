@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=4 uid="uid://b72yblrsgul6v"]
+[gd_scene load_steps=7 format=4 uid="uid://b72yblrsgul6v"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_2qpw5"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_4ioaj"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_7i502"]
 [ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="3_i5llt"]
+
+[sub_resource type="Gradient" id="Gradient_xwrk2"]
+offsets = PackedFloat32Array(0.131737, 1)
+colors = PackedColorArray(0.763486, 0.888775, 1, 1, 0.0564231, 0.524967, 0.99999, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g8k0w"]
+gradient = SubResource("Gradient_xwrk2")
+width = 128
+height = 128
 
 [node name="Map2" type="Node2D"]
 y_sort_enabled = true
@@ -70,3 +79,12 @@ y_sort_enabled = true
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Sharks" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -500
+offset_left = 1544.0
+offset_top = -1182.0
+offset_right = 3450.0
+offset_bottom = 1797.0
+rotation = 1.5708
+texture = SubResource("GradientTexture2D_g8k0w")
