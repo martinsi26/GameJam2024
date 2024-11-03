@@ -32,6 +32,8 @@ func set_starting_tile(_starting_tile: Vector3):
 	
 func reset():
 	current_fox_tile = starting_tile
+	target_fox_tile = current_fox_tile
+	target_fox_tile_data = current_fox_tile_data
 	position = map.get_tile_center(starting_tile.x, starting_tile.y, starting_tile.z)
 
 func update_neighbors(current_neighbors, layer):
