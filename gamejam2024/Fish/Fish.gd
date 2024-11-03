@@ -26,12 +26,6 @@ var tt: Vector3
 var ttd: Object
 var tl: float
 
-var water_full = preload("res://Art/Hud/WaterDropFull.png")
-var water_empty = preload("res://Art/Hud/WaterDropEmpty.png")
-var water_half = preload("res://Art/Hud/WaterDropHalf.png")
-
-#@onready var water_bar = [$Camera2D/Control/Water_1, $Camera2D/Control/Water_2, $Camera2D/Control/Water_3, $Control/Water_4, $Control/Water_5]
-var latest_water = 5
 
 # Called when the node enters the scene tree for the first time.
 
