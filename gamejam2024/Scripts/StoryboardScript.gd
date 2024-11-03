@@ -19,20 +19,17 @@ func _on_button_pressed() -> void:
 		$TextureRect.texture = new_texture
 		
 	elif count == 2:
-		$VBoxContainer.visible = false
-		$VBoxContainer2.visible = true
+		$MarginContainer/VBoxContainer.visible = false
+		$Dialogue.visible = true
 	count += 1
 
 
 func _on_dialogue_button_pressed() -> void:
 	if count == 3:
-		$VBoxContainer2/ColorRect/Label2.text = "Rules"
-		$VBoxContainer2/MarginContainer/Label.text = "
-		
+		$Dialogue/Control/ColorRect/MarginContainer/VBoxContainer/Title.text = "Rules"
+		$Dialogue/Control/ColorRect/MarginContainer/VBoxContainer/MarginContainer/Description.text = "
 		1. Use WASD to move between tiles
-		
 		2. You can only move so many times before you run out of water
-		
 		3. Reach streams to reach the next level"
 	else:
 		get_tree().change_scene_to_file("res://Scenes/MiscScenes/StartMenu.tscn")

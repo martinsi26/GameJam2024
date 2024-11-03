@@ -23,7 +23,7 @@ texture = ExtResource("1_5b7xv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,73 +31,105 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Story of PufferFish Rob
 "
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 50
 text = "Continue"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="Dialogue" type="CanvasLayer" parent="."]
 visible = false
-layout_mode = 1
+
+[node name="Control" type="Control" parent="Dialogue"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer2"]
-layout_mode = 2
-color = Color(0, 0, 0, 0.14902)
+[node name="ColorRect" type="ColorRect" parent="Dialogue/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.670588)
 
-[node name="Label2" type="Label" parent="VBoxContainer2/ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogue/Control/ColorRect/MarginContainer"]
 layout_mode = 2
-offset_top = 4.0
-offset_right = 1152.0
-offset_bottom = 114.0
-size_flags_vertical = 1
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Dialogue/Control/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "Mission"
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue/Control/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Dialogue/Control/ColorRect/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="VBoxContainer2/MarginContainer"]
+[node name="Description" type="Label" parent="Dialogue/Control/ColorRect/MarginContainer/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(20, 60)
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 45
 text = "You must figure out why the waterfall stopped and save the pond. You must become the FISH OUTTA WATER!"
-vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer2/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Dialogue/Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-color = Color(0, 0, 0, 0.14902)
+size_flags_vertical = 8
+theme_override_constants/separation = -1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialogue/Control/ColorRect/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+alignment = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
+[node name="dialogue_button" type="Button" parent="Dialogue/Control/ColorRect/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.486275, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Continue
+"
 
-[node name="DialogueButton" type="Button" parent="VBoxContainer2/VBoxContainer/MarginContainer2"]
-layout_mode = 2
-text = "Continue"
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
-layout_mode = 2
-
-[connection signal="pressed" from="VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/MarginContainer2/DialogueButton" to="." method="_on_dialogue_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Dialogue/Control/ColorRect/MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/dialogue_button" to="." method="_on_dialogue_button_pressed"]
