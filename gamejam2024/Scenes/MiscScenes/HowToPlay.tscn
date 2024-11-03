@@ -1,0 +1,108 @@
+[gd_scene load_steps=4 format=3 uid="uid://csg6arca4ugmf"]
+
+[ext_resource type="Texture2D" uid="uid://dryx6f55smyd8" path="res://Assets/Art/HowToPlayFish.png" id="2_2v3wt"]
+[ext_resource type="Script" path="res://Scripts/HowToPlay.gd" id="2_rhh5w"]
+[ext_resource type="FontFile" uid="uid://b15u71uf2db5y" path="res://Assets/fonts/PixelifySans-VariableFont_wght.ttf" id="3_dxxwa"]
+
+[node name="HowToPlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.423529)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_dxxwa")
+theme_override_font_sizes/font_size = 100
+text = "How To Play"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TextLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_constants/line_spacing = 30
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_dxxwa")
+theme_override_font_sizes/font_size = 32
+text = "TOP-LEFT (NW)
+TOP-RIGHT (NE)
+BOTTOM-LEFT (SW)
+BOTTOM-RIGHT (SE)
+HOP IN PLACE
+PAUSE"
+horizontal_alignment = 1
+uppercase = true
+tab_stops = PackedFloat32Array(50)
+script = ExtResource("2_rhh5w")
+
+[node name="TextLabel 2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 30
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_dxxwa")
+theme_override_font_sizes/font_size = 32
+text = "W	
+D
+A
+S
+SPacebar
+ESC"
+horizontal_alignment = 1
+uppercase = true
+script = ExtResource("2_rhh5w")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("2_2v3wt")
+stretch_mode = 3
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_dxxwa")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
