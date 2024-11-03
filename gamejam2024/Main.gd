@@ -19,13 +19,14 @@ var instance2 = map2.instantiate()
 #var instance6 = map6.instantiate()
 
 var fox_scene: PackedScene = preload("res://Fox/Fox.tscn")
+var shark_scene: PackedScene = preload("res://Shark/Shark.tscn")
 
 signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_map = 1
-	enter_map1()
+	current_map = 2
+	enter_map2()
 	#current_map = 0
 	#add_child(instance0)
 	#instance0.get_node("Fish").finished_map.connect(finished)
@@ -37,14 +38,19 @@ func enter_map1():
 	var fox = fox_scene.instantiate()
 	instance1.get_node("Foxes").add_child(fox)
 	fox.set_starting_tile(Vector3(-2, -2, 0))
+	fox.call_death.connect(instance1.get_node("Fish").death)
 	
 	instance1.get_node("Fish").finished_map.connect(finished)
-	fox.call_death.connect(instance1.get_node("Fish").death)
 	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
 	
 func enter_map2():
-	#setup_map(instance2)
 	add_child(instance2)
+	
+	var shark = shark_scene.instantiate()
+	instance2.get_node("Sharks").add_child(shark)
+	shark.set_starting_tile(Vector3i(-4, -3, 1))
+	shark.call_death.connect(instance2.get_node("Fish").death)
+	
 	instance2.get_node("Fish").finished_map.connect(finished)
 	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
 	
