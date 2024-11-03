@@ -82,7 +82,7 @@ func death():
 	pass
 					
 func _process(delta):
-	if current_tile.x != tt.x && current_tile.y != tt.y:
+	if current_tile.x != tt.x || current_tile.y != tt.y:
 		map.set_target_tile(current_neighbors, tt, self)
 	
 	if current_water == 0:
