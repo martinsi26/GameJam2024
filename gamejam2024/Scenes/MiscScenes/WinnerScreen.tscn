@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn6uppkrn5fch"]
+[gd_scene load_steps=4 format=3 uid="uid://dn6uppkrn5fch"]
 
 [ext_resource type="Script" path="res://Scripts/WinnerMenu.gd" id="1_mrpsb"]
 [ext_resource type="FontFile" uid="uid://b15u71uf2db5y" path="res://Assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_85qdh"]
+[ext_resource type="Texture2D" uid="uid://buhspfi10oaqh" path="res://Assets/Art/Storyboard/first_scene.png" id="2_t7baw"]
 
 [node name="WinnerMenu" type="Control"]
 layout_mode = 3
@@ -17,7 +18,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource("2_t7baw")
 expand_mode = 1
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

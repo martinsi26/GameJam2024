@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0ijeqb5wejx0"]
+[gd_scene load_steps=5 format=3 uid="uid://b0ijeqb5wejx0"]
 
 [ext_resource type="Script" path="res://Scripts/StartMenu.gd" id="1_gqxy6"]
 [ext_resource type="FontFile" uid="uid://b15u71uf2db5y" path="res://Assets/fonts/PixelifySans-VariableFont_wght.ttf" id="1_rm7l3"]
+[ext_resource type="Texture2D" uid="uid://bguiibbccyw6y" path="res://Assets/Art/StartMenu.jpg" id="2_1fw8x"]
 [ext_resource type="PackedScene" uid="uid://csg6arca4ugmf" path="res://Scenes/MiscScenes/HowToPlay.tscn" id="4_qnk3t"]
 
 [node name="StartMenu" type="Control"]
@@ -18,7 +19,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-expand_mode = 5
+texture = ExtResource("2_1fw8x")
+expand_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,7 +40,7 @@ theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.647059, 0, 1)
 theme_override_fonts/font = ExtResource("1_rm7l3")
 theme_override_font_sizes/font_size = 100
 text = "Fish Outta Water"
