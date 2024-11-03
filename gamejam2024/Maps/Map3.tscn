@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=4 uid="uid://dap5jh2w0b1tv"]
+
+[ext_resource type="Script" path="res://Maps/map.gd" id="1_ibtir"]
+[ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_s4n8w"]
+[ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_2sr5k"]
+
+[node name="Map3" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ibtir")
+
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD+/wAAAAACAAAAAAD+////AAACAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAD///3/AAACAAAAAAD///z/AAACAAAAAAD///v/AAACAAAAAAD+//v/AAACAAAAAAD+//z/AAACAAAAAAD+//3/AAACAAAAAAD+//7/AAACAAAAAAA=")
+tile_set = ExtResource("2_s4n8w")
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
+z_index = 10
+tile_set = ExtResource("2_s4n8w")
+
+[node name="TileMapLayer1" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+position = Vector2(0, -48)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD9//v/AAAAAAAAAAD8//v/AAAAAAAAAAD7//r/AAABAAAAAAD6//r/AAABAAAAAAD5//r/AAABAAAAAAD4//r/AAABAAAAAAD6//v/AAABAAAAAAD4//n/AAAAAAAAAAD5//n/AAAAAAAAAAD5//j/AAAAAAAAAAD6//n/AAAAAAAAAAD7//n/AAAFAAAAAAD8//n/AAABAAAAAAD8//r/AAABAAAAAAD9//r/AAAFAAAAAAD9//n/AAABAAAAAAD9//f/AAAAAAAAAAD9//b/AAABAAAAAAD8//b/AAABAAAAAAD7//b/AAABAAAAAAD7//f/AAAAAAAAAAD7//j/AAAAAAAAAAD8//f/AAABAAAAAAD8//j/AAABAAAAAAD6//f/AAAAAAAAAAD6//j/AAADAAAAAAD+//v/AAAGAAAAAAD8//X/AAABAAAAAAD6//X/AAABAAAAAAD6//b/AAABAAAAAAD5//b/AAABAAAAAAD5//f/AAAAAAAAAAD4//f/AAABAAAAAAD3//b/AAABAAAAAAD4//b/AAABAAAAAAD3//X/AAABAAAAAAD4//X/AAABAAAAAAD4//j/AAABAAAAAAD5//v/AAABAAAAAAD7//v/AAABAAAAAAD9//X/AAABAAAAAAD5//X/AAABAAAAAAD3//f/AAABAAAAAAD3//n/AAAAAAAAAAD3//j/AAABAAAAAAD7//X/AAABAAAAAAD6//z/AAABAAAAAAD7//z/AAABAAAAAAD8//z/AAABAAAAAAD9//z/AAABAAAAAAD3//T/AAAAAAAAAAD4//T/AAAAAAAAAAD5//T/AAABAAAAAAD7//T/AAABAAAAAAD6//T/AAABAAAAAAD8//T/AAAAAAAAAAD9//T/AAAAAAAAAAD9//j/AAAAAAAAAAA=")
+tile_set = ExtResource("2_s4n8w")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer1"]
+z_index = 10
+tile_set = ExtResource("2_s4n8w")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
+position = Vector2(0, -96)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD3//P/AAAGAAAAAAD3//L/AAACAAAAAAD2//L/AAACAAAAAAD1//L/AAACAAAAAAD1//H/AAAAAAAAAAD1//D/AAAAAAAAAAD1/+//AAAAAAAAAAA=")
+tile_set = ExtResource("2_s4n8w")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer2"]
+z_index = 10
+tile_set = ExtResource("2_s4n8w")
+
+[node name="Fish" parent="." instance=ExtResource("3_2sr5k")]
+top_level = true
+z_index = 1
+y_sort_enabled = true
