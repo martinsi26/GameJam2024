@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://41yv0mbcnjs7"]
+[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://41yv0mbcnjs7"]
 
 [ext_resource type="Texture2D" uid="uid://d3101w05jvdh3" path="res://Art/iso_tileset.png" id="1_1i8px"]
 [ext_resource type="Texture2D" uid="uid://cna8ntjv7vhw8" path="res://Art/outline.png" id="2_0dvn2"]
 [ext_resource type="Texture2D" uid="uid://cq3pnm86hx5yt" path="res://Art/outline_slab.png" id="3_dmysn"]
 [ext_resource type="PackedScene" uid="uid://cofir8fv52iwg" path="res://Fox/Fox.tscn" id="4_3fsi8"]
 [ext_resource type="Texture2D" uid="uid://b52mh5yriflfp" path="res://Art/water_atlas.png" id="5_ulghg"]
+[ext_resource type="Texture2D" uid="uid://djm52q6xhntky" path="res://Art/decorations_atlas.png" id="6_qpolb"]
 [ext_resource type="Texture2D" uid="uid://uktwuc8dr71v" path="res://Art/tiles_atlas.png" id="6_s135a"]
 [ext_resource type="Texture2D" uid="uid://dnyetg31fmphm" path="res://Art/dirt_atlas.png" id="7_qxe8r"]
 
@@ -220,6 +221,19 @@ texture_region_size = Vector2i(32, 32)
 6:2/0/terrains_peering_bit/top_left_side = 0
 6:2/0/terrains_peering_bit/top_right_side = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0603o"]
+texture = ExtResource("6_qpolb")
+separation = Vector2i(0, 17)
+texture_region_size = Vector2i(30, 16)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rmwa1"]
 resource_name = "regular tiles"
 texture = ExtResource("6_s135a")
@@ -275,7 +289,6 @@ texture = ExtResource("7_qxe8r")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, -8)
-0:0/0/terrain_set = 1
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -8)
 2:0/0 = 0
@@ -284,7 +297,6 @@ texture_region_size = Vector2i(32, 32)
 3:0/0/texture_origin = Vector2i(0, -8)
 4:0/0 = 0
 4:0/0/texture_origin = Vector2i(0, -8)
-4:0/0/terrain_set = 1
 5:0/0 = 0
 5:0/0/texture_origin = Vector2i(0, -8)
 6:0/0 = 0
@@ -301,10 +313,8 @@ texture_region_size = Vector2i(32, 32)
 3:1/0/texture_origin = Vector2i(0, -8)
 4:1/0 = 0
 4:1/0/texture_origin = Vector2i(0, -8)
-4:1/0/terrain_set = 1
 5:1/0 = 0
 5:1/0/texture_origin = Vector2i(0, -8)
-5:1/0/terrain_set = 1
 6:1/0 = 0
 6:1/0/texture_origin = Vector2i(0, -8)
 7:1/0 = 0
@@ -334,3 +344,4 @@ sources/4 = SubResource("TileSetAtlasSource_4n8qr")
 sources/6 = SubResource("TileSetAtlasSource_rmwa1")
 sources/7 = SubResource("TileSetAtlasSource_ui4lj")
 sources/9 = SubResource("TileSetAtlasSource_jdb4p")
+sources/5 = SubResource("TileSetAtlasSource_0603o")
