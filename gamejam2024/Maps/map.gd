@@ -78,10 +78,10 @@ func set_target_tile(tiles, target, curr):
 	
 	var layer = $Layers.get_child(t.pos.z).get_node("OutlineLayer")
 	
-	var source_id = 1
+	var source_id = 3
 	
 	if t.data.terrain_set == 0:
-		source_id = 2
+		source_id = 4
 	
 	layer.set_cell(Vector2(t.pos.x, t.pos.y), source_id, Vector2i(0, 0))
 	
