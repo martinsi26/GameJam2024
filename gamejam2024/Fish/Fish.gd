@@ -18,8 +18,13 @@ var current_neighbors
 var max_water = 10
 var current_water
 
+var starting_tile
+var starting_layer
+
 var sent_signal = false
 signal finished_map
+
+signal fish_pos(pos: Vector3i)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,18 +37,35 @@ func set_starting_values(_starting_tile, _starting_layer):
 	label.text = str(current_water)
 	
 	on_slab = false
+	starting_tile = _starting_tile
+	starting_layer = _starting_layer
 	current_tile = _starting_tile
 	current_layer = _starting_layer
 	
 	current_neighbors = map.get_neighbor_tiles(_starting_tile.x, _starting_tile.y, _starting_layer)
 	current_neighbors = update_neighbors(current_neighbors, _starting_layer)
 	map.set_outline_tiles(current_neighbors)
+	
+func respawn():
+	position = map.get_tile_center(starting_tile.x, starting_tile.y, starting_layer)
+	
+	current_neighbors = map.get_neighbor_tiles(starting_tile.x, starting_tile.y, starting_layer)
+	current_neighbors = update_neighbors(current_neighbors, starting_layer)
+	map.set_outline_tiles(current_neighbors)
+	
+	target_tile = null
+	target_tile_data = null
+	target_layer = null
+	
+	is_moving = false
 
 func set_water():
 	current_water = max_water
+	label.text = str(current_water)
 	
 func use_water(water: int):
 	current_water -= water
+	label.text = str(current_water)
 
 func update_neighbors(current_neighbors, layer):
 	var new_neighbors = [null, null, null, null]
@@ -72,13 +94,12 @@ func update_neighbors(current_neighbors, layer):
 	return new_neighbors
 	
 func death():
+	set_water()
+	respawn()
 	# you die
 	pass
 					
 func _process(delta):
-	if current_water == 0:
-		death()
-	
 	if is_moving:
 		var slab_offset = 0
 		if target_tile_data.terrain_set == 2 and !sent_signal: # Player has made it to the final block
@@ -104,8 +125,11 @@ func _process(delta):
 			current_neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
 			current_neighbors = update_neighbors(current_neighbors, current_layer)
 			map.set_outline_tiles(current_neighbors)
-			
+			fish_pos.emit(current_tile)
 			is_moving = false
+			
+	if current_water == 0:
+		death()
 	
 func _input(event):
 	if not is_moving:
@@ -141,6 +165,9 @@ func _input(event):
 		use_water(1)
 		if target_tile_data.terrain_set == 1:
 			set_water()
-		label.text = str(current_water)
+		#label.text = str(current_water)
 		
 		is_moving = true
+
+func _on_fox_call_death() -> void:
+	death()
