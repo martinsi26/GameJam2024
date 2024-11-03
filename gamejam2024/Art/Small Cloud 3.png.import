@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgswplbgodb63"
-path="res://.godot/imported/coins.png-cfee7ce6a2698b5f4c7dd2ed39014a6d.ctex"
+uid="uid://dllhavvly8m08"
+path="res://.godot/imported/Small Cloud 3.png-d9ddd2d4abaff646558c36f11a5b656f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/coins.png"
-dest_files=["res://.godot/imported/coins.png-cfee7ce6a2698b5f4c7dd2ed39014a6d.ctex"]
+source_file="res://Art/Small Cloud 3.png"
+dest_files=["res://.godot/imported/Small Cloud 3.png-d9ddd2d4abaff646558c36f11a5b656f.ctex"]
 
 [params]
 

@@ -37,7 +37,6 @@ tile_set = ExtResource("2_utpeh")
 tile_set = null
 
 [node name="Fish" parent="." instance=ExtResource("4_1qgbg")]
-visible = false
 top_level = true
 z_index = 1
 y_sort_enabled = true
