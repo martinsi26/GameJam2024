@@ -30,9 +30,10 @@ signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#current_map = 1
-	#enter_map1()
-	current_map = 0
+	enter_map2()
+	current_map = 2
+	
+func enter_map0():
 	add_child(instance0)
 	
 	var coin = coin_scene.instantiate()
