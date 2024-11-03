@@ -26,7 +26,7 @@ signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_child(instance0)
-	print(water_bar)
+	#print(water_bar)
 	#add_child(fish)
 	#update_hud()
 	instance0.get_node("Fish").finished_map.connect(finished)
@@ -89,8 +89,10 @@ func finished():
 #func update_hud():
 	#var current_water = fish.current_water
 	#print("main value", current_water)
-func update_water_display():
+func update_water_display(current_water):
 	#print(fish.current_water)
+	print(current_water)
+	#print("TEST")
 	if latest_water >= 0:
 		if water_bar[latest_water-1].texture == water_full:
 			water_bar[latest_water-1].texture = water_half
@@ -101,3 +103,4 @@ func update_water_display():
 func reset_water_bar():
 	for i in water_bar:
 		i.texture = water_full
+	latest_water = 5

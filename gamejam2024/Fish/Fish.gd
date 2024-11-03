@@ -29,7 +29,7 @@ var tl: float
 
 # Called when the node enters the scene tree for the first time.
 
-signal water_changed()
+signal water_changed(current_water)
 
 signal water_reset()
 
@@ -60,7 +60,7 @@ func set_water():
 	
 func use_water(water: int):
 	current_water -= water
-	emit_signal("water_changed")
+	emit_signal("water_changed", current_water)
 	#update_water_display()
 	
 func update_neighbors(current_neighbors, layer):
@@ -178,9 +178,10 @@ func _on_timer_timeout() -> void:
 	if target_tile_data.terrain_set == 1:
 		set_water()
 		emit_signal("water_reset")
+		print("reset")
 		#reset_water_bar()
 	#label.text = str(current_water)
-	print(current_water)
+	#print(current_water)
 	
 	is_moving = true
 	
