@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://cbnmn3xfwhmt5"]
+[gd_scene load_steps=4 format=4 uid="uid://bhb0kvo181caj"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_sb80t"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_vkmei"]
@@ -13,7 +13,7 @@ script = ExtResource("1_sb80t")
 [node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
 y_sort_enabled = true
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD5////AAAFAAAAAAD5//7/AAAFAAAAAAD5//3/AAAFAAAAAAD5//z/AAAFAAAAAAD5//v/AAAFAAAAAAD4////AAAFAAAAAAD4//3/AAAFAAAAAAD4//v/AAAFAAAAAAD4//7/AAAFAAAAAAD4//z/AAAFAAAAAAD5//r/AAACAAAAAAD5//n/AAAAAAAAAAD5//j/AAAAAAAAAAD5//f/AAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wIAAAACAAAAAAD//wQAAAACAAAAAAD//wMAAAACAAAAAAD//wAAAAACAAAAAAD//wEAAAACAAAAAAD///7/AAAEAAAAAAD+//7/AAAFAAAAAAD/////AAACAAAAAAD//wUAAAACAAAAAAD//wYAAAACAAAAAAD//wcAAAACAAAAAAD///3/AAACAAAAAAD+//z/AAAEAAAAAAD///z/AAAFAAAAAAD///v/AAACAAAAAAD///T/AAAAAAAAAAD///X/AAAAAAAAAAD///b/AAACAAAAAAD///f/AAAFAAAAAAD///j/AAAFAAAAAAD///n/AAAFAAAAAAD+//f/AAAFAAAAAAD+//n/AAAFAAAAAAD///P/AAAEAAAAAAAAAPj/AAAFAAAAAAAAAPr/AAAAAAAAAAD+//r/AAADAAAAAAD///r/AAACAAAAAAD//wgAAAAFAAAAAAA=")
 tile_set = ExtResource("2_vkmei")
 
 [node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
@@ -28,3 +28,5 @@ y_sort_enabled = true
 [node name="Bears" type="Node2D" parent="."]
 
 [node name="Foxes" type="Node2D" parent="."]
+
+[node name="Coins" type="Node2D" parent="."]
