@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy0dyfp70203m"]
+
+[ext_resource type="Texture2D" uid="uid://dgkfus6qddyt1" path="res://Art/bear.png" id="1_mbday"]
+[ext_resource type="Script" path="res://Bear/Bear.gd" id="1_wdl5x"]
+
+[node name="Bear" type="Node2D"]
+script = ExtResource("1_wdl5x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 11)
+texture = ExtResource("1_mbday")

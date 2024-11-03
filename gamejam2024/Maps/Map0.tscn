@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=4 uid="uid://dvapl6oj2h4n8"]
+
+[ext_resource type="Script" path="res://Maps/map.gd" id="1_fpfn1"]
+[ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_y3467"]
+[ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_o5eno"]
+
+[node name="Map0" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_fpfn1")
+
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD9/wAABgAAAAEAAAD8/wAABgAAAAEAAAD/////BgAAAAEAAAD///7/BgAAAAEAAAD///3/BgAAAAEAAAD///z/BgABAAEAAAD7/wAABgAAAAEAAAD6/wAABgADAAEAAAD//wAABgAAAAEAAAD+/wAABgAAAAEAAAA=")
+tile_set = ExtResource("2_y3467")
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
+z_index = 10
+tile_set = ExtResource("2_y3467")
+
+[node name="TileMapLayer1" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+position = Vector2(0, -48)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD+////BgAAAAEAAAD+//7/BgAAAAEAAAD+//3/BgAAAAEAAAD+//z/BgAAAAEAAAD8////BgAAAAEAAAD7////BgAAAAEAAAD7//7/BgAAAAEAAAD9//z/BgAAAAEAAAD9//3/BAAAAAIAAAD9//7/BgAAAAEAAAD8//7/BgAAAAEAAAD6//7/BgAAAAEAAAD6////BgAFAAEAAAD6/wAABgAEAAEAAAD///z/BgACAAEAAAD9////BgAAAAEAAAD7//z/BgACAAEAAAD9/wAABQABAAEAAAA=")
+tile_set = ExtResource("2_y3467")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer1"]
+z_index = 10
+tile_set = ExtResource("2_y3467")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
+position = Vector2(0, -96)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD8//3/BgACAAEAAAD7//3/BgAAAAEAAAD7//z/BgAAAAEAAAD7//v/BAACAAIAAAD7//r/BAACAAIAAAD7//n/AAAEAAAAAAD9//z/BQAAAAAAAAD8////BQAAAAIAAAD+//7/BQABAAIAAAA=")
+tile_set = ExtResource("2_y3467")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer2"]
+z_index = 10
+tile_set = ExtResource("2_y3467")
+
+[node name="Fish" parent="." instance=ExtResource("3_o5eno")]
+top_level = true
+z_index = 1
+y_sort_enabled = true
+
+[node name="Coins" type="Node2D" parent="."]

@@ -1,0 +1,131 @@
+[gd_scene load_steps=12 format=3 uid="uid://80qqev8uk4q6"]
+
+[ext_resource type="Script" path="res://Fish/Fish.gd" id="1_hy7m6"]
+[ext_resource type="Texture2D" uid="uid://71evo31xli6b" path="res://Art/pufferfish_animation.png" id="2_n2llx"]
+[ext_resource type="Texture2D" uid="uid://cbaclaelgujip" path="res://Art/shadow.png" id="3_8vk6m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pryb"]
+atlas = ExtResource("2_n2llx")
+region = Rect2(0, 0, 25, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whajt"]
+atlas = ExtResource("2_n2llx")
+region = Rect2(25, 0, 25, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eugb6"]
+atlas = ExtResource("2_n2llx")
+region = Rect2(50, 0, 25, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa44k"]
+atlas = ExtResource("2_n2llx")
+region = Rect2(75, 0, 25, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukr8s"]
+atlas = ExtResource("2_n2llx")
+region = Rect2(100, 0, 25, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5at7"]
+atlas = ExtResource("2_n2llx")
+region = Rect2(125, 0, 25, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pktea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pryb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whajt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eugb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa44k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukr8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5at7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_k134m"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Input.is_action_just_pressed(\"camera_zoom_in\"):
+		zoom *= 1.2
+		
+	if Input.is_action_just_pressed(\"camera_zoom_out\"):
+		zoom *= 1 / 1.2
+"
+
+[node name="Fish" type="Node2D"]
+script = ExtResource("1_hy7m6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 100
+position = Vector2(0, -9)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_pktea")
+autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.407843)
+scale = Vector2(2.5, 2)
+texture = ExtResource("3_8vk6m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.2, 1.2)
+position_smoothing_enabled = true
+script = SubResource("GDScript_k134m")
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -361.0
+offset_top = -240.0
+offset_right = -321.0
+offset_bottom = -199.0
+
+[node name="Label" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 14.0
+offset_right = 155.0
+offset_bottom = 37.0
+text = "Current Water: "
+
+[node name="WaterLabel" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 16.0
+offset_right = 195.0
+offset_bottom = 39.0
+
+[node name="Label2" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 11.0
+offset_right = 665.0
+offset_bottom = 34.0
+text = "Number of Coins"
+
+[node name="CoinLabel" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 668.0
+offset_top = 14.0
+offset_right = 708.0
+offset_bottom = 37.0
