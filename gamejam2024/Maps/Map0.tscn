@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_fpfn1"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_y3467"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_o5eno"]
-[ext_resource type="PackedScene" uid="uid://c80tcuin8pm6k" path="res://EnemyScenes/bear.tscn" id="4_hnexj"]
+[ext_resource type="PackedScene" uid="uid://c80tcuin8pm6k" path="res://Fox/bear.tscn" id="4_hnexj"]
 
 [node name="Map0" type="Node2D"]
 y_sort_enabled = true
@@ -25,7 +25,7 @@ tile_set = ExtResource("2_y3467")
 y_sort_enabled = true
 position = Vector2(0, -48)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD+////AAABAAAAAAD+//7/AAABAAAAAAD+//3/AAABAAAAAAD+//z/AAABAAAAAAD9////AAABAAAAAAD8////AAABAAAAAAD7////AAABAAAAAAD7//7/AAABAAAAAAD9//z/AAABAAAAAAD9//3/AAABAAAAAAD9//7/AAAAAAAAAAD8//7/AAABAAAAAAD6//7/AAABAAAAAAD6////AAADAAAAAAD6/wAAAAAGAAAAAAD///z/AAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+////AAAEAAAAAAD+//7/AAABAAAAAAD+//3/AAABAAAAAAD+//z/AAABAAAAAAD8////AAABAAAAAAD7////AAABAAAAAAD7//7/AAABAAAAAAD9//z/AAABAAAAAAD9//3/AAABAAAAAAD9//7/AAAAAAAAAAD8//7/AAABAAAAAAD6//7/AAABAAAAAAD6////AAADAAAAAAD6/wAAAAAGAAAAAAD///z/AAAGAAAAAAD9////AAABAAAAAAA=")
 tile_set = ExtResource("2_y3467")
 y_sort_origin = 1
 

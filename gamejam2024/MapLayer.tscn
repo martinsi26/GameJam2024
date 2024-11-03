@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=4 uid="uid://bpewf7gk7l8ph"]
+
+[ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="1_tdg2t"]
+
+[node name="MapLayer" type="TileMapLayer"]
+y_sort_enabled = true
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD+/wAAAAACAAAAAAD9/wAAAAACAAAAAAD+////AAACAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAA=")
+tile_set = ExtResource("1_tdg2t")
+
+[node name="OutlineLayer" type="TileMapLayer" parent="."]
+z_index = 10
+tile_set = ExtResource("1_tdg2t")

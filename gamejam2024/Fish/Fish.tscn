@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://80qqev8uk4q6"]
 
 [ext_resource type="Script" path="res://Fish/Fish.gd" id="1_hy7m6"]
-[ext_resource type="Texture2D" uid="uid://dlybclb8k3lyb" path="res://Art/icon.svg" id="2_nn7vm"]
+[ext_resource type="Texture2D" uid="uid://dgfdmkij2k14c" path="res://Art/pufferfish.png" id="2_tma4a"]
 
 [sub_resource type="GDScript" id="GDScript_k134m"]
 script/source = "extends Camera2D
@@ -14,8 +14,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position += Input.get_vector(\"camera_left\", \"camera_right\", \"camera_up\", \"camera_down\") * 10
-	
 	if Input.is_action_just_pressed(\"camera_zoom_in\"):
 		zoom *= 1.2
 		
@@ -27,8 +25,9 @@ func _process(delta):
 script = ExtResource("1_hy7m6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.234375, 0.234375)
-texture = ExtResource("2_nn7vm")
+position = Vector2(-2, 21)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_tma4a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)

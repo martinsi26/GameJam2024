@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_fr23t"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_1j8u2"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_o6xnw"]
-[ext_resource type="PackedScene" uid="uid://c80tcuin8pm6k" path="res://EnemyScenes/bear.tscn" id="4_8ga7c"]
+[ext_resource type="PackedScene" uid="uid://c80tcuin8pm6k" path="res://Fox/bear.tscn" id="4_8ga7c"]
 
 [node name="Map1" type="Node2D"]
 y_sort_enabled = true
@@ -44,12 +44,13 @@ y_sort_origin = 1
 z_index = 10
 tile_set = ExtResource("2_1j8u2")
 
-[node name="Fish" parent="." instance=ExtResource("3_o6xnw")]
+[node name="Bear" parent="." instance=ExtResource("4_8ga7c")]
 top_level = true
 z_index = 1
 y_sort_enabled = true
+position = Vector2(97, -292)
 
-[node name="Boar" parent="." instance=ExtResource("4_8ga7c")]
+[node name="Fish" parent="." instance=ExtResource("3_o6xnw")]
 top_level = true
 z_index = 1
 y_sort_enabled = true

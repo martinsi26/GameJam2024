@@ -24,6 +24,7 @@ signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 func _ready() -> void:
 	current_map = 1
 	enter_map1()
+	#current_map = 0
 	#add_child(instance0)
 	#instance0.get_node("Fish").finished_map.connect(finished)
 	#emit_signal("set_starting_values", Vector2i(-1, 0), 0)
