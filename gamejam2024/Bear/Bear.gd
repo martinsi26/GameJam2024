@@ -21,8 +21,7 @@ var starting_tile: Vector3i
 signal call_death
 
 var path
-var path_start
-var current_path_index
+var path_index
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,17 +33,18 @@ func set_starting_tile(_starting_tile: Vector3i):
 	starting_tile = _starting_tile
 	reset()
 	
-func set_starting_path(_starting_path, _path_start, _current_path_index):
-	path = _starting_path
-	path_start = _path_start
-	current_path_index = _current_path_index
+func set_starting_path(path_input):
+	path = path_input
+	reset()
 	
 func reset():
+	path_index = 1
 	current_bear_tile = starting_tile
-	target_bear_tile = path_start
+	target_bear_tile = path[path_index]
 	target_bear_tile_data = current_bear_tile_data
 	position = map.get_tile_center(starting_tile.x, starting_tile.y, starting_tile.z)
 	position.y -= current_bear_tile.z * 48
+	print("reset")
 			
 func _process(delta):
 	if is_moving:
@@ -67,9 +67,11 @@ func _process(delta):
 				emit_signal("call_death")
 			
 			move_to_next_path_tile()
+			print("finished moving")
 			is_moving = false
 
 func move_to_fish(pos: Vector3i):
+	print("moving!")
 	fish_pos = pos
 	is_moving = true
 	
@@ -77,12 +79,12 @@ func prev_fish_pos(pos: Vector3i):
 	previous_fish_pos = pos
 
 func move_to_next_path_tile():
-	if current_path_index < path.size() - 1:
-		current_path_index += 1
+	if path_index < path.size() - 1:
+		path_index += 1
 	else:
-		current_path_index = 0
+		path_index = 0
 	
-	target_bear_tile = path[current_path_index]
+	target_bear_tile = path[path_index]
 	target_bear_tile_data = map.get_tile(target_bear_tile.x, target_bear_tile.y, target_bear_tile.z)
 	is_moving = true
 		

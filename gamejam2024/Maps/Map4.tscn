@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://b2vo2d3ok3vwr"]
+[gd_scene load_steps=4 format=4 uid="uid://1dq16msqm1by"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_22g6a"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_wrq7r"]
@@ -13,7 +13,7 @@ script = ExtResource("1_22g6a")
 [node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
 y_sort_enabled = true
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD//wAAAAACAAAAAAD/////AAACAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD9/wAAAAACAAAAAAD9////AAACAAAAAAD+//7/AAACAAAAAAD///7/AAACAAAAAAD///3/AAACAAAAAAD+//3/AAACAAAAAAD9//3/AAACAAAAAAD8//3/AAACAAAAAAD8//7/AAACAAAAAAD8//z/AAACAAAAAAD7//z/AAAFAAAAAAD9//z/AAAAAAAAAAD///z/AAACAAAAAAD+//z/AAACAAAAAAD7//v/AAAFAAAAAAD7//r/AAAFAAAAAAD7//n/AAAFAAAAAAD7//j/AAAFAAAAAAD8//j/AAACAAAAAAD7//f/AAAFAAAAAAD8//b/AAACAAAAAAD9//b/AAACAAAAAAD+//b/AAACAAAAAAD///b/AAACAAAAAAAAAPz/AAACAAAAAAABAPz/AAACAAAAAAACAPz/AAACAAAAAAACAPv/AAACAAAAAAACAPr/AAACAAAAAAACAPn/AAACAAAAAAACAPj/AAACAAAAAAACAPb/AAADAAAAAAACAPf/AAACAAAAAAAAAPb/AAACAAAAAAABAPb/AAACAAAAAAACAPX/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wAABgAAAAEAAAD/////BgAAAAEAAAD+////BgAAAAEAAAD+/wAABgAAAAEAAAD9/wAABgAAAAEAAAD9////BgAAAAEAAAD+//7/BgAAAAEAAAD///7/BgAAAAEAAAD///3/BgAAAAEAAAD+//3/BgAAAAEAAAD9//3/BgAAAAEAAAD8//3/BgAAAAEAAAD8//7/BgAAAAEAAAD8//z/BgAAAAEAAAD7//z/CQAFAAEAAAD9//z/BAAAAAIAAAD///z/BgAAAAEAAAD+//z/BgAAAAEAAAD7//v/CQACAAEAAAD7//r/CQACAAEAAAD7//n/CQACAAEAAAD7//j/CQACAAEAAAD8//j/BgAAAAEAAAD7//f/CQAAAAIAAAD8//b/BgAAAAEAAAD9//b/BgAAAAEAAAD+//b/BgAAAAEAAAD///b/BgAAAAEAAAAAAPz/BgAAAAEAAAABAPz/BgAAAAEAAAACAPz/BgAAAAEAAAACAPv/BgAAAAEAAAACAPr/BgAAAAEAAAACAPn/BgAAAAEAAAACAPj/BgAAAAEAAAACAPb/BgAAAAEAAAACAPf/BgAAAAEAAAAAAPb/BgAAAAEAAAABAPb/BgAAAAEAAAACAPX/BAAAAAIAAAD9//7/BgAAAAEAAAD2//X/BgABAAEAAAD3//X/BgABAAEAAAD4//X/BgABAAEAAAD5//X/BgABAAEAAAD4//b/BgABAAEAAAD1//X/BgABAAEAAAD0//X/BgABAAEAAAD7//X/BgABAAEAAAA=")
 tile_set = ExtResource("2_wrq7r")
 
 [node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
@@ -24,7 +24,7 @@ tile_set = ExtResource("2_wrq7r")
 y_sort_enabled = true
 position = Vector2(0, -48)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD7//b/AAAGAAAAAAD7//X/AAAAAAAAAAD6//X/AAABAAAAAAD5//X/AAABAAAAAAD4//X/AAAFAAAAAAD3//X/AAABAAAAAAD4//b/AAAFAAAAAAD4//T/AAAFAAAAAAD2//X/AAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD7//b/BgACAAEAAAD7//X/BAAAAAIAAAD6//X/BgAAAAEAAAD5//X/BgAAAAEAAAD4//X/CQACAAEAAAD3//X/BgAAAAEAAAD4//b/CQAFAAEAAAD4//T/CQAAAAIAAAD2//X/BgAAAAEAAAD0//X/BgABAAAAAAD1//X/BgABAAAAAAA=")
 tile_set = ExtResource("2_wrq7r")
 y_sort_origin = 1
 
@@ -35,7 +35,7 @@ tile_set = ExtResource("2_wrq7r")
 [node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -96)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD1//X/AAAGAAAAAAD0//T/AAAAAAAAAAD0//P/AAAAAAAAAAD0//L/AAAEAAAAAAD0//X/AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1//X/BgACAAEAAAD0//L/AAAEAAAAAAD0//X/BgAAAAEAAAD0//T/BAAFAAIAAAD0//P/BAACAAIAAAA=")
 tile_set = ExtResource("2_wrq7r")
 y_sort_origin = 1
 
@@ -47,3 +47,7 @@ tile_set = ExtResource("2_wrq7r")
 top_level = true
 z_index = 1
 y_sort_enabled = true
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Bears" type="Node2D" parent="."]

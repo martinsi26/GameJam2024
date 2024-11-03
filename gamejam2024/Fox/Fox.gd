@@ -67,7 +67,7 @@ func update_neighbors(current_neighbors, layer):
 func _process(delta):
 	if is_moving:
 		var slab_offset = 0
-		if target_fox_tile_data.terrain_set == 0:
+		if target_fox_tile_data and target_fox_tile_data.terrain_set == 0:
 			on_slab = true
 			slab_offset = 22
 		else:
