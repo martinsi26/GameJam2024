@@ -28,4 +28,4 @@ func _on_quit_pressed() -> void:
 
 
 func _on_play_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file("res://Scenes/MiscScenes/StoryboardScenes/first_scene.tscn")
