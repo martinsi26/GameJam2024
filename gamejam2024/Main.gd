@@ -7,18 +7,18 @@ var total_coins = 0
 var map0 = preload("res://Maps/Map0.tscn")
 var map1 = preload("res://Maps/Map1.tscn")
 var map2 = preload("res://Maps/Map2.tscn")
-#var map3 = preload("res://Maps/Map3.tscn")
-#var map4 = preload("res://Maps/Map4.tscn")
-#var map5 = preload("res://Maps/Map5.tscn")
-#var map6 = preload("res://Maps/Map6.tscn")
+var map3 = preload("res://Maps/Map3.tscn")
+var map4 = preload("res://Maps/Map4.tscn")
+var map5 = preload("res://Maps/Map5.tscn")
+var map6 = preload("res://Maps/Map6.tscn")
 
 var instance0 = map0.instantiate()
 var instance1 = map1.instantiate()
 var instance2 = map2.instantiate()
-#var instance3 = map3.instantiate()
-#var instance4 = map4.instantiate()
-#var instance5 = map5.instantiate()
-#var instance6 = map6.instantiate()
+var instance3 = map3.instantiate()
+var instance4 = map4.instantiate()
+var instance5 = map5.instantiate()
+var instance6 = map6.instantiate()
 
 var fox_scene: PackedScene = preload("res://Fox/Fox.tscn")
 var shark_scene: PackedScene = preload("res://Shark/Shark.tscn")
@@ -104,6 +104,135 @@ func enter_map2():
 	coin3.call_pickup.connect(instance2.get_node("Fish").pickup)
 	coin4.call_pickup.connect(instance2.get_node("Fish").pickup)
 	
+func enter_map3():
+	add_child(instance3)
+	
+	var shark = shark_scene.instantiate()
+	instance3.get_node("Sharks").add_child(shark)
+	shark.set_starting_tile(Vector3i(-5, -7, 1))
+	shark.call_death.connect(instance3.get_node("Fish").death)
+	
+	var fox = fox_scene.instantiate()
+	instance3.get_node("Foxes").add_child(fox)
+	fox.set_starting_tile(Vector3i(-3, -6, 1))
+	fox.call_death.connect(instance3.get_node("Fish").death)
+	
+	var coin = coin_scene.instantiate()
+	instance3.get_node("Coins").add_child(coin)
+	coin.set_starting_tile(Vector3(-6, -8, 1))
+	coin.call_pickup.connect(instance3.get_node("Fish").pickup)
+	
+	instance3.get_node("Fish").finished_map.connect(finished)
+	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
+	
+func enter_map4():
+	add_child(instance4)
+	
+	var bear = bear_scene.instantiate()
+	instance4.get_node("Bears").add_child(bear)
+	var path = [
+		Vector3i(-5, -4, 0),
+		Vector3i(-5, -5, 0),
+		Vector3i(-5, -6, 0),
+		Vector3i(-5, -7, 0),
+		Vector3i(-5, -8, 0),
+		Vector3i(-5, -9, 0),
+		Vector3i(-5, -8, 0),
+		Vector3i(-5, -7, 0),
+		Vector3i(-5, -6, 0),
+		Vector3i(-5, -5, 0),
+	]
+	bear.set_starting_path(path, Vector3i(-5, -5, 0), 1)
+	bear.set_starting_tile(Vector3i(-5, -4, 0))
+	bear.call_death.connect(instance4.get_node("Fish").death)
+	
+	var bear2 = bear_scene.instantiate()
+	instance4.get_node("Bears").add_child(bear2)
+	var path2 = [
+		Vector3i(-8, -10, 1),
+		Vector3i(-8, -11, 1),
+		Vector3i(-8, -12, 1),
+		Vector3i(-8, -11, 1),
+	]
+	bear2.set_starting_path(path2, Vector3i(-8, -11, 1), 1)
+	bear2.set_starting_tile(Vector3i(-8, -10, 1))
+	bear2.call_death.connect(instance4.get_node("Fish").death)
+	
+	var coin = coin_scene.instantiate()
+	instance4.get_node("Coins").add_child(coin)
+	coin.set_starting_tile(Vector3(2, -10, 0))
+	coin.call_pickup.connect(instance4.get_node("Fish").pickup)
+	
+	instance4.get_node("Fish").finished_map.connect(finished)
+	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
+	
+func enter_map5():
+	add_child(instance5)
+
+	var bear = bear_scene.instantiate()
+	instance5.get_node("Bears").add_child(bear)
+	var path = [
+		Vector3i(-5, -4, 1),
+		Vector3i(-5, -5, 1),
+		Vector3i(-5, -6, 1),
+		Vector3i(-5, -5, 1),
+	]
+	bear.set_starting_path(path, Vector3i(-5, -5, 1), 1)
+	bear.set_starting_tile(Vector3i(-5, -4, 1))
+	bear.call_death.connect(instance5.get_node("Fish").death)
+	
+	var bear2 = bear_scene.instantiate()
+	instance5.get_node("Bears").add_child(bear2)
+	var path2 = [
+		Vector3i(-10, -8, 2),
+		Vector3i(-11, -8, 2),
+	]
+	bear2.set_starting_path(path2, Vector3i(-11, -8, 2), 1)
+	bear2.set_starting_tile(Vector3i(-10, -8, 2))
+	bear2.call_death.connect(instance5.get_node("Fish").death)
+	
+	instance5.get_node("Fish").finished_map.connect(finished)
+	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
+	
+func enter_map6():
+	add_child(instance6)
+	
+	var fox = fox_scene.instantiate()
+	instance6.get_node("Foxes").add_child(fox)
+	fox.set_starting_tile(Vector3i(-1, 4, 0))
+	fox.call_death.connect(instance6.get_node("Fish").death)
+	
+	var coin = coin_scene.instantiate()
+	instance6.get_node("Coins").add_child(coin)
+	coin.set_starting_tile(Vector3(-1, -8, 0))
+	coin.call_pickup.connect(instance6.get_node("Fish").pickup)
+	
+	var bear = bear_scene.instantiate()
+	instance6.get_node("Bears").add_child(bear)
+	var path = [
+		Vector3i(0, -3, 0),
+		Vector3i(-1, -3, 0),
+	]
+	bear.set_starting_path(path, Vector3i(-1, -3, 1), 1)
+	bear.set_starting_tile(Vector3i(0, -3, 1))
+	bear.call_death.connect(instance6.get_node("Fish").death)
+	
+	var bear2 = bear_scene.instantiate()
+	instance6.get_node("Bears").add_child(bear2)
+	var path2 = [
+		Vector3i(-10, -8, 2),
+		Vector3i(-11, -8, 2),
+	]
+	bear2.set_starting_path(path2, Vector3i(-11, -8, 2), 1)
+	bear2.set_starting_tile(Vector3i(-10, -8, 2))
+	bear2.call_death.connect(instance6.get_node("Fish").death)
+	
+	instance6.get_node("Fish").finished_map.connect(finished)
+	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
+	
+func end_game():
+	print("Game over")
+	
 func finished():
 	current_map += 1
 	if current_map == 1:
@@ -114,42 +243,19 @@ func finished():
 		total_coins += instance1.get_node("Fish").number_of_coins
 		instance1.queue_free()
 		enter_map2()
-	#elif current_map == 3:
-		#instance2.queue_free()
-		#enter_map3()
-	#elif current_map == 4:
-		#instance3.queue_free()
-		#enter_map4()
-	#elif current_map == 5:
-		#instance4.queue_free()
-		#enter_map5()
-	#elif current_map == 6:
-		#instance5.queue_free()
-		#enter_map6()
-	
-#func enter_map3():
-	#var instance3 = map3.instantiate()
-	#add_child(instance3)
-	#instance3.connect("enter_map4")
-	#emit_signal("set_starting_values", Vector2i(-1, 0), 0)
-	#
-#func enter_map4():
-	#var instance4 = map4.instantiate()
-	#add_child(instance4)
-	#instance4.connect("enter_map5")
-	#emit_signal("set_starting_values", Vector2i(-1, 0), 0)
-	#
-#func enter_map5():
-	#var instance5 = map5.instantiate()
-	#add_child(instance5)
-	#instance5.connect("enter_map6")
-	#emit_signal("set_starting_values", Vector2i(-1, 0), 0)
-	#
-#func enter_map6():
-	#var instance6 = map6.instantiate()
-	#add_child(instance6)
-	#instance6.connect("enter_end")
-	#emit_signal("set_starting_values", Vector2i(-1, 0), 0)
-	#
-#func enter_end():
-	#print("Game over")
+	elif current_map == 3:
+		total_coins += instance2.get_node("Fish").number_of_coins
+		instance2.queue_free()
+		enter_map3()
+	elif current_map == 4:
+		total_coins += instance3.get_node("Fish").number_of_coins
+		instance3.queue_free()
+		enter_map4()
+	elif current_map == 5:
+		total_coins += instance4.get_node("Fish").number_of_coins
+		instance4.queue_free()
+		enter_map5()
+	elif current_map == 6:
+		total_coins += instance5.get_node("Fish").number_of_coins
+		instance5.queue_free()
+		enter_map6()

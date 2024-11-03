@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://bhb0kvo181caj"]
+[gd_scene load_steps=4 format=4 uid="uid://cbnmn3xfwhmt5"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_sb80t"]
 [ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="2_j1w2i"]
@@ -43,3 +43,7 @@ tile_set = ExtResource("2_vkmei")
 top_level = true
 z_index = 1
 y_sort_enabled = true
+
+[node name="Bears" type="Node2D" parent="."]
+
+[node name="Foxes" type="Node2D" parent="."]
