@@ -18,7 +18,6 @@ config/icon="res://Art/icon.svg"
 
 [autoload]
 
-Beats="*res://Beats/beat.tscn"
 Music="*res://Music.tscn"
 
 [display]

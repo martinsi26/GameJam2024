@@ -29,8 +29,9 @@ func _on_dialogue_button_pressed() -> void:
 		$Dialogue/Control/ColorRect/MarginContainer/VBoxContainer/Title.text = "Rules"
 		$Dialogue/Control/ColorRect/MarginContainer/VBoxContainer/MarginContainer/Description.text = "
 		1. Use WASD to move between tiles
-		2. You can only move so many times before you run out of water
-		3. Reach streams to reach the next level"
+		2. Use SPACE to hop in place
+		3. You can only move so many times before you run out of water
+		4. Reach streams to reach the next level"
 	else:
 		get_tree().change_scene_to_file("res://Main.tscn")
 	count += 1

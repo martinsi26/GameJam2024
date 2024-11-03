@@ -23,7 +23,6 @@ signal call_death
 func _ready() -> void:
 	on_slab = false
 	get_node("../../Fish").fish_pos.connect(move_to_fish)
-	get_node("../../Fish").fish_death.connect(on_fish_death)
 	
 func set_starting_tile(_starting_tile: Vector3):
 	starting_tile = _starting_tile

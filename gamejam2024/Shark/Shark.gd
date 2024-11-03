@@ -22,7 +22,6 @@ signal call_death
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("../../Fish").fish_pos.connect(move_to_fish)
-	get_node("../../Fish").fish_death.connect(on_fish_death)
 	
 func set_starting_tile(_starting_tile: Vector3):
 	starting_tile = _starting_tile

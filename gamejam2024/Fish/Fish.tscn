@@ -137,6 +137,7 @@ script = ExtResource("3_83rrk")
 
 [node name="BeatsPerMinute" type="AudioStreamPlayer2D" parent="Beat"]
 stream = ExtResource("4_utwqx")
+volume_db = -14.931
 
 [node name="Timer" type="Timer" parent="Beat"]
 autostart = true
