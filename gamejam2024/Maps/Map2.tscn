@@ -60,6 +60,6 @@ top_level = true
 z_index = 1
 y_sort_enabled = true
 
-[node name="Shark" parent="." instance=ExtResource("4_pkp1b")]
-top_level = true
-position = Vector2(0, -193)
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Sharks" type="Node2D" parent="."]

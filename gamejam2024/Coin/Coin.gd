@@ -30,7 +30,8 @@ func reset():
 		visible = true
 	coin_tile = starting_tile
 	position = map.get_tile_center(starting_tile.x, starting_tile.y, starting_tile.z)
-
+	position.y -= coin_tile.z * 48
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_moving:
