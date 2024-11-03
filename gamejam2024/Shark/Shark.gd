@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var map = $".."
+@onready var map = $"../../"
 
 var speed: int = 200
 
@@ -15,13 +15,24 @@ var current_shark_tile_data: TileData
 var target_shark_tile: Vector3i
 var target_shark_tile_data: TileData
 
+var starting_tile: Vector3
+
 signal call_death
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	on_slab = false
-	current_shark_tile = Vector3i(-4, -3, 1)
-	get_parent().get_node("Fish").fish_pos.connect(move_to_fish)
+	get_node("../../Fish").fish_pos.connect(move_to_fish)
+	get_node("../../Fish").fish_death.connect(on_fish_death)
+	
+func set_starting_tile(_starting_tile: Vector3):
+	starting_tile = _starting_tile
+	reset()
+	
+func reset():
+	current_shark_tile = starting_tile
+	target_shark_tile = current_shark_tile
+	target_shark_tile_data = current_shark_tile_data
+	position = get_parent().get_parent().get_tile_center(starting_tile.x, starting_tile.y, starting_tile.z)
 
 func update_neighbors(current_neighbors, layer: int):
 	var new_neighbors = [null, null, null, null]
@@ -38,7 +49,6 @@ func update_neighbors(current_neighbors, layer: int):
 			
 func _process(delta):
 	if is_moving:
-		
 		var y_offset = target_shark_tile.z * 48
 		var move_pos = map.get_tile_center(target_shark_tile.x, target_shark_tile.y, target_shark_tile.z)
 		move_pos.y -= y_offset
@@ -50,7 +60,7 @@ func _process(delta):
 			current_shark_tile_data = target_shark_tile_data
 			if current_shark_tile == fish_pos:
 				print("hit")
-				#emit_signal("call_death")
+				emit_signal("call_death")
 			is_moving = false
 
 func move_to_fish(pos: Vector3i):
@@ -78,3 +88,5 @@ func pos_compare(fish_pos: Vector3i, fox_pos: Vector3i):
 	return abs(fox_pos.x - fish_pos.x) + abs(fox_pos.y - fish_pos.y)
 		
 		
+func on_fish_death():
+	reset()

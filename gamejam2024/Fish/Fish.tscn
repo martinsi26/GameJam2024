@@ -56,3 +56,18 @@ offset_left = 155.0
 offset_top = 16.0
 offset_right = 195.0
 offset_bottom = 39.0
+
+[node name="Label2" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 11.0
+offset_right = 665.0
+offset_bottom = 34.0
+text = "Number of Coins"
+
+[node name="CoinLabel" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 668.0
+offset_top = 14.0
+offset_right = 708.0
+offset_bottom = 37.0

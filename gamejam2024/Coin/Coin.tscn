@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://nlhdchufd7gf"]
+
+[ext_resource type="Script" path="res://Coin/Coin.gd" id="1_w4dso"]
+[ext_resource type="Texture2D" uid="uid://gswpc81yrj5t" path="res://Art/coin.png" id="2_6qd8k"]
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_w4dso")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 13)
+texture = ExtResource("2_6qd8k")
