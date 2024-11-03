@@ -119,6 +119,7 @@ func _process(delta):
 	
 func _input(event):
 	if not is_moving:
+		get_tree().create_timer(0.5).timeout
 		if Input.is_action_just_pressed("move_up"):	# W key (up-left)
 			if !current_neighbors[0]:
 				return

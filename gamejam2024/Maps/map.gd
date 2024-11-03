@@ -53,8 +53,20 @@ func get_tile_center(x: int, y: int, z: int) -> Vector2:
 	return $Layers.get_child(z).map_to_local(Vector2i(x, y)) * 3
 
 func set_target_tile(tiles, target, curr):
-	#for l in $Layers.get_children():
-		#l.get_node("OutlineLayer").clear()
+	for l in $Layers.get_children():
+		l.get_node("OutlineLayer").clear()
+		
+	for t in tiles:
+		if !t:
+			continue
+		var layer = $Layers.get_child(t.pos.z).get_node("OutlineLayer")
+		
+		var source_id = 1
+		
+		if t.data.terrain_set == 0:
+			source_id = 2
+		
+		layer.set_cell(Vector2(t.pos.x, t.pos.y), source_id, Vector2i(0, 0))
 	
 	var value
 	var x = curr.current_tile.x
