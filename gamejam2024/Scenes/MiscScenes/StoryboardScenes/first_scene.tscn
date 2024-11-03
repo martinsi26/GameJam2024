@@ -111,7 +111,9 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(20, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
-text = "You must figure out why the waterfall stopped and save the pond. You must become the FISH OUTTA WATER!"
+text = "You must figure out why the waterfall 
+stopped and save the pond. You must 
+become the FISH OUTTA WATER!"
 autowrap_mode = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Dialogue/Control/ColorRect/MarginContainer/VBoxContainer"]

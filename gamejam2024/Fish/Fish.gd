@@ -137,7 +137,7 @@ func _process(delta):
 	
 	if is_moving:
 		var slab_offset = 0
-		if target_tile_data.terrain_set == 2: # Player has made it to the final block
+		if target_tile_data.terrain_set == 2 and not is_complete: # Player has made it to the final block
 			is_complete = true
 			emit_signal("finished_map")
 			

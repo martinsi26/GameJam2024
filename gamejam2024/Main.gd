@@ -477,4 +477,6 @@ func finished():
 	total_coins += current_map_instance.get_node("Fish").number_of_coins
 	current_map_instance.queue_free()
 	current_map += 1
+	print(current_map)
+	print(enter_map_functions[current_map])
 	enter_map_functions[current_map].call()
