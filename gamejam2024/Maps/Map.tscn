@@ -12,14 +12,17 @@ script = ExtResource("1_y7m3y")
 
 [node name="MapLayer0" parent="Layers" instance=ExtResource("2_cing1")]
 tile_map_data = PackedByteArray("AAD+////AAACAAAAAAD+/wAAAAACAAAAAAD+/wEAAAACAAAAAAD//wEAAAACAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAAAAAEAAAACAAAAAAD//wAAAAACAAAAAAD/////AAACAAAAAAAAAP//AAACAAAAAAAAAAAAAAACAAAAAAABAAEAAAACAAAAAAABAAAAAAACAAAAAAA=")
+tile_set = null
 
 [node name="MapLayer1" parent="Layers" instance=ExtResource("2_cing1")]
 position = Vector2(0, -48)
 tile_map_data = PackedByteArray("AAD9//7/AAABAAAAAAD9////AAABAAAAAAD+////AAABAAAAAAD+//7/AAABAAAAAAABAAAAAAABAAAAAAD+/wAAAAAGAAAAAAA=")
+tile_set = null
 
 [node name="MapLayer2" parent="Layers" instance=ExtResource("2_cing1")]
 position = Vector2(0, -96)
 tile_map_data = PackedByteArray("AAD9//7/AAAAAAAAAAD8//7/AAAAAAAAAAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAABAAAAAAAAAAAAAAD+//7/AAAGAAAAAAA=")
+tile_set = null
 
 [node name="Fish" parent="." instance=ExtResource("4_erp4l")]
 top_level = true

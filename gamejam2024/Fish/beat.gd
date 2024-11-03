@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	var time = audio.get_playback_position() + AudioServer.get_time_since_last_mix()
 	# Compensate for output latency.
 	time -= AudioServer.get_output_latency()
-	print("Time is: ", time)
+	#print("Time is: ", time)
 	#print("Control is: ", control)
 		
 

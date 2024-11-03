@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://80qqev8uk4q6"]
+[gd_scene load_steps=7 format=3 uid="uid://80qqev8uk4q6"]
 
 [ext_resource type="Script" path="res://Fish/Fish.gd" id="1_hy7m6"]
 [ext_resource type="Texture2D" uid="uid://dlybclb8k3lyb" path="res://Art/icon.svg" id="2_nn7vm"]
+[ext_resource type="Texture2D" uid="uid://cg2qbkkb0wptv" path="res://Art/Hud/WaterDropFull.png" id="3_3clrf"]
 [ext_resource type="Script" path="res://Fish/beat.gd" id="3_83rrk"]
 [ext_resource type="AudioStream" uid="uid://dp4ymtcac7qjq" path="res://Audio/bpm.mp3" id="4_utwqx"]
 
@@ -54,11 +55,52 @@ offset_bottom = 37.0
 text = "Current Water: "
 
 [node name="WaterLabel" type="Label" parent="Camera2D/Control"]
+visible = false
 layout_mode = 0
 offset_left = 155.0
 offset_top = 16.0
 offset_right = 195.0
 offset_bottom = 39.0
+
+[node name="Water_1" type="TextureRect" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 146.0
+offset_right = 196.0
+offset_bottom = 50.0
+texture = ExtResource("3_3clrf")
+expand_mode = 1
+
+[node name="Water_2" type="TextureRect" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 166.0
+offset_right = 216.0
+offset_bottom = 50.0
+texture = ExtResource("3_3clrf")
+expand_mode = 1
+
+[node name="Water_3" type="TextureRect" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 186.0
+offset_right = 236.0
+offset_bottom = 50.0
+texture = ExtResource("3_3clrf")
+expand_mode = 1
+
+[node name="Water_4" type="TextureRect" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 207.0
+offset_right = 257.0
+offset_bottom = 50.0
+texture = ExtResource("3_3clrf")
+expand_mode = 1
+
+[node name="Water_5" type="TextureRect" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 228.0
+offset_right = 278.0
+offset_bottom = 50.0
+texture = ExtResource("3_3clrf")
+expand_mode = 1
 
 [node name="Beat" type="Node" parent="."]
 script = ExtResource("3_83rrk")

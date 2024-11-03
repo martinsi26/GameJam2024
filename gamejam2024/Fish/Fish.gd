@@ -26,16 +26,26 @@ var tt: Vector3
 var ttd: Object
 var tl: float
 
+var water_full = preload("res://Art/Hud/WaterDropFull.png")
+var water_empty = preload("res://Art/Hud/WaterDropEmpty.png")
+var water_half = preload("res://Art/Hud/WaterDropHalf.png")
+
+@onready var water_bar = [$Camera2D/Control/Water_1, $Camera2D/Control/Water_2, $Camera2D/Control/Water_3, $Camera2D/Control/Water_4, $Camera2D/Control/Water_5]
+var latest_water = 5
+
 # Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	add_child(beat)
 	sent_signal = false
 	get_parent().get_parent().connect("set_starting_values", set_starting_values)
+
 	
 func set_starting_values(_starting_tile, _starting_layer):
 	print("set starting values function")
 	set_water()
 	label.text = str(current_water)
+	
 	
 	on_slab = false
 	current_tile = _starting_tile
@@ -48,9 +58,12 @@ func set_starting_values(_starting_tile, _starting_layer):
 func set_water():
 	current_water = max_water
 	
+	
+	
 func use_water(water: int):
 	current_water -= water
-
+	update_water_display()
+	
 func update_neighbors(current_neighbors, layer):
 	var new_neighbors = [null, null, null, null]
 	var i = -1
@@ -165,10 +178,25 @@ func _on_timer_timeout() -> void:
 	use_water(1)
 	if target_tile_data.terrain_set == 1:
 		set_water()
+		reset_water_bar()
 	label.text = str(current_water)
+	print(current_water)
 	
 	is_moving = true
 	
 	#tt = Vector3.ZERO
 	ttd = null
 	#tl = 0.00
+	
+
+func update_water_display():
+	if latest_water >= 0:
+		if water_bar[latest_water-1].texture == water_full:
+			water_bar[latest_water-1].texture = water_half
+		else:
+			water_bar[latest_water-1].texture = water_empty
+			latest_water -= 1
+
+func reset_water_bar():
+	for i in water_bar:
+		i.texture = water_full
