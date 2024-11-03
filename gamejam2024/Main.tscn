@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b574qu24k3jxg"]
+[gd_scene load_steps=4 format=3 uid="uid://dkh456wiom7p1"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_fe8fe"]
 [ext_resource type="Texture2D" uid="uid://cslv53hndma04" path="res://Art/screen_wipe.png" id="2_7w8sd"]
+[ext_resource type="PackedScene" uid="uid://dmehc7vey7sqe" path="res://Control.tscn" id="3_one0b"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fe8fe")
@@ -13,3 +14,5 @@ z_index = 200
 position = Vector2(-1029.59, 362)
 scale = Vector2(2.02504, 1.49617)
 texture = ExtResource("2_7w8sd")
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("3_one0b")]

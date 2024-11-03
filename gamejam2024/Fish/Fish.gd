@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var map = $".."
-@onready var water_label = $Camera2D/Control/WaterLabel
 @onready var coin_label = $Camera2D/Control/CoinLabel
 @onready var beat = $Beat
 
@@ -39,6 +38,9 @@ signal fish_pos(pos: Vector3i)
 signal previous_fish_pos(pos: Vector3i)
 signal fish_death()
 
+signal water_changed(current_water)
+signal water_reset()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_child(beat)
@@ -46,7 +48,6 @@ func _ready() -> void:
 	
 func set_starting_values(_starting_tile, _starting_layer):
 	set_water()
-	water_label.text = str(current_water)
 	coin_label.text = str(number_of_coins)
 	
 	on_slab = false
@@ -78,11 +79,10 @@ func respawn():
 
 func set_water():
 	current_water = max_water
-	water_label.text = str(current_water)
 	
 func use_water(water: int):
 	current_water -= water
-	water_label.text = str(current_water)
+	emit_signal("water_changed", current_water)
 
 func update_neighbors(current_neighbors, layer):
 	var new_neighbors = [null, null, null, null]
@@ -215,7 +215,7 @@ func _on_timer_timeout() -> void:
 	use_water(1)
 	if target_tile_data.terrain_set == 1:
 		set_water()
-	water_label.text = str(current_water)
+		emit_signal("water_reset")
 	
 	is_moving = true
 
