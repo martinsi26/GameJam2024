@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var screen_wipe = $CanvasLayer/Sprite2D
 var screen_wipe_playing = false
 
 var current_map = 0
@@ -32,27 +33,31 @@ signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_map = 8
+	current_map = 0
 	enter_map_functions[current_map].call()
 	
 func _process(delta):
 	if screen_wipe_playing:
-		$Sprite2D.position.x += 10 * delta
+		screen_wipe.position.x += 3000 * delta
 		
-		if $Sprite2D.position.x > 1600:
+		if screen_wipe.position.x > 2200:
 			screen_wipe_playing = false
-			$Sprite2D.visible = false
+			screen_wipe.visible = false
 			
 func play_screen_wipe():
-	$Sprite2D.visible = true
-	$Sprite2D.position.x += -450
+	print("play")
+	screen_wipe.position.x = -450
+	screen_wipe.visible = true
 	screen_wipe_playing = true
 	
 func on_fish_death():
-	#await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.75).timeout
+	play_screen_wipe()
+	get_tree().create_timer(0.25).timeout.connect(reset_map)
+	
+func reset_map():
 	current_map_instance.queue_free()
 	enter_map_functions[current_map].call()
-	play_screen_wipe()
 	
 func enter_map0():
 	var instance0 = map0.instantiate()
@@ -447,6 +452,7 @@ func enter_map8():
 	bear4.set_starting_tile(Vector3i(-10, -17, 2))
 	bear4.call_death.connect(instance8.get_node("Fish").death)
 	
+	instance8.get_node("Fish").fish_death.connect(on_fish_death)
 	instance8.get_node("Fish").finished_map.connect(finished)
 	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
 
@@ -466,7 +472,8 @@ func end_game():
 	print("Game over")
 	
 func finished():
-	await get_tree().create_timer(1).timeout
+	play_screen_wipe()
+	await get_tree().create_timer(0.25).timeout
 	total_coins += current_map_instance.get_node("Fish").number_of_coins
 	current_map_instance.queue_free()
 	current_map += 1

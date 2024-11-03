@@ -106,6 +106,9 @@ func update_neighbors(current_neighbors, layer):
 	return new_neighbors
 	
 func death():
+	if is_dead:
+		return
+	
 	is_dead = true
 	number_of_coins = 0
 	coin_label.text = str(number_of_coins)
@@ -142,7 +145,6 @@ func _process(delta):
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
 			position = move_pos
 			
-			print("made it to signal")
 			previous_fish_pos.emit(current_tile)
 			fish_pos.emit(target_tile)
 			
