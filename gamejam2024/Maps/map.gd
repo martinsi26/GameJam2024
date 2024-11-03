@@ -25,7 +25,7 @@ func get_neighbor_tiles(x: int, y: int, z: int):
 		for z_dir in [1, 0, -1]:
 			var neighbor_data = get_tile(x + dir.x, y + dir.y, z + z_dir)
 	
-			if neighbor_data:
+			if neighbor_data and neighbor_data.terrain_set != 3:
 				var neighbor = Tile.new(neighbor_data, Vector3(x + dir.x, y + dir.y, z + z_dir))
 				neighbors[n] = neighbor
 				break
@@ -50,5 +50,4 @@ func set_outline_tiles(tiles):
 	
 # Convert tile coordinates to world position centered on the tile
 func get_tile_center(x: int, y: int, z: int) -> Vector2:
-	print(z)
 	return $Layers.get_child(z).map_to_local(Vector2i(x, y)) * 3
