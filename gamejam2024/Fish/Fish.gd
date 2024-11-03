@@ -30,7 +30,6 @@ var bounce_vel = 1
 var bounce_in_place_progress = 0
 var bounce_in_place_vel = 1
 
-var occured = false
 var bounce_in_place = false
 
 var tt: Vector3
@@ -130,36 +129,29 @@ func pickup():
 func _process(delta):
 	if current_tile.x != tt.x || current_tile.y != tt.y:
 		map.set_target_tile(current_neighbors, tt, self)
-
-	if !bounce_in_place:
-		bounce_progress += bounce_vel
-		$AnimatedSprite2D.offset.y = -bounce_progress
-		bounce_vel -= 3 * delta
 		
-		if (bounce_progress < 0):
-			bounce_vel = 1
-	else:
-		is_moving = false
-		bounce_in_place_progress += bounce_in_place_vel
-		$AnimatedSprite2D.offset.y = -bounce_in_place_progress
-		bounce_in_place_vel -= 6 * delta
-		
-		if (bounce_in_place_progress < 0):
-			bounce_in_place_vel = 2
-			bounce_progress = 0
-			bounce_vel = 1
-			is_moving = true
-			bounce_in_place = false
+	bounce_progress += bounce_vel
+	$AnimatedSprite2D.offset.y = -bounce_progress
+	bounce_vel -= 3 * delta
+	
+	if (bounce_progress < 0):
+		bounce_vel = 1
+	#else:
+		#is_moving = false
+		#bounce_in_place_progress += bounce_in_place_vel
+		#$AnimatedSprite2D.offset.y = -bounce_in_place_progress
+		#bounce_in_place_vel -= 6 * delta
+		#
+		#if (bounce_in_place_progress < 0):
+			#bounce_in_place_vel = 2
+			#bounce_progress = 0
+			#bounce_vel = 1
+			#is_moving = true
+			#bounce_in_place = false
 	
 	if is_moving:
 		previous_fish_pos.emit(current_tile)
 		fish_pos.emit(target_tile)
-		
-		if !occured:
-			use_water(1)
-			if target_tile_data.terrain_set == 1:
-				set_water()
-			occured = true
 		
 		var slab_offset = 0
 		if target_tile_data.terrain_set == 2: # Player has made it to the final block
@@ -186,13 +178,12 @@ func _process(delta):
 			current_neighbors = update_neighbors(current_neighbors, current_layer)
 			map.set_outline_tiles(current_neighbors)
 			
-			occured = false
 			is_moving = false
 			
 	if current_water == 0:
 		death()
 	
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if not is_moving:
 		get_tree().create_timer(0.5).timeout
 		if Input.is_action_just_pressed("move_up"):	# W key (up-left)
@@ -223,11 +214,8 @@ func _input(event):
 			tt = current_tile
 			ttd = current_tile_data
 			tl = current_layer
-			bounce_in_place = true
 		else:
 			return
-		
-		is_moving = true
 
 func _on_timer_timeout() -> void:
 	beat.audio.play()
@@ -242,7 +230,7 @@ func _on_timer_timeout() -> void:
 	use_water(1)
 	if target_tile_data.terrain_set == 1:
 		set_water()
-	label.text = str(current_water)
+	water_label.text = str(current_water)
 	
 	is_moving = true
 	

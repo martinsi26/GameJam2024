@@ -71,7 +71,7 @@ func set_target_tile(tiles, target, curr):
 	var value
 	var x = curr.current_tile.x
 	var y = curr.current_tile.y
-	
+
 	if target.x - x == 0:
 		if target.y - y == -1:
 			value = 1
@@ -87,13 +87,13 @@ func set_target_tile(tiles, target, curr):
 		return
 	var t = tiles[value]
 	#for t in tiles:
-	
+
 	var layer = $Layers.get_child(t.pos.z).get_node("OutlineLayer")
-	
-	var source_id = 3
-	
+
+	var source_id = 8
+
 	if t.data.terrain_set == 0:
-		source_id = 4
-	
+		source_id = 10
+
 	layer.set_cell(Vector2(t.pos.x, t.pos.y), source_id, Vector2i(0, 0))
 	
