@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://bhb0kvo181caj"]
+[gd_scene load_steps=5 format=4 uid="uid://cbnmn3xfwhmt5"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_sb80t"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_vkmei"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_ar222"]
+[ext_resource type="Texture2D" uid="uid://ctv743w7630xj" path="res://Art/photo-1668853853439-923e013afff1.jpg" id="4_lwu5q"]
 
 [node name="Map6" type="Node2D"]
 y_sort_enabled = true
@@ -13,7 +14,7 @@ script = ExtResource("1_sb80t")
 [node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
 y_sort_enabled = true
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD//wIAAAACAAAAAAD//wQAAAACAAAAAAD//wMAAAACAAAAAAD//wAAAAACAAAAAAD//wEAAAACAAAAAAD///7/AAAEAAAAAAD+//7/AAAFAAAAAAD/////AAACAAAAAAD//wUAAAACAAAAAAD//wYAAAACAAAAAAD//wcAAAACAAAAAAD///3/AAACAAAAAAD+//z/AAAEAAAAAAD///z/AAAFAAAAAAD///v/AAACAAAAAAD///T/AAAAAAAAAAD///X/AAAAAAAAAAD///b/AAACAAAAAAD///f/AAAFAAAAAAD///j/AAAFAAAAAAD///n/AAAFAAAAAAD+//f/AAAFAAAAAAD+//n/AAAFAAAAAAD///P/AAAEAAAAAAAAAPj/AAAFAAAAAAAAAPr/AAAAAAAAAAD+//r/AAADAAAAAAD///r/AAACAAAAAAD//wgAAAAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wIABgAAAAEAAAD//wQABgAAAAEAAAD//wMABgAAAAEAAAD//wAABgAAAAEAAAD//wEABgAAAAEAAAD///7/CQAGAAEAAAD+//7/CQAHAAEAAAD/////BgAAAAEAAAD//wUABgAAAAEAAAD//wYABgAAAAEAAAD//wcABgADAAEAAAD///3/BgAAAAEAAAD+//z/CQAHAAEAAAD///z/CQAGAAEAAAD///v/BgAAAAEAAAD///T/BAACAAIAAAD///X/BAAFAAIAAAD///b/BgAAAAEAAAD///f/CQAGAAEAAAD///j/CQAHAAEAAAD///n/CQAGAAEAAAD+//f/CQAHAAEAAAD+//n/CQAHAAEAAAD///P/AAAEAAAAAAAAAPj/CQAGAAEAAAAAAPr/BAAAAAIAAAD+//r/BgAFAAEAAAD///r/BgAAAAEAAAA=")
 tile_set = ExtResource("2_vkmei")
 
 [node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
@@ -30,3 +31,10 @@ y_sort_enabled = true
 [node name="Foxes" type="Node2D" parent="."]
 
 [node name="Coins" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1403.0
+offset_top = -947.0
+offset_right = 1597.0
+offset_bottom = 1053.0
+texture = ExtResource("4_lwu5q")

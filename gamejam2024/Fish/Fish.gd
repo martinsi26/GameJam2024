@@ -24,6 +24,9 @@ var number_of_coins = 0
 var starting_tile
 var starting_layer
 
+var bounce_progress = 0
+var bounce_vel = 1
+
 signal finished_map
 signal fish_pos(pos: Vector3i)
 signal previous_fish_pos(pos: Vector3i)
@@ -56,7 +59,7 @@ func respawn():
 	current_neighbors = update_neighbors(current_neighbors, starting_layer)
 	map.set_outline_tiles(current_neighbors)
 	
-	current_tile = starting_tile
+	current_tile = Vector3i(starting_tile.x, starting_tile.y, starting_layer)
 	current_layer = starting_layer
 	current_tile_data = map.get_tile(current_tile.x, current_tile.y, current_layer)
 	
@@ -114,6 +117,13 @@ func pickup():
 	coin_label.text = str(number_of_coins)
 					
 func _process(delta):
+	bounce_progress += bounce_vel
+	$AnimatedSprite2D.offset.y = -bounce_progress
+	bounce_vel -= 3 * delta
+	
+	if (bounce_progress < 0):
+		bounce_vel = 1
+	
 	if is_moving:
 		var slab_offset = 0
 		if target_tile_data.terrain_set == 2: # Player has made it to the final block
