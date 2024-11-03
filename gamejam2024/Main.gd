@@ -288,11 +288,6 @@ func enter_map7():
 	current_map_instance = instance7
 	add_child(instance7)
 
-	
-
-func enter_map7():
-	add_child(instance7)
-
 	var shark1 = shark_scene.instantiate()
 	instance7.get_node("Shark1").add_child(shark1)
 	shark1.set_starting_tile(Vector3i(-7, -2, 0))
