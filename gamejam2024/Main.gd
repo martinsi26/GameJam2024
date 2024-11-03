@@ -12,10 +12,11 @@ var map4 = preload("res://Maps/Map4.tscn")
 var map5 = preload("res://Maps/Map5.tscn")
 var map6 = preload("res://Maps/Map6.tscn")
 var map7 = preload("res://Maps/Map7.tscn")
+var map8 = preload("res://Maps/Map8.tscn")
 
 var enter_map_functions = [
 	enter_map0, enter_map1, enter_map2, enter_map3, 
-	enter_map4, enter_map5, enter_map6
+	enter_map4, enter_map5, enter_map6, enter_map7, enter_map8
 ]
 
 var current_map_instance
@@ -29,7 +30,7 @@ signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_map = 0
+	current_map = 8
 	enter_map_functions[current_map].call()
 
 func on_fish_death():
@@ -343,69 +344,10 @@ func enter_map7():
 	coin2.call_pickup.connect(instance7.get_node("Fish").pickup)
 	coin3.call_pickup.connect(instance7.get_node("Fish").pickup)
 	coin4.call_pickup.connect(instance7.get_node("Fish").pickup)
-	
-func enter_map7():
-	add_child(instance7)
-
-	
-	var shark1 = shark_scene.instantiate()
-	instance7.get_node("Shark1").add_child(shark1)
-	shark1.set_starting_tile(Vector3i(-7, -2, 0))
-	shark1.call_death.connect(instance7.get_node("Fish").death)
-	
-	var shark2 = shark_scene.instantiate()
-	instance7.get_node("Shark2").add_child(shark2)
-	shark2.set_starting_tile(Vector3i(-4, -6, 0))
-	shark2.call_death.connect(instance7.get_node("Fish").death)
-	
-	var shark3 = shark_scene.instantiate()
-	instance7.get_node("Shark3").add_child(shark3)
-	shark3.set_starting_tile(Vector3i(-15, -11, 1))
-	shark3.call_death.connect(instance7.get_node("Fish").death)
-	
-	var fox = fox_scene.instantiate()
-	instance7.get_node("Fox").add_child(fox)
-	fox.set_starting_tile(Vector3i(-12, -3, 1))
-	fox.call_death.connect(instance7.get_node("Fish").death)
-	
-	var bear = bear_scene.instantiate()
-	instance7.get_node("Bear1").add_child(bear)
-	var path = [
-		Vector3i(-10, -8, 1),
-		Vector3i(-9, -8, 1),
-	]
-	bear.set_starting_path(path)
-	bear.set_starting_tile(Vector3i(-10, -8, 1))
-	bear.call_death.connect(instance7.get_node("Fish").death)
-	
-	instance7.get_node("Fish").finished_map.connect(finished)
-	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
-
-	
-	var coin1 = coin_scene.instantiate()
-	instance7.get_node("Coin1").add_child(coin1)
-	coin1.set_starting_tile(Vector3(-5, -3, 0))
-	
-	var coin2 = coin_scene.instantiate()
-	instance7.get_node("Coin2").add_child(coin2)
-	coin2.set_starting_tile(Vector3(-7, -9, 1))
-	
-	var coin3 = coin_scene.instantiate()
-	instance7.get_node("Coin3").add_child(coin3)
-	coin3.set_starting_tile(Vector3(-10, -7, 1))
-	
-	var coin4 = coin_scene.instantiate()
-	instance7.get_node("Coin4").add_child(coin4)
-	coin4.set_starting_tile(Vector3(-16, -15, 1))
-	
-	
-	coin1.call_pickup.connect(instance7.get_node("Fish").pickup)
-	coin2.call_pickup.connect(instance7.get_node("Fish").pickup)
-	coin3.call_pickup.connect(instance7.get_node("Fish").pickup)
-	coin4.call_pickup.connect(instance7.get_node("Fish").pickup)
-	
 
 func enter_map8():
+	var instance8 = map8.instantiate()
+	current_map_instance = instance8
 	add_child(instance8)
 	
 	var bear1 = bear_scene.instantiate()
@@ -426,7 +368,7 @@ func enter_map8():
 	]
 	bear1.set_starting_path(path1)
 	bear1.set_starting_tile(Vector3i(-6, -12, 1))
-	bear1.call_death.connect(instance7.get_node("Fish").death)
+	bear1.call_death.connect(instance8.get_node("Fish").death)
 	
 	
 	var bear2 = bear_scene.instantiate()
@@ -441,7 +383,7 @@ func enter_map8():
 	]
 	bear2.set_starting_path(path2)
 	bear2.set_starting_tile(Vector3i(-13, -7, 1))
-	bear2.call_death.connect(instance7.get_node("Fish").death)
+	bear2.call_death.connect(instance8.get_node("Fish").death)
 	
 	var bear3 = bear_scene.instantiate()
 	instance8.get_node("Bear3").add_child(bear3)
@@ -488,7 +430,7 @@ func enter_map8():
 	bear4.set_starting_tile(Vector3i(-10, -17, 2))
 	bear4.call_death.connect(instance8.get_node("Fish").death)
 	
-	instance7.get_node("Fish").finished_map.connect(finished)
+	instance8.get_node("Fish").finished_map.connect(finished)
 	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
 
 	
