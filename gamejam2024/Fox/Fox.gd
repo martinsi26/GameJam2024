@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var map = $".."
+@onready var map = $"../../"
 
 var speed = 200
 
@@ -15,13 +15,24 @@ var current_fox_tile_data
 var target_fox_tile
 var target_fox_tile_data
 
+var starting_tile
+
 signal call_death
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(map)
 	on_slab = false
-	current_fox_tile = Vector3i(-2, -2, 0)
-	get_parent().get_node("Fish").fish_pos.connect(move_to_fish)
+	get_node("../../Fish").fish_pos.connect(move_to_fish)
+	get_node("../../Fish").fish_death.connect(on_fish_death)
+	
+func set_starting_tile(_starting_tile: Vector3):
+	starting_tile = _starting_tile
+	reset()
+	
+func reset():
+	current_fox_tile = starting_tile
+	position = map.get_tile_center(starting_tile.x, starting_tile.y, starting_tile.z)
 
 func update_neighbors(current_neighbors, layer):
 	var new_neighbors = [null, null, null, null]
@@ -100,4 +111,5 @@ func move_to_fish(pos: Vector3):
 func pos_compare(fish_pos: Vector3i, fox_pos: Vector3i):
 	return abs(fox_pos.x - fish_pos.x) + abs(fox_pos.y - fish_pos.y)
 		
-		
+func on_fish_death():
+	reset()

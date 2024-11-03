@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_fr23t"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_1j8u2"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_o6xnw"]
-[ext_resource type="PackedScene" uid="uid://cofir8fv52iwg" path="res://Fox/Fox.tscn" id="4_c5c4u"]
+[ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="3_ufsob"]
 
 [node name="Map1" type="Node2D"]
 y_sort_enabled = true
@@ -14,7 +14,7 @@ script = ExtResource("1_fr23t")
 [node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
 y_sort_enabled = true
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAD+//7/AAAFAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD9/wAAAAACAAAAAAD9////AAACAAAAAAD9//7/AAACAAAAAAD8//v/AAAEAAAAAAD7//r/AAAEAAAAAAD6//n/AAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAD+//7/AAAFAAAAAAD+////AAACAAAAAAD8//v/AAAEAAAAAAD7//r/AAAEAAAAAAD6//n/AAAEAAAAAAD9//7/AAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAD+/wAAAAACAAAAAAA=")
 tile_set = ExtResource("2_1j8u2")
 
 [node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
@@ -36,7 +36,7 @@ tile_set = ExtResource("2_1j8u2")
 [node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
 position = Vector2(0, -96)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD///z/AAACAAAAAAD///v/AAACAAAAAAD+//v/AAADAAAAAAD+//z/AAADAAAAAAD9//z/AAADAAAAAAD8//z/AAADAAAAAAD8//v/AAADAAAAAAD9//v/AAAAAAAAAAD7//z/AAACAAAAAAD6//z/AAACAAAAAAD6//v/AAACAAAAAAD7//v/AAACAAAAAAD6//r/AAAAAAAAAAD6//n/AAAAAAAAAAD6//j/AAAEAAAAAAD///3/AAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAD///z/AAACAAAAAAD///v/AAACAAAAAAD+//v/AAADAAAAAAD+//z/AAADAAAAAAD9//z/AAADAAAAAAD8//z/AAADAAAAAAD8//v/AAADAAAAAAD9//v/AAAAAAAAAAD7//z/AAACAAAAAAD6//z/AAACAAAAAAD6//v/AAACAAAAAAD7//v/AAACAAAAAAD6//r/BAAAAAIAAAD6//n/BAAAAAIAAAD6//j/AAAEAAAAAAD///3/AAAGAAAAAAA=")
 tile_set = ExtResource("2_1j8u2")
 y_sort_origin = 1
 
@@ -44,13 +44,12 @@ y_sort_origin = 1
 z_index = 10
 tile_set = ExtResource("2_1j8u2")
 
+[node name="MapLayer" parent="Layers" instance=ExtResource("3_ufsob")]
+tile_set = null
+
 [node name="Fish" parent="." instance=ExtResource("3_o6xnw")]
 top_level = true
 z_index = 1
 y_sort_enabled = true
 
-[node name="Fox" parent="." instance=ExtResource("4_c5c4u")]
-top_level = true
-position = Vector2(50, -74)
-
-[connection signal="call_death" from="Fox" to="Fish" method="_on_fox_call_death"]
+[node name="Foxes" type="Node2D" parent="."]

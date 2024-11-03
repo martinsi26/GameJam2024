@@ -23,8 +23,8 @@ var starting_layer
 
 var sent_signal = false
 signal finished_map
-
 signal fish_pos(pos: Vector3i)
+signal fish_death()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -96,8 +96,7 @@ func update_neighbors(current_neighbors, layer):
 func death():
 	set_water()
 	respawn()
-	# you die
-	pass
+	fish_death.emit()
 					
 func _process(delta):
 	if is_moving:
