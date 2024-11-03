@@ -67,11 +67,9 @@ func _process(delta):
 				emit_signal("call_death")
 			
 			move_to_next_path_tile()
-			print("finished moving")
 			is_moving = false
 
 func move_to_fish(pos: Vector3i):
-	print("moving!")
 	fish_pos = pos
 	is_moving = true
 	

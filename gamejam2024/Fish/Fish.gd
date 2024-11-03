@@ -3,6 +3,7 @@ extends Node2D
 @onready var map = $".."
 @onready var water_label = $Camera2D/Control/WaterLabel
 @onready var coin_label = $Camera2D/Control/CoinLabel
+@onready var beat = $Beat
 
 var tile_size = Vector2(32, 16)  # Adjust based on your tile map dimensions
 var current_layer # The layer that the player is currently at
@@ -26,6 +27,14 @@ var starting_layer
 
 var bounce_progress = 0
 var bounce_vel = 1
+var bounce_in_place_progress = 0
+var bounce_in_place_vel = 1
+
+var bounce_in_place = false
+
+var tt: Vector3
+var ttd: Object
+var tl: float
 
 signal finished_map
 signal fish_pos(pos: Vector3i)
@@ -34,13 +43,14 @@ signal fish_death()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_child(beat)
 	get_parent().get_parent().connect("set_starting_values", set_starting_values)
 	
 func set_starting_values(_starting_tile, _starting_layer):
 	set_water()
 	water_label.text = str(current_water)
 	coin_label.text = str(number_of_coins)
-	
+	bounce_in_place = false
 	on_slab = false
 	starting_tile = _starting_tile
 	starting_layer = _starting_layer
@@ -66,7 +76,7 @@ func respawn():
 	target_tile = null
 	target_tile_data = null
 	target_layer = null
-	
+	bounce_in_place = false
 	is_moving = false
 
 func set_water():
@@ -116,15 +126,35 @@ func pickup():
 	number_of_coins += 1
 	coin_label.text = str(number_of_coins)
 					
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	bounce_progress += bounce_vel
 	$AnimatedSprite2D.offset.y = -bounce_progress
-	bounce_vel -= 3 * delta
+	bounce_vel -= 2 * delta
 	
 	if (bounce_progress < 0):
 		bounce_vel = 1
+					
+func _process(delta):
+	if current_tile.x != tt.x || current_tile.y != tt.y:
+		map.set_target_tile(current_neighbors, tt, self)
+		
+	#else:
+		#is_moving = false
+		#bounce_in_place_progress += bounce_in_place_vel
+		#$AnimatedSprite2D.offset.y = -bounce_in_place_progress
+		#bounce_in_place_vel -= 6 * delta
+		#
+		#if (bounce_in_place_progress < 0):
+			#bounce_in_place_vel = 2
+			#bounce_progress = 0
+			#bounce_vel = 1
+			#is_moving = true
+			#bounce_in_place = false
 	
 	if is_moving:
+		previous_fish_pos.emit(current_tile)
+		fish_pos.emit(target_tile)
+		
 		var slab_offset = 0
 		if target_tile_data.terrain_set == 2: # Player has made it to the final block
 			emit_signal("finished_map")
@@ -142,10 +172,6 @@ func _process(delta):
 		if position.distance_to(move_pos) < 1:  # Threshold for stopping
 			position = move_pos
 			
-			print("made it to signal")
-			previous_fish_pos.emit(current_tile)
-			fish_pos.emit(target_tile)
-			
 			current_tile = target_tile
 			current_tile_data = target_tile_data
 			current_layer = target_layer
@@ -158,41 +184,57 @@ func _process(delta):
 	if current_water == 0:
 		death()
 	
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if not is_moving:
+		get_tree().create_timer(0.5).timeout
 		if Input.is_action_just_pressed("move_up"):	# W key (up-left)
 			if !current_neighbors[0]:
 				return
-			target_tile = current_neighbors[0].pos
-			target_tile_data = current_neighbors[0].data
-			target_layer = current_neighbors[0].pos.z
+			tt = current_neighbors[0].pos
+			ttd = current_neighbors[0].data
+			tl = current_neighbors[0].pos.z
 		elif Input.is_action_just_pressed("move_down"):	# S key (down-right)
 			if !current_neighbors[3]:
 				return
-			target_tile = current_neighbors[3].pos
-			target_tile_data = current_neighbors[3].data
-			target_layer = current_neighbors[3].pos.z
+			tt = current_neighbors[3].pos
+			ttd = current_neighbors[3].data
+			tl = current_neighbors[3].pos.z
 		elif Input.is_action_just_pressed("move_left"):	# A key (down-left)
 			if !current_neighbors[2]:
 				return
-			target_tile = current_neighbors[2].pos
-			target_tile_data = current_neighbors[2].data
-			target_layer = current_neighbors[2].pos.z
+			tt = current_neighbors[2].pos
+			ttd = current_neighbors[2].data
+			tl = current_neighbors[2].pos.z
 		elif Input.is_action_just_pressed("move_right"): # D key (up-right)
 			if !current_neighbors[1]:
 				return
-			target_tile = current_neighbors[1].pos
-			target_tile_data = current_neighbors[1].data
-			target_layer = current_neighbors[1].pos.z
+			tt = current_neighbors[1].pos
+			ttd = current_neighbors[1].data
+			tl = current_neighbors[1].pos.z
 		elif Input.is_action_just_pressed("hop_in_place"):
-			target_tile = current_tile
-			target_tile_data = current_tile_data
-			target_layer = current_layer
+			tt = current_tile
+			ttd = current_tile_data
+			tl = current_layer
 		else:
 			return
-		
-		use_water(1)
-		if target_tile_data.terrain_set == 1:
-			set_water()
-		
-		is_moving = true
+
+func _on_timer_timeout() -> void:
+	beat.audio.play()
+	
+	target_tile = tt
+	target_tile_data = ttd
+	target_layer = tl
+	
+	if not target_tile_data:
+		return
+	
+	use_water(1)
+	if target_tile_data.terrain_set == 1:
+		set_water()
+	water_label.text = str(current_water)
+	
+	is_moving = true
+	
+	#tt = Vector3.ZERO
+	ttd = null
+	#tl = 0.00

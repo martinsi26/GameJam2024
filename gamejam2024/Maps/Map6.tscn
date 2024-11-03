@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://cbnmn3xfwhmt5"]
+[gd_scene load_steps=4 format=4 uid="uid://bhb0kvo181caj"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_sb80t"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_vkmei"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_ar222"]
-[ext_resource type="Texture2D" uid="uid://ctv743w7630xj" path="res://Art/photo-1668853853439-923e013afff1.jpg" id="4_lwu5q"]
 
 [node name="Map6" type="Node2D"]
 y_sort_enabled = true
@@ -37,4 +36,3 @@ offset_left = -1403.0
 offset_top = -947.0
 offset_right = 1597.0
 offset_bottom = 1053.0
-texture = ExtResource("4_lwu5q")

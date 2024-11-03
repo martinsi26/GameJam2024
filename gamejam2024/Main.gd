@@ -14,9 +14,9 @@ var map6 = preload("res://Maps/Map6.tscn")
 var map7 = preload("res://Maps/Map7.tscn")
 var map8 = preload("res://Maps/Map8.tscn")
 
-var enter_map_functions = [
-	enter_map0, enter_map1, enter_map2, enter_map3, 
-	enter_map4, enter_map5, enter_map6, enter_map7, enter_map8
+var enter_map_functions = [ #re-ordered
+	enter_map0, enter_map1, enter_map5, enter_map4, 
+	enter_map2, enter_map3, enter_map7, enter_map8, enter_map6
 ]
 
 var current_map_instance
