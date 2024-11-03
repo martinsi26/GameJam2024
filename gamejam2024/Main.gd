@@ -199,19 +199,22 @@ func enter_map6():
 	
 	var fox = fox_scene.instantiate()
 	instance6.get_node("Foxes").add_child(fox)
-	fox.set_starting_tile(Vector3i(-3, -6, 1))
+	fox.set_starting_tile(Vector3i(-1, 4, 0))
 	fox.call_death.connect(instance6.get_node("Fish").death)
+	
+	var coin = coin_scene.instantiate()
+	instance6.get_node("Coins").add_child(coin)
+	coin.set_starting_tile(Vector3(-1, -8, 0))
+	coin.call_pickup.connect(instance6.get_node("Fish").pickup)
 	
 	var bear = bear_scene.instantiate()
 	instance6.get_node("Bears").add_child(bear)
 	var path = [
-		Vector3i(-5, -4, 1),
-		Vector3i(-5, -5, 1),
-		Vector3i(-5, -6, 1),
-		Vector3i(-5, -5, 1),
+		Vector3i(0, -3, 0),
+		Vector3i(-1, -3, 0),
 	]
-	bear.set_starting_path(path, Vector3i(-5, -5, 1), 1)
-	bear.set_starting_tile(Vector3i(-5, -4, 1))
+	bear.set_starting_path(path, Vector3i(-1, -3, 1), 1)
+	bear.set_starting_tile(Vector3i(0, -3, 1))
 	bear.call_death.connect(instance6.get_node("Fish").death)
 	
 	var bear2 = bear_scene.instantiate()
