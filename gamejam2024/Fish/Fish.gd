@@ -33,6 +33,10 @@ var tt: Vector3
 var ttd: Object
 var tl: float
 
+var offcount = 0
+var offindex = 0
+var offsets = [-4, -4, -3,-3,-2,-2,-1,-1,0,0,0,0,1,1,2,2,3,3,4,4]
+
 signal finished_map
 signal fish_pos(pos: Vector3i)
 signal previous_fish_pos(pos: Vector3i)
@@ -125,12 +129,14 @@ func pickup():
 	coin_label.text = str(number_of_coins)
 					
 func _physics_process(delta: float) -> void:
-	bounce_progress += bounce_vel
-	$AnimatedSprite2D.offset.y = -bounce_progress
-	bounce_vel -= 2 * delta
-	
-	if (bounce_progress < 0):
-		bounce_vel = 1
+	offcount += 1
+	if offcount % 3 == 0:
+		$AnimatedSprite2D.offset.y += offsets[offindex]
+		offindex += 1
+	if offcount > 59:
+		offcount = 0
+	if offindex > 19:
+		offindex = 0
 					
 func _process(delta):
 	if current_tile.x != tt.x || current_tile.y != tt.y:
