@@ -51,3 +51,37 @@ func set_outline_tiles(tiles):
 # Convert tile coordinates to world position centered on the tile
 func get_tile_center(x: int, y: int, z: int) -> Vector2:
 	return $Layers.get_child(z).map_to_local(Vector2i(x, y)) * 3
+
+func set_target_tile(tiles, target, curr):
+	for l in $Layers.get_children():
+		l.get_node("OutlineLayer").clear()
+	
+	var value
+	var x = curr.current_tile.x
+	var y = curr.current_tile.y
+	
+	if target.x - x == 0:
+		if target.y - y == -1:
+			value = 1
+		else:
+			value = 2
+	else:
+		if target.x - x == -1:
+			value = 0
+		else:
+			value = 3
+
+	if !tiles[value]:
+		return
+	var t = tiles[value]
+	#for t in tiles:
+	
+	var layer = $Layers.get_child(t.pos.z).get_node("OutlineLayer")
+	
+	var source_id = 1
+	
+	if t.data.terrain_set == 0:
+		source_id = 2
+	
+	layer.set_cell(Vector2(t.pos.x, t.pos.y), source_id, Vector2i(0, 0))
+	

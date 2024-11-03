@@ -162,7 +162,9 @@ func _on_timer_timeout() -> void:
 	
 	if not target_tile_data:
 		return
-
+	
+	map.set_target_tile(current_neighbors, tt, self)
+	
 	use_water(1)
 	if target_tile_data.terrain_set == 1:
 		set_water()
