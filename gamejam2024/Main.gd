@@ -23,9 +23,7 @@ var current_map_instance
 var fox_scene: PackedScene = preload("res://Fox/Fox.tscn")
 var shark_scene: PackedScene = preload("res://Shark/Shark.tscn")
 var bear_scene: PackedScene = preload("res://Bear/Bear.tscn")
-
 var coin_scene: PackedScene = preload("res://Coin/Coin.tscn")
-
 
 signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
