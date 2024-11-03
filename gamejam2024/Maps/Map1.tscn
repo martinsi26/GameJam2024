@@ -14,7 +14,7 @@ script = ExtResource("1_fr23t")
 [node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
 y_sort_enabled = true
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAD+//7/AAAEAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD9/wAAAAACAAAAAAD9////AAACAAAAAAD9//7/AAACAAAAAAD8//v/AAAEAAAAAAD7//r/AAAEAAAAAAD6//n/AAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAD/////AAACAAAAAAD///7/AAACAAAAAAD+//7/AAAFAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD9/wAAAAACAAAAAAD9////AAACAAAAAAD9//7/AAACAAAAAAD8//v/AAAEAAAAAAD7//r/AAAEAAAAAAD6//n/AAAEAAAAAAA=")
 tile_set = ExtResource("2_1j8u2")
 
 [node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
@@ -51,4 +51,6 @@ y_sort_enabled = true
 
 [node name="Fox" parent="." instance=ExtResource("4_c5c4u")]
 top_level = true
-position = Vector2(52, -71)
+position = Vector2(50, -74)
+
+[connection signal="call_death" from="Fox" to="Fish" method="_on_fox_call_death"]

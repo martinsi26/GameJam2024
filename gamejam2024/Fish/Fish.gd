@@ -21,6 +21,8 @@ var current_water
 var sent_signal = false
 signal finished_map
 
+signal fish_pos(pos: Vector3i)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sent_signal = false
@@ -104,7 +106,7 @@ func _process(delta):
 			current_neighbors = map.get_neighbor_tiles(current_tile.x, current_tile.y, current_layer)
 			current_neighbors = update_neighbors(current_neighbors, current_layer)
 			map.set_outline_tiles(current_neighbors)
-			
+			fish_pos.emit(current_tile)
 			is_moving = false
 	
 func _input(event):
@@ -144,3 +146,6 @@ func _input(event):
 		label.text = str(current_water)
 		
 		is_moving = true
+
+func _on_fox_call_death() -> void:
+	death()
