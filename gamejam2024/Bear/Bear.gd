@@ -27,7 +27,6 @@ var path_index
 func _ready() -> void:
 	get_node("../../Fish").fish_pos.connect(move_to_fish)
 	get_node("../../Fish").previous_fish_pos.connect(prev_fish_pos)
-	get_node("../../Fish").fish_death.connect(on_fish_death)
 	
 func set_starting_tile(_starting_tile: Vector3i):
 	starting_tile = _starting_tile

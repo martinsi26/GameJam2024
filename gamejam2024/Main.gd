@@ -1,5 +1,7 @@
 extends Node2D
 
+var screen_wipe_playing = false
+
 var current_map = 0
 
 var total_coins = 0
@@ -31,10 +33,25 @@ signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 func _ready() -> void:
 	current_map = 0
 	enter_map_functions[current_map].call()
-
+	
+func _process(delta):
+	if screen_wipe_playing:
+		$Sprite2D.position.x += 10 * delta
+		
+		if $Sprite2D.position.x > 1600:
+			screen_wipe_playing = false
+			$Sprite2D.visible = false
+			
+func play_screen_wipe():
+	$Sprite2D.visible = true
+	$Sprite2D.position.x += -450
+	screen_wipe_playing = true
+	
 func on_fish_death():
+	#await get_tree().create_timer(1).timeout
 	current_map_instance.queue_free()
 	enter_map_functions[current_map].call()
+	play_screen_wipe()
 	
 func enter_map0():
 	var instance0 = map0.instantiate()
@@ -348,6 +365,7 @@ func end_game():
 	print("Game over")
 	
 func finished():
+	await get_tree().create_timer(1).timeout
 	total_coins += current_map_instance.get_node("Fish").number_of_coins
 	current_map_instance.queue_free()
 	current_map += 1

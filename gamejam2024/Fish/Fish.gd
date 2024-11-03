@@ -13,6 +13,8 @@ var target_tile  # The target tile the player will move to
 var target_tile_data
 var on_slab # Track whether the player is on a slab or not
 var is_moving = false  # Track whether the player is currently moving
+var is_complete = false
+var is_dead = false
 var speed = 200
 var current_neighbors
 
@@ -104,12 +106,9 @@ func update_neighbors(current_neighbors, layer):
 	return new_neighbors
 	
 func death():
-	set_water()
-	
+	is_dead = true
 	number_of_coins = 0
 	coin_label.text = str(number_of_coins)
-	
-	respawn()
 	fish_death.emit()
 	
 func pickup():
@@ -126,7 +125,8 @@ func _process(delta):
 	
 	if is_moving:
 		var slab_offset = 0
-		if target_tile_data.terrain_set == 2: # Player has made it to the final block
+		if target_tile_data.terrain_set == 2 and not is_complete: # Player has made it to the final block
+			is_complete = true
 			emit_signal("finished_map")
 			
 		if target_tile_data.terrain_set == 0:
@@ -159,7 +159,7 @@ func _process(delta):
 		death()
 	
 func _input(event):
-	if not is_moving:
+	if not is_moving and not is_complete and not is_dead:
 		if Input.is_action_just_pressed("move_up"):	# W key (up-left)
 			if !current_neighbors[0]:
 				return
