@@ -11,6 +11,7 @@ var map3 = preload("res://Maps/Map3.tscn")
 var map4 = preload("res://Maps/Map4.tscn")
 var map5 = preload("res://Maps/Map5.tscn")
 var map6 = preload("res://Maps/Map6.tscn")
+var map7 = preload("res://Maps/Map7.tscn")
 
 var instance0 = map0.instantiate()
 var instance1 = map1.instantiate()
@@ -19,6 +20,7 @@ var instance3 = map3.instantiate()
 var instance4 = map4.instantiate()
 var instance5 = map5.instantiate()
 var instance6 = map6.instantiate()
+var instance7 = map7.instantiate()
 
 var fox_scene: PackedScene = preload("res://Fox/Fox.tscn")
 var shark_scene: PackedScene = preload("res://Shark/Shark.tscn")
@@ -134,7 +136,7 @@ func enter_map7():
 		Vector3i(-10, -8, 1),
 		Vector3i(-9, -8, 1),
 	]
-	bear.set_starting_path(path, Vector3i(-9, -8, 1), 1)
+	bear.set_starting_path(path) #, Vector3i(-9, -8, 1), 1)
 	bear.set_starting_tile(Vector3i(-10, -8, 1))
 	bear.call_death.connect(instance7.get_node("Fish").death)
 	
