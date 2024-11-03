@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://80qqev8uk4q6"]
 
 [ext_resource type="Script" path="res://Fish/Fish.gd" id="1_hy7m6"]
-[ext_resource type="Texture2D" path="res://Art/pufferfish_animation.png" id="2_n2llx"]
-[ext_resource type="Texture2D" path="res://Art/shadow.png" id="3_8vk6m"]
+[ext_resource type="Texture2D" uid="uid://71evo31xli6b" path="res://Art/pufferfish_animation.png" id="2_n2llx"]
+[ext_resource type="Texture2D" uid="uid://cbaclaelgujip" path="res://Art/shadow.png" id="3_8vk6m"]
 [ext_resource type="Script" path="res://Fish/beat.gd" id="3_83rrk"]
 [ext_resource type="AudioStream" uid="uid://dp4ymtcac7qjq" path="res://Audio/bpm.mp3" id="4_utwqx"]
 
