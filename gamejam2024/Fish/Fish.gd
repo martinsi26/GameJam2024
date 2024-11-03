@@ -126,16 +126,18 @@ func pickup():
 	number_of_coins += 1
 	coin_label.text = str(number_of_coins)
 					
+func _physics_process(delta: float) -> void:
+	bounce_progress += bounce_vel
+	$AnimatedSprite2D.offset.y = -bounce_progress
+	bounce_vel -= 2 * delta
+	
+	if (bounce_progress < 0):
+		bounce_vel = 1
+					
 func _process(delta):
 	if current_tile.x != tt.x || current_tile.y != tt.y:
 		map.set_target_tile(current_neighbors, tt, self)
 		
-	bounce_progress += bounce_vel
-	$AnimatedSprite2D.offset.y = -bounce_progress
-	bounce_vel -= 3 * delta
-	
-	if (bounce_progress < 0):
-		bounce_vel = 1
 	#else:
 		#is_moving = false
 		#bounce_in_place_progress += bounce_in_place_vel
