@@ -3,6 +3,7 @@ extends Node
 @onready var audio : AudioStreamPlayer2D = $BeatsPerMinute
 @onready var timer : Timer = $Timer
 @export var level = 1	# change to per level/map
+#@export var control: Vector2
 var times = 2.0 / (level * 2)
 
 #Put this in each map
@@ -18,6 +19,8 @@ func _process(delta: float) -> void:
 	# Compensate for output latency.
 	time -= AudioServer.get_output_latency()
 	#print("Time is: ", time)
+	#print("Control is: ", control)
+		
 
 
 #func _on_timer_timeout() -> void:
