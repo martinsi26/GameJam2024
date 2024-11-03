@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvg8j55ncls36"]
+[gd_scene load_steps=3 format=3 uid="uid://hiikruu4nob5"]
 
 [ext_resource type="Texture2D" path="res://Art/Hud/WaterDropFull.png" id="1_8ttlu"]
 [ext_resource type="Texture2D" path="res://Art/Hud/CoinNotCollected.png" id="2_ts8n2"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=4 uid="uid://doodkxbcvub7h"]
+
+[ext_resource type="Script" path="res://Maps/map.gd" id="1_uq7ic"]
+[ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_3bgl2"]
+[ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="3_3xn3i"]
+[ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="4_3gjtn"]
+
+[node name="Map8" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_uq7ic")
+
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD//wAABgADAAEAAAD/////BgADAAEAAAD+////BgADAAEAAAD+/wAABgADAAEAAAD9/wAABgADAAEAAAD9/wEABgADAAEAAAD8/wEABgADAAEAAAD8/wAABgADAAEAAAD7/wAABgADAAEAAAD6////BgADAAEAAAD4//3/BgADAAEAAAD+/wEABgADAAEAAAD+//7/BgADAAEAAAD///7/BgADAAEAAAD///3/BgADAAEAAAD+//3/BgADAAEAAAD+//z/BgADAAEAAAD9//z/BgADAAEAAAD9//v/BgADAAEAAAD+//v/BgADAAEAAAD9//r/BAAAAAIAAAD8//r/BgADAAEAAAD8//n/BgADAAEAAAD8//j/BgADAAEAAAD8//f/BgADAAEAAAD7//f/BgADAAEAAAD7//b/BgADAAEAAAD4//z/BgADAAEAAAD5//3/BgADAAEAAAD3//z/BgADAAEAAAD3//v/BgADAAEAAAD6//7/BgADAAEAAAD7////BgADAAEAAAD4//r/BAABAAIAAAD4//n/BAACAAIAAAD4//j/BAACAAIAAAD4//f/BAACAAIAAAD4//b/BAAEAAAAAAD5//b/BAAEAAEAAAD6//b/BAAEAAEAAAD3//r/BAAEAAAAAAD//wEABgADAAEAAAD5//7/BAAAAAIAAAA=")
+tile_set = ExtResource("2_3bgl2")
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer0"]
+z_index = 10
+tile_set = ExtResource("2_3bgl2")
+
+[node name="TileMapLayer1" type="TileMapLayer" parent="Layers"]
+y_sort_enabled = true
+position = Vector2(0, -48)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD2//z/BgAEAAEAAAD1//z/BgADAAEAAAD0//z/BgADAAEAAAD0//v/BgADAAEAAAD0//r/BgADAAEAAAD0//n/BgADAAEAAADz//n/BAAAAAIAAADz//j/BgADAAEAAAD7//X/BgAEAAEAAAD6//X/BgADAAEAAAD6//T/BgADAAEAAAD5//T/BgADAAEAAAD4//T/BgADAAEAAAD3//T/BgADAAEAAAD2//T/BgADAAEAAAD1//T/BAAAAAIAAAD1//X/BgADAAEAAAD1//b/BgADAAEAAAD0//b/BgADAAEAAAD0//X/BgADAAEAAAD0//P/BgADAAEAAAD0//T/BgADAAEAAAD0//L/BgADAAEAAADz//P/BgADAAEAAADz//L/BgADAAEAAADy//L/BgADAAEAAADz//T/BgADAAEAAADz//X/BAAAAAIAAADz//b/BgADAAEAAADz//f/BgADAAEAAAD0//f/BgADAAEAAAD0//j/BgADAAEAAADy//P/BgADAAEAAAD1//P/BgADAAEAAADy//H/BAACAAIAAADy//D/BAACAAIAAADy/+//BAACAAIAAAA=")
+tile_set = ExtResource("2_3bgl2")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer1"]
+z_index = 10
+tile_set = ExtResource("2_3bgl2")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Layers"]
+position = Vector2(0, -96)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAD2/+//BgAFAAEAAAD2//D/BgAFAAEAAAD3/+//BgAFAAEAAAD3//D/BgAFAAEAAAD4/+//BgAFAAEAAAD4//D/BgAFAAEAAAD2//H/BgAFAAEAAAD2//L/BgAFAAEAAAD2//P/BgAEAAEAAAD3//H/BgAFAAEAAAD4//H/BgAFAAEAAAD5/+//BAAAAAIAAAD5//D/BgAFAAEAAAD5//H/BgAFAAEAAAA=")
+tile_set = ExtResource("2_3bgl2")
+y_sort_origin = 1
+
+[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer2"]
+z_index = 10
+tile_set = ExtResource("2_3bgl2")
+
+[node name="MapLayer" parent="Layers" instance=ExtResource("3_3xn3i")]
+tile_set = null
+
+[node name="Fish" parent="." instance=ExtResource("4_3gjtn")]
+top_level = true
+z_index = 1
+y_sort_enabled = true
+
+[node name="Bear2" type="Node2D" parent="."]
+
+[node name="Fox" type="Node2D" parent="."]
+
+[node name="Coin1" type="Node2D" parent="."]
+
+[node name="Coin2" type="Node2D" parent="."]
+
+[node name="Coin3" type="Node2D" parent="."]
+
+[node name="Bear1" type="Node2D" parent="."]
+
+[node name="Bear3" type="Node2D" parent="."]
+
+[node name="Bear4" type="Node2D" parent="."]

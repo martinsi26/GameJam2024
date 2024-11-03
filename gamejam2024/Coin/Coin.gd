@@ -15,7 +15,6 @@ signal call_pickup
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_node("../../Fish").fish_pos.connect(fish_moved)
-	get_node("../../Fish").fish_death.connect(on_fish_death)
 	
 	var y_offset = coin_tile.z * 48
 	var move_pos = map.get_tile_center(coin_tile.x, coin_tile.y, coin_tile.z)
@@ -43,6 +42,3 @@ func _process(delta: float) -> void:
 func fish_moved(pos: Vector3):
 	fish_pos = pos
 	is_moving = true
-	
-func on_fish_death():
-	reset()
