@@ -172,4 +172,3 @@ func _on_timer_timeout() -> void:
 	#tt = Vector3.ZERO
 	ttd = null
 	#tl = 0.00
-	#pass # Replace with function body.
