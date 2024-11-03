@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=4 uid="uid://cn3djh5o4ewnt"]
+[gd_scene load_steps=4 format=4 uid="uid://7qj5qgf7gopc"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_y7m3y"]
 [ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="2_cing1"]

@@ -1,7 +1,8 @@
 extends Node2D
 
 @onready var map = $".."
-@onready var label = $Camera2D/Control/WaterLabel
+@onready var water_label = $Camera2D/Control/WaterLabel
+@onready var coin_label = $Camera2D/Control/CoinLabel
 
 var tile_size = Vector2(32, 16)  # Adjust based on your tile map dimensions
 var current_layer # The layer that the player is currently at
@@ -18,6 +19,8 @@ var current_neighbors
 var max_water = 10
 var current_water
 
+var number_of_coins = 0
+
 var starting_tile
 var starting_layer
 
@@ -32,9 +35,9 @@ func _ready() -> void:
 	get_parent().get_parent().connect("set_starting_values", set_starting_values)
 	
 func set_starting_values(_starting_tile, _starting_layer):
-	print("set starting values function")
 	set_water()
-	label.text = str(current_water)
+	water_label.text = str(current_water)
+	coin_label.text = str(number_of_coins)
 	
 	on_slab = false
 	starting_tile = _starting_tile
@@ -61,11 +64,11 @@ func respawn():
 
 func set_water():
 	current_water = max_water
-	label.text = str(current_water)
+	water_label.text = str(current_water)
 	
 func use_water(water: int):
 	current_water -= water
-	label.text = str(current_water)
+	water_label.text = str(current_water)
 
 func update_neighbors(current_neighbors, layer):
 	var new_neighbors = [null, null, null, null]
@@ -95,8 +98,16 @@ func update_neighbors(current_neighbors, layer):
 	
 func death():
 	set_water()
+	
+	number_of_coins = 0
+	coin_label.text = str(number_of_coins)
+	
 	respawn()
 	fish_death.emit()
+	
+func pickup():
+	number_of_coins += 1
+	coin_label.text = str(number_of_coins)
 					
 func _process(delta):
 	if is_moving:
@@ -164,9 +175,6 @@ func _input(event):
 		use_water(1)
 		if target_tile_data.terrain_set == 1:
 			set_water()
-		#label.text = str(current_water)
+		#water_label.text = str(current_water)
 		
 		is_moving = true
-
-func _on_fox_call_death() -> void:
-	death()

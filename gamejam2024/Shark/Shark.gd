@@ -49,7 +49,6 @@ func update_neighbors(current_neighbors, layer: int):
 			
 func _process(delta):
 	if is_moving:
-		
 		var y_offset = target_shark_tile.z * 48
 		var move_pos = map.get_tile_center(target_shark_tile.x, target_shark_tile.y, target_shark_tile.z)
 		move_pos.y -= y_offset

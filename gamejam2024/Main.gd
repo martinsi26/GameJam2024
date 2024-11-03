@@ -2,6 +2,8 @@ extends Node2D
 
 var current_map = 0
 
+var total_coins = 0
+
 var map0 = preload("res://Maps/Map0.tscn")
 var map1 = preload("res://Maps/Map1.tscn")
 var map2 = preload("res://Maps/Map2.tscn")
@@ -21,16 +23,25 @@ var instance2 = map2.instantiate()
 var fox_scene: PackedScene = preload("res://Fox/Fox.tscn")
 var shark_scene: PackedScene = preload("res://Shark/Shark.tscn")
 
+var coin_scene: PackedScene = preload("res://Coin/Coin.tscn")
+
+
 signal set_starting_values(starting_tile: Vector2i, starting_layer: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_map = 2
-	enter_map2()
-	#current_map = 0
-	#add_child(instance0)
-	#instance0.get_node("Fish").finished_map.connect(finished)
-	#emit_signal("set_starting_values", Vector2i(-1, 0), 0)
+	#current_map = 1
+	#enter_map1()
+	current_map = 0
+	add_child(instance0)
+	
+	var coin = coin_scene.instantiate()
+	instance0.get_node("Coins").add_child(coin)
+	coin.set_starting_tile(Vector3(-6, -1, 1))
+	
+	instance0.get_node("Fish").finished_map.connect(finished)
+	coin.call_pickup.connect(instance0.get_node("Fish").pickup)
+	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
 
 func enter_map1():
 	add_child(instance1)
@@ -54,13 +65,35 @@ func enter_map2():
 	instance2.get_node("Fish").finished_map.connect(finished)
 	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
 	
+	var coin1 = coin_scene.instantiate()
+	instance2.get_node("Coins").add_child(coin1)
+	coin1.set_starting_tile(Vector3(-9, -6, 2))
+	
+	var coin2 = coin_scene.instantiate()
+	instance2.get_node("Coins").add_child(coin2)
+	coin2.set_starting_tile(Vector3(-9, -8, 2))
+	
+	var coin3 = coin_scene.instantiate()
+	instance2.get_node("Coins").add_child(coin3)
+	coin3.set_starting_tile(Vector3(-7, -6, 2))
+	
+	var coin4 = coin_scene.instantiate()
+	instance2.get_node("Coins").add_child(coin4)
+	coin4.set_starting_tile(Vector3(-7, -8, 2))
+	
+	coin1.call_pickup.connect(instance2.get_node("Fish").pickup)
+	coin2.call_pickup.connect(instance2.get_node("Fish").pickup)
+	coin3.call_pickup.connect(instance2.get_node("Fish").pickup)
+	coin4.call_pickup.connect(instance2.get_node("Fish").pickup)
+	
 func finished():
-	print("finished map function")
 	current_map += 1
 	if current_map == 1:
+		total_coins += instance0.get_node("Fish").number_of_coins
 		instance0.queue_free()
 		enter_map1()
 	elif current_map == 2:
+		total_coins += instance1.get_node("Fish").number_of_coins
 		instance1.queue_free()
 		enter_map2()
 	#elif current_map == 3:
