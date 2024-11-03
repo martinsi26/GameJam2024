@@ -223,35 +223,65 @@ func enter_map6():
 	
 	var fox = fox_scene.instantiate()
 	instance6.get_node("Foxes").add_child(fox)
-	fox.set_starting_tile(Vector3i(-1, 4, 0))
+	fox.set_starting_tile(Vector3i(-1, 7, 0))
 	fox.call_death.connect(instance6.get_node("Fish").death)
 	
 	var coin = coin_scene.instantiate()
 	instance6.get_node("Coins").add_child(coin)
-	coin.set_starting_tile(Vector3(-1, -8, 0))
+	coin.set_starting_tile(Vector3(-2, -6, 0))
 	coin.call_pickup.connect(instance6.get_node("Fish").pickup)
 	
 	var bear = bear_scene.instantiate()
 	instance6.get_node("Bears").add_child(bear)
 	var path = [
-		Vector3i(0, -3, 0),
-		Vector3i(-1, -3, 0),
+		Vector3i(-1, -2, 0),
+		Vector3i(-2, -2, 0),
 	]
 	bear.set_starting_path(path)
-	bear.set_starting_tile(Vector3i(0, -3, 1))
+	bear.set_starting_tile(Vector3i(-1, -2, 0))
 	bear.call_death.connect(instance6.get_node("Fish").death)
 	
 	var bear2 = bear_scene.instantiate()
 	instance6.get_node("Bears").add_child(bear2)
 	var path2 = [
-		Vector3i(-10, -8, 2),
-		Vector3i(-11, -8, 2),
+		Vector3i(-2, -4, 0),
+		Vector3i(-1, -4, 0),
 	]
 	bear2.set_starting_path(path2)
-	bear2.set_starting_tile(Vector3i(-10, -8, 2))
+	bear2.set_starting_tile(Vector3i(-2, -4, 0))
 	bear2.call_death.connect(instance6.get_node("Fish").death)
 	
 	instance6.get_node("Fish").fish_death.connect(on_fish_death)
+	var bear3 = bear_scene.instantiate()
+	instance6.get_node("Bears").add_child(bear3)
+	var path3 = [
+		Vector3i(-2, -7, 0),
+		Vector3i(-1, -7, 0),
+	]
+	bear3.set_starting_path(path3)
+	bear3.set_starting_tile(Vector3i(-2, -7, 0))
+	bear3.call_death.connect(instance6.get_node("Fish").death)
+	
+	var bear4 = bear_scene.instantiate()
+	instance6.get_node("Bears").add_child(bear4)
+	var path4 = [
+		Vector3i(-2, -9, 0),
+		Vector3i(-1, -9, 0),
+	]
+	bear4.set_starting_path(path4)
+	bear4.set_starting_tile(Vector3i(-2, -9, 0))
+	bear4.call_death.connect(instance6.get_node("Fish").death)
+	
+	var bear5 = bear_scene.instantiate()
+	instance6.get_node("Bears").add_child(bear5)
+	var path5 = [
+		Vector3i(-1, -8, 0),
+		Vector3i(0, -8, 0),
+	]
+	bear5.set_starting_path(path5)
+	bear5.set_starting_tile(Vector3i(-1, -8, 0))
+	bear5.call_death.connect(instance6.get_node("Fish").death)
+	
 	instance6.get_node("Fish").finished_map.connect(finished)
 	emit_signal("set_starting_values", Vector2i(-1, 0), 0)
 
@@ -261,6 +291,10 @@ func enter_map7():
 	add_child(instance7)
 
 	
+
+func enter_map7():
+	add_child(instance7)
+
 	var shark1 = shark_scene.instantiate()
 	instance7.get_node("Shark1").add_child(shark1)
 	shark1.set_starting_tile(Vector3i(-7, -2, 0))
@@ -312,12 +346,11 @@ func enter_map7():
 	instance7.get_node("Coin4").add_child(coin4)
 	coin4.set_starting_tile(Vector3(-16, -15, 1))
 	
-	
 	coin1.call_pickup.connect(instance7.get_node("Fish").pickup)
 	coin2.call_pickup.connect(instance7.get_node("Fish").pickup)
 	coin3.call_pickup.connect(instance7.get_node("Fish").pickup)
 	coin4.call_pickup.connect(instance7.get_node("Fish").pickup)
-
+	
 func end_game():
 	print("Game over")
 	
