@@ -63,7 +63,6 @@ tile_map_data = PackedByteArray("AAD2//v/BgAAAAEAAAD2//r/BgAAAAEAAAD2//n/BgABAAA
 tile_map_data = PackedByteArray("AADx//T/BgACAAEAAADx//P/BgAAAAEAAADx//L/BgAAAAEAAADx//H/BgAAAAEAAADx//D/BgACAAEAAAA=")
 
 [node name="Fish" parent="." instance=ExtResource("3_7i502")]
-visible = false
 top_level = true
 z_index = 1
 y_sort_enabled = true

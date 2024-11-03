@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=4 uid="uid://cbnmn3xfwhmt5"]
+[gd_scene load_steps=4 format=4 uid="uid://bhb0kvo181caj"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_sb80t"]
-[ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="2_j1w2i"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_vkmei"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="3_ar222"]
 
@@ -10,13 +9,6 @@ y_sort_enabled = true
 script = ExtResource("1_sb80t")
 
 [node name="Layers" type="Node2D" parent="."]
-
-[node name="MapLayer-2" parent="Layers" instance=ExtResource("2_j1w2i")]
-position = Vector2(192, 0)
-
-[node name="MapLayer-1" parent="Layers" instance=ExtResource("2_j1w2i")]
-position = Vector2(96, 0)
-tile_map_data = PackedByteArray("AAD//wYABgABAAEAAAD//wUABgABAAEAAAD//wQABgABAAEAAAD//wMABgABAAEAAAD//wIABgABAAEAAAD//wEABgABAAEAAAD//wAABgABAAEAAAD/////BgABAAEAAAAAAP//BgABAAEAAAD///3/BgABAAAAAAD9//3/BgABAAAAAAA=")
 
 [node name="TileMapLayer0" type="TileMapLayer" parent="Layers"]
 y_sort_enabled = true
@@ -28,17 +20,6 @@ tile_set = ExtResource("2_vkmei")
 z_index = 10
 tile_set = ExtResource("2_vkmei")
 
-[node name="TileMapLayer1" type="TileMapLayer" parent="Layers"]
-y_sort_enabled = true
-position = Vector2(0, -48)
-scale = Vector2(3, 3)
-tile_set = ExtResource("2_vkmei")
-y_sort_origin = 1
-
-[node name="OutlineLayer" type="TileMapLayer" parent="Layers/TileMapLayer1"]
-z_index = 10
-tile_set = ExtResource("2_vkmei")
-
 [node name="Fish" parent="." instance=ExtResource("3_ar222")]
 top_level = true
 z_index = 1
@@ -47,3 +28,5 @@ y_sort_enabled = true
 [node name="Bears" type="Node2D" parent="."]
 
 [node name="Foxes" type="Node2D" parent="."]
+
+[node name="Coins" type="Node2D" parent="."]

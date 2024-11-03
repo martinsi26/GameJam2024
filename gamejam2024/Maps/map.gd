@@ -50,4 +50,5 @@ func set_outline_tiles(tiles):
 	
 # Convert tile coordinates to world position centered on the tile
 func get_tile_center(x: int, y: int, z: int) -> Vector2:
+	print(z)
 	return $Layers.get_child(z).map_to_local(Vector2i(x, y)) * 3
