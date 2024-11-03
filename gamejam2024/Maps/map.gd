@@ -53,8 +53,8 @@ func get_tile_center(x: int, y: int, z: int) -> Vector2:
 	return $Layers.get_child(z).map_to_local(Vector2i(x, y)) * 3
 
 func set_target_tile(tiles, target, curr):
-	for l in $Layers.get_children():
-		l.get_node("OutlineLayer").clear()
+	#for l in $Layers.get_children():
+		#l.get_node("OutlineLayer").clear()
 	
 	var value
 	var x = curr.current_tile.x

@@ -82,6 +82,8 @@ func death():
 	pass
 					
 func _process(delta):
+	if current_tile.x != tt.x || current_tile.y != tt.y:
+		map.set_target_tile(current_neighbors, tt, self)
 	if current_water == 0:
 		death()
 	
@@ -163,7 +165,7 @@ func _on_timer_timeout() -> void:
 	if not target_tile_data:
 		return
 	
-	map.set_target_tile(current_neighbors, tt, self)
+	#map.set_target_tile(current_neighbors, tt, self)
 	
 	use_water(1)
 	if target_tile_data.terrain_set == 1:
