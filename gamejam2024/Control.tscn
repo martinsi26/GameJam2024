@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dmehc7vey7sqe"]
+[gd_scene load_steps=2 format=3 uid="uid://dre3tor0i6mc2"]
+
+[ext_resource type="Texture2D" uid="uid://i30cijku4dgb" path="res://Art/WaterDropFull.png" id="1_lhcw7"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,10 +12,10 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 7.0
-offset_right = 126.0
-offset_bottom = 30.0
+offset_left = 37.0
+offset_top = 16.0
+offset_right = 157.0
+offset_bottom = 39.0
 scale = Vector2(1.2, 1.2)
 text = "Current Water: "
 
@@ -47,6 +49,8 @@ offset_left = 173.333
 offset_right = 223.333
 offset_bottom = 50.0
 scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_lhcw7")
+expand_mode = 1
 
 [node name="Water_2" type="TextureRect" parent="."]
 layout_mode = 0
@@ -54,6 +58,8 @@ offset_left = 193.333
 offset_right = 243.333
 offset_bottom = 50.0
 scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_lhcw7")
+expand_mode = 1
 
 [node name="Water_3" type="TextureRect" parent="."]
 layout_mode = 0
@@ -61,6 +67,8 @@ offset_left = 213.333
 offset_right = 263.333
 offset_bottom = 50.0
 scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_lhcw7")
+expand_mode = 1
 
 [node name="Water_4" type="TextureRect" parent="."]
 layout_mode = 0
@@ -68,6 +76,8 @@ offset_left = 233.333
 offset_right = 283.333
 offset_bottom = 50.0
 scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_lhcw7")
+expand_mode = 1
 
 [node name="Water_5" type="TextureRect" parent="."]
 layout_mode = 0
@@ -75,3 +85,5 @@ offset_left = 253.333
 offset_right = 303.333
 offset_bottom = 50.0
 scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_lhcw7")
+expand_mode = 1

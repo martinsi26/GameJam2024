@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var map = $".."
-@onready var coin_label = $Camera2D/Control/CoinLabel
+@onready var coin_label = get_parent().get_parent().get_node("CanvasLayer/Control/CoinLabel")
 @onready var beat = $Beat
 
 var tile_size = Vector2(32, 16)  # Adjust based on your tile map dimensions
@@ -79,6 +79,7 @@ func respawn():
 
 func set_water():
 	current_water = max_water
+	emit_signal("water_reset")
 	
 func use_water(water: int):
 	current_water -= water

@@ -3,9 +3,9 @@ extends Node2D
 @onready var screen_wipe = $CanvasLayer/Sprite2D
 var screen_wipe_playing = false
 
-var water_full = preload()
-var water_half = preload()
-var water_empty = preload()
+var water_full = preload("res://Art/WaterDropFull.png")
+var water_half = preload("res://Art/WaterDropHalf.png")
+var water_empty = preload("res://Art/WaterDropEmpty.png")
 
 @onready var water_bar = [$CanvasLayer/Control/Water_1, $CanvasLayer/Control/Water_2, $CanvasLayer/Control/Water_3, $CanvasLayer/Control/Water_4, $CanvasLayer/Control/Water_5]
 var latest_water = 5
