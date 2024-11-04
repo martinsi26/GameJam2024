@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://hq3pbxrpxesm"]
+[gd_scene load_steps=8 format=4 uid="uid://bc6p3ctosiwwm"]
 
 [ext_resource type="Script" path="res://Maps/map.gd" id="1_uq7ic"]
 [ext_resource type="TileSet" uid="uid://41yv0mbcnjs7" path="res://Maps/Tiles/tileset.tres" id="2_3bgl2"]
 [ext_resource type="PackedScene" uid="uid://jeccelf5q3fu" path="res://Maps/Tiles/MapLayer.tscn" id="3_3xn3i"]
 [ext_resource type="PackedScene" uid="uid://80qqev8uk4q6" path="res://Fish/Fish.tscn" id="4_3gjtn"]
+[ext_resource type="Texture2D" uid="uid://c3mwjmuln26rg" path="res://Art/perry the pact-ypus.png" id="5_f1jgi"]
 
 [sub_resource type="Gradient" id="Gradient_73biw"]
 offsets = PackedFloat32Array(0.131737, 1)
@@ -85,3 +86,9 @@ offset_right = 3585.0
 offset_bottom = 1715.0
 rotation = 1.5708
 texture = SubResource("GradientTexture2D_cdope")
+
+[node name="PerryThePact-ypus" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-51, -67)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_f1jgi")
